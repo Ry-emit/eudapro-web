@@ -1,39 +1,39 @@
 # Compartir la web con el cliente
 
-## Enlace público (el que le pasas al cliente)
+## El enlace
 
-    https://radio-compiler-measurements-buy.trycloudflare.com
+    https://ry-emit.github.io/eudapro-web/
 
-Funciona desde cualquier sitio: móvil, ordenador o iPad, con datos o con otra WiFi.
-Es HTTPS y no hace falta instalar nada.
+Es alojamiento de verdad (GitHub Pages): **no depende de tu Mac**. Funciona
+apagado el ordenador, desde móvil, iPad o cualquier ordenador, y no caduca.
+Ese es el que le pasas al cliente.
 
-**Ojo: el enlace vive mientras tu Mac esté encendido y el túnel abierto.**
-Si apagas el Mac o cierras el túnel, deja de funcionar y hay que crear otro
-(la dirección cambia cada vez).
+## Cosas que conviene que sepas
 
-## Enlace de red local (solo para tus dispositivos en la misma WiFi)
+- **El repositorio es público.** GitHub Pages gratis solo publica desde repos
+  públicos. La web no sale en Google (lleva `noindex` y `robots.txt`), pero
+  cualquiera con la dirección puede verla. Es una copia de revisión, no la web
+  definitiva del cliente.
+- **No se ha subido la carpeta `referencias/`**: dentro hay imágenes de
+  inspiración de terceros y no toca republicarlas. Sigue en tu Mac.
 
-    http://192.168.1.83:8232
+## Actualizar la web publicada
 
-## Volver a levantarlo si se cae
+Cuando hagas cambios en `~/eudapro-site`:
 
-Dos comandos, en dos terminales (o con `&` al final):
+    cd ~/eudapro-site
+    git add -A
+    git commit -m "lo que has cambiado"
+    git push
+
+Tarda un par de minutos en verse en la dirección de arriba.
+
+## Retirarla
+
+    gh repo delete Ry-emit/eudapro-web --yes
+
+## Para trabajar en local
 
     cd ~/eudapro-site && python3 _serve_nocache.py 8232
-    cloudflared tunnel --url http://localhost:8232
 
-La segunda línea imprime la nueva dirección `https://….trycloudflare.com`.
-
-## Cerrarlo
-
-    pkill -f cloudflared
-    pkill -f _serve_nocache
-
-## Nota
-
-La web lleva `noindex` y un `robots.txt` que bloquea a los buscadores: es una
-copia de trabajo y no debe salir en Google mientras la web real del cliente
-siga publicada.
-
-Para algo permanente (que no dependa de tu Mac) hay que subirla a un hosting
-estático — GitHub Pages, Netlify o Cloudflare Pages. Eso necesita tu cuenta.
+Y abres http://localhost:8232 — sin caché, para ver los cambios al recargar.
