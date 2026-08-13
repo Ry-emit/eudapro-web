@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eudapro — Protección de datos, RGPD y formación bonificada para pymes</title>
+<meta name="description" content="Consultoría de protección de datos en Barcelona. Adaptación al RGPD y a la LOPDGDD con DPD incluido, sin cuota de mantenimiento y de forma presencial. Ciberseguridad, videovigilancia, blanqueo de capitales y formación bonificada.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/eudapro.css">
+<script type="importmap">
+{ "imports": { "three": "./assets/js/three.module.js" } }
+</script>
+</head>
+<body>
+
+<a class="saltar" href="#principal">Saltar al contenido</a>
+<div class="progreso" aria-hidden="true"><i id="linea-progreso"></i></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="index.html" aria-label="Eudapro, inicio">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7.4 10.4V7.2a4.6 4.6 0 0 1 9.2 0v3.2" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"/>
+      <rect x="3.6" y="10.2" width="16.8" height="11.4" rx="3.2" fill="#7d39eb"/>
+      <circle cx="12" cy="14.9" r="1.7" fill="#000000"/>
+      <path d="M12 15.9v2.5" stroke="#000000" stroke-width="1.9" stroke-linecap="round"/>
+    </svg>
+    <span class="marca__txt">
+      <span class="marca__nombre">EUDAPRO</span>
+      <span class="marca__claim">Protección de datos</span>
+    </span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="Navegación principal">
+    <a href="index.html" aria-current="page">inicio</a>
+    <div class="desplegable" data-abierto="no">
+      <button class="desplegable__btn" type="button" aria-expanded="false">servicios</button>
+      <div class="desplegable__panel">
+        <a href="proteccion-de-datos.html">Protección de datos <small>RGPD y LOPDGDD · DPD incluido</small></a>
+        <a href="formacion.html">Formación bonificada <small>Cursos financiados con FUNDAE</small></a>
+        <a href="ciberseguridad.html">Ciberseguridad <small>Normativa NIS y sanciones</small></a>
+        <a href="videovigilancia.html">Videovigilancia <small>Cámaras conformes a la AEPD</small></a>
+        <a href="blanqueo-de-capitales.html">Prevención del blanqueo <small>LPBC · Ley 10/2010</small></a>
+      </div>
+    </div>
+    <a href="colectivos.html">colectivos</a>
+    <a href="recursos.html">recursos</a>
+    <a href="conocenos.html">conócenos</a>
+  </nav>
+
+  <a class="cabecera__cta" href="contacto.html">Solicitar auditoría</a>
+  <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
+</header>
+
+<div class="riel" aria-hidden="true"></div>
+<div class="pista" aria-hidden="true">baja · el ratón aparta las partículas</div>
+
+<main id="principal">
+
+  <!-- ================= zona de partículas ================= -->
+  <div class="scrolly">
+    <div class="escena">
+      <canvas id="nube" aria-hidden="true"></canvas>
+      <div class="escena__glow" aria-hidden="true"></div>
+      <div class="escena__estatico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M7.4 10.4V7.2a4.6 4.6 0 0 1 9.2 0v3.2" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round"/>
+          <rect x="3.6" y="10.2" width="16.8" height="11.4" rx="3.2" fill="#7d39eb"/>
+          <circle cx="12" cy="14.9" r="1.7" fill="#000000"/>
+          <path d="M12 15.9v2.5" stroke="#000000" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="escena__vineta" aria-hidden="true"></div>
+    </div>
+
+    <div class="pasos">
+
+      <section class="paso" data-forma="shield" data-riel="Protección de datos">
+        <div class="paso__panel">
+          <span class="kicker">01 — RGPD y LOPDGDD</span>
+          <h1>Cumplir la ley de protección de datos sin cambiar tu forma de trabajar</h1>
+          <p class="lede">Adaptamos tu empresa al RGPD y a la LOPDGDD con contratos y cláusulas escritos para ella. No creemos en los productos estándar.</p>
+          <div class="datos">
+            <div><b>DPD</b>incluido, sin coste extra</div>
+            <div><b>0 €</b>cuota de mantenimiento</div>
+          </div>
+          <div class="paso__cta">
+            <a class="btn btn--pri" href="contacto.html">Solicitar auditoría</a>
+            <a class="btn btn--sec" href="proteccion-de-datos.html">Ver el servicio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="paso paso--der" data-forma="lock" data-riel="Todo incluido">
+        <div class="paso__panel">
+          <span class="kicker">02 — Qué entra</span>
+          <h2>Delegado de Protección de Datos incluido</h2>
+          <p>Documento de seguridad, contratos personalizados, adecuación de la web y de las redes sociales, defensa jurídica, certificados europeos y consultas durante todo el año.</p>
+          <div class="datos">
+            <div><b>Todo el año</b>consultas y asesoría</div>
+            <div><b>Sin cuota</b>de mantenimiento</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paso" data-forma="fingerprint" data-riel="Presencial">
+        <div class="paso__panel">
+          <span class="kicker">03 — Cómo trabajamos</span>
+          <h2>Vamos a tu empresa. En persona.</h2>
+          <p>La adaptación se hace presencial, no por teléfono ni rellenando un formulario. Primero vemos cómo trabajas; después escribimos las cláusulas.</p>
+          <div class="datos">
+            <div><b>A medida</b>una empresa, un documento</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paso paso--der" data-forma="network" data-riel="Colectivos">
+        <div class="paso__panel">
+          <span class="kicker">04 — Gremios y asociaciones</span>
+          <h2>Desde 2016 junto al Gremi de Restauració de Barcelona</h2>
+          <p>Firmamos convenios con gremios, federaciones y asociaciones. Sus agremiados tienen promoción especial y un interlocutor que ya conoce el sector.</p>
+          <div class="datos">
+            <div><b>6</b>convenios documentados</div>
+            <div><b>2016</b>primer acuerdo</div>
+          </div>
+          <div class="paso__cta">
+            <a class="btn btn--sec" href="colectivos.html">Ver los colectivos</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="paso" data-forma="eye" data-riel="Más normativa">
+        <div class="paso__panel">
+          <span class="kicker">05 — Más allá del RGPD</span>
+          <h2>Cámaras, ciberseguridad y blanqueo de capitales</h2>
+          <p>El mismo equipo cubre la videovigilancia legal, la ciberseguridad y la prevención del blanqueo. Una sola puerta para toda la normativa que te obliga.</p>
+          <div class="datos">
+            <div><b>30 días</b>máximo de conservación de imágenes</div>
+            <div><b>1,5 M€</b>sanción máxima citada en la LPBC</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="paso paso--der" data-forma="key" data-riel="Hablemos">
+        <div class="paso__panel">
+          <span class="kicker">06 — Hablemos</span>
+          <h2>Cuéntanos qué tienes montado</h2>
+          <p>Una llamada y te decimos qué te falta para cumplir. Sin compromiso y sin letra pequeña.</p>
+          <div class="paso__cta">
+            <a class="btn btn--pri" href="tel:+34900929806">900 929 806</a>
+            <a class="btn btn--sec" href="contacto.html">Escribirnos</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ================= servicios ================= -->
+  <section class="bloque bloque--alt" id="servicios">
+    <div class="wrap">
+      <div class="encabezado" data-aparece>
+        <span class="kicker">Servicios</span>
+        <h2>Toda la normativa que obliga a tu negocio, en un solo sitio</h2>
+        <p>Empezamos por la protección de datos, que es el corazón del trabajo, y desde ahí cubrimos lo que la ley te vaya pidiendo.</p>
+      </div>
+
+      <div class="rejilla rejilla--3">
+        <a class="tarjeta tarjeta--destacada" href="proteccion-de-datos.html" data-aparece>
+          <div class="tarjeta__num">01</div>
+          <h3>Protección de datos</h3>
+          <p>Adaptación completa al RGPD y a la LOPDGDD: contratos y cláusulas personalizados, documento de seguridad, adecuación de web y redes, defensa jurídica y DPD incluido.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">El servicio principal</span></div>
+        </a>
+
+        <a class="tarjeta" href="formacion.html" data-aparece>
+          <div class="tarjeta__num">02</div>
+          <h3>Formación bonificada</h3>
+          <p>Cursos online de RGPD, ciberseguridad, blanqueo de capitales y manipulación de alimentos, financiados con los créditos de FUNDAE que tu empresa ya tiene asignados.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Ver catálogo</span></div>
+        </a>
+
+        <a class="tarjeta" href="ciberseguridad.html" data-aparece>
+          <div class="tarjeta__num">03</div>
+          <h3>Ciberseguridad</h3>
+          <p>Qué exige la Directiva NIS y el Real Decreto-ley 12/2018, qué medidas hay que adoptar y qué cuesta no hacerlo: de una amonestación a 1.000.000 €.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Ver normativa</span></div>
+        </a>
+
+        <a class="tarjeta" href="videovigilancia.html" data-aparece>
+          <div class="tarjeta__num">04</div>
+          <h3>Videovigilancia</h3>
+          <p>Cámaras conformes a la guía de la AEPD: cartel informativo, cláusula, plazos de conservación de 30 días y atención de los derechos de las personas grabadas.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Ver requisitos</span></div>
+        </a>
+
+        <a class="tarjeta" href="blanqueo-de-capitales.html" data-aparece>
+          <div class="tarjeta__num">05</div>
+          <h3>Prevención del blanqueo</h3>
+          <p>Dos modalidades de servicio para sujetos obligados de la Ley 10/2010: representante ante el SEPBLAC, política interna, auditoría anual y respuesta a inspecciones.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">LPBC Diligence e Integral</span></div>
+        </a>
+
+        <a class="tarjeta" href="colectivos.html" data-aparece>
+          <div class="tarjeta__num">06</div>
+          <h3>Convenios con colectivos</h3>
+          <p>Gremios, federaciones y asociaciones con promoción especial para sus agremiados. Restauración, hostelería y ferretería, sobre todo en Cataluña.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Ver acuerdos</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= cómo trabajamos ================= -->
+  <section class="bloque">
+    <div class="wrap">
+      <div class="rejilla rejilla--2" style="align-items:start; gap:clamp(34px,5vw,80px)">
+        <div data-aparece>
+          <span class="kicker">Cómo trabajamos</span>
+          <h2>Tres cosas que no verás en la mayoría de gestorías</h2>
+          <p class="lede">Son las que llevamos años defendiendo y las que nos separan de quien lo resuelve todo por formulario.</p>
+        </div>
+        <div data-aparece>
+          <ul class="lista">
+            <li><strong>Adaptación presencial.</strong> Vamos a la empresa. No hacemos la adaptación por teléfono ni mandando un cuestionario para que lo rellenes tú.</li>
+            <li><strong>Sin cuota de mantenimiento.</strong> Las consultas y el asesoramiento jurídico durante todo el año van dentro.</li>
+            <li><strong>DPD sin coste extra.</strong> Estamos formados para ejercer de Delegado de Protección de Datos y no lo facturamos aparte.</li>
+            <li><strong>Nada de plantillas.</strong> No hay personas estándar ni empresas que lo sean: los contratos y las cláusulas se escriben para cada cliente.</li>
+          </ul>
+          <div class="mt-m"><a class="enlace-flecha" href="conocenos.html">Quiénes somos</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= clientes ================= -->
+  <section class="bloque bloque--alt">
+    <div class="wrap">
+      <div class="encabezado" data-aparece>
+        <span class="kicker">Confían en nosotros</span>
+        <h2>Hospitales, cadenas, clubes, gremios y el bar de la esquina</h2>
+        <p>Todos tienen datos personales y todos están obligados a lo mismo. Estas son algunas de las organizaciones con las que trabajamos.</p>
+      </div>
+
+      <div class="logos" data-aparece>
+        <a href="https://www.hmhospitales.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/hm-hospitales.png" alt="HM Hospitales" loading="lazy"></a>
+        <a href="https://www.condis.es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/condis.png" alt="Condis" loading="lazy"></a>
+        <a href="https://www.centromedicobarcelona.axa.es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/axa.png" alt="AXA — Centro Médico Barcelona" loading="lazy"></a>
+        <a href="https://www.liebherr.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/liebherr.png" alt="Liebherr" loading="lazy"></a>
+        <a href="https://www.ganasdevicio.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/vicio.png" alt="VICIO" loading="lazy"></a>
+        <a href="https://www.ballenoil.es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/ballenoil.png" alt="Ballenoil" loading="lazy"></a>
+        <a href="https://www.ehlis.es/es" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/ehlis.png" alt="Ehlis" loading="lazy"></a>
+        <a href="https://www.cadena88.com/es" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/cadena-88.png" alt="Cadena 88" loading="lazy"></a>
+        <a href="https://www.basquetmanresa.com/es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/baxi-manresa.png" alt="BAXI Manresa" loading="lazy"></a>
+        <a href="https://gruponomo.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/nomo.png" alt="Grupo Nomo" loading="lazy"></a>
+        <a href="https://agunsa.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/agunsa.png" alt="Agunsa" loading="lazy"></a>
+        <a href="https://espabrok.es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/espabrok.png" alt="Espabrok" loading="lazy"></a>
+        <a href="https://www.cil-logistica.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/grupo-cil.png" alt="Grupo CIL Logística" loading="lazy"></a>
+        <a href="https://www.dirmensajeria.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/dir.png" alt="DIR Mensajería" loading="lazy"></a>
+        <a href="https://airplan-sa.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/airplan.png" alt="Airplan" loading="lazy"></a>
+        <a href="https://himesa.es/es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/himesa.png" alt="Himesa" loading="lazy"></a>
+        <a href="https://herbal.es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/herbal-hispania.png" alt="Herbal Hispania" loading="lazy"></a>
+        <a href="https://www.ivapeo.com/es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/ivapeo.png" alt="Ivapeo" loading="lazy"></a>
+        <a href="https://aeky.es/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/aeky.png" alt="Aeky" loading="lazy"></a>
+        <a href="https://colegiohatikva.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/hatikva.png" alt="Colegio Hatikva" loading="lazy"></a>
+        <a href="https://www.aeprat.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/ae-prat.png" alt="AE Prat" loading="lazy"></a>
+        <a href="https://www.gremirestauracio.com/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/gremi-barcelona.png" alt="Gremi de Restauració de Barcelona" loading="lazy"></a>
+        <a href="https://www.fihr.cat/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/fhirt.png" alt="FIHRT" loading="lazy"></a>
+        <a href="http://www.gremihostaleriapenedes.cat/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/gremi-alt-penedes.png" alt="Gremi de l'Alt Penedès" loading="lazy"></a>
+        <a href="http://www.ghtbages.org/" target="_blank" rel="noopener"><img src="assets/img/clientes/mono/gremi-bages.png" alt="Gremi del Bages" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= recursos ================= -->
+  <section class="bloque">
+    <div class="wrap">
+      <div class="encabezado" data-aparece>
+        <span class="kicker">Recursos</span>
+        <h2>Publicamos lo que cuesta no cumplir</h2>
+        <p>Boletines mensuales, notas informativas cuando cambia la norma y guías de los cursos. Todo en abierto y descargable.</p>
+      </div>
+
+      <div class="rejilla rejilla--3">
+        <a class="tarjeta" href="assets/doc/notas/Nota-Infomativa-diciembre-2023.pdf" data-aparece>
+          <div class="tarjeta__num">Nota informativa</div>
+          <h3>Control laboral con huella dactilar</h3>
+          <p>Qué dijo la AEPD sobre fichar con huella o reconocimiento facial en el trabajo y qué tiene que hacer una empresa que ya lo tenía instalado.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Descargar PDF</span></div>
+        </a>
+        <a class="tarjeta" href="assets/doc/notas/Nota-Infomativa-Uso-DNI.pdf" data-aparece>
+          <div class="tarjeta__num">Nota informativa</div>
+          <h3>El criterio de la AEPD sobre el DNI</h3>
+          <p>Cuándo se puede pedir el DNI, cuándo se puede fotocopiar y qué alternativas hay para identificar a un cliente sin pasarse.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Descargar PDF</span></div>
+        </a>
+        <a class="tarjeta" href="assets/doc/notas/Nota-Infomativa-cookies.pdf" data-aparece>
+          <div class="tarjeta__num">Nota informativa</div>
+          <h3>La normativa de cookies</h3>
+          <p>Qué exige el banner de cookies, qué se considera consentimiento válido y qué pasa si el visitante dice que no.</p>
+          <div class="tarjeta__pie"><span class="enlace-flecha">Descargar PDF</span></div>
+        </a>
+      </div>
+
+      <div class="mt-l" data-aparece><a class="btn btn--sec" href="recursos.html">Todos los documentos</a></div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="bloque">
+    <div class="wrap">
+      <div class="cta-banda" data-aparece>
+        <div>
+          <span class="kicker kicker--amber">Auditoría inicial</span>
+          <h2>¿Sabes qué datos guardas y con qué permiso?</h2>
+          <p>Si la respuesta es "más o menos", empecemos por ahí. Revisamos tu situación y te decimos qué falta, qué sobra y por dónde conviene empezar.</p>
+        </div>
+        <div class="cta-banda__acciones">
+          <a class="btn btn--pri" href="contacto.html">Solicitar auditoría</a>
+          <a class="btn btn--sec btn--tel" href="tel:+34900929806">900 929 806</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie__grid">
+      <div>
+        <a class="marca pie__marca" href="index.html">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7.4 10.4V7.2a4.6 4.6 0 0 1 9.2 0v3.2" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"/>
+            <rect x="3.6" y="10.2" width="16.8" height="11.4" rx="3.2" fill="#7d39eb"/>
+            <circle cx="12" cy="14.9" r="1.7" fill="#000000"/>
+            <path d="M12 15.9v2.5" stroke="#000000" stroke-width="1.9" stroke-linecap="round"/>
+          </svg>
+          <span class="marca__txt">
+            <span class="marca__nombre">EUDAPRO</span>
+            <span class="marca__claim">Protección de datos</span>
+          </span>
+        </a>
+        <p class="pie__nota">EUDAPRO, S.L. es la marca actual de All in Solutions for Business, S.L. Consultoría de protección de datos para pymes desde Barcelona y Sant Fruitós de Bages.</p>
+      </div>
+
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="proteccion-de-datos.html">Protección de datos</a></li>
+          <li><a href="formacion.html">Formación bonificada</a></li>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="videovigilancia.html">Videovigilancia</a></li>
+          <li><a href="blanqueo-de-capitales.html">Prevención del blanqueo</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="conocenos.html">Conócenos</a></li>
+          <li><a href="colectivos.html">Colectivos con convenio</a></li>
+          <li><a href="recursos.html">Recursos y descargas</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <address>
+          <a href="tel:+34900929806">900 929 806</a><br>
+          <a href="mailto:info@allins4b.com">info@allins4b.com</a><br><br>
+          Oficina de atención<br>
+          C/ Irlanda, 7 — 08030 Barcelona<br><br>
+          Domicilio social<br>
+          Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages
+        </address>
+      </div>
+    </div>
+
+    <div class="pie__legal">
+      <span>© <span data-anyo>2026</span> EUDAPRO, S.L. — CIF B75390377</span>
+      <span>
+        <a href="aviso-legal.html">Aviso legal</a> ·
+        <a href="politica-de-privacidad.html">Privacidad</a> ·
+        <a href="politica-de-cookies.html">Cookies</a> ·
+        <a href="politica-redes-sociales.html">Redes sociales</a>
+      </span>
+      <span>Sin cookies de terceros. Fuentes servidas desde este dominio.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/ui.js"></script>
+<script type="module" src="assets/js/hero.js"></script>
+</body>
+</html>

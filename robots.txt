@@ -1,0 +1,3 @@
+# Copia de trabajo para revisión del cliente. No debe indexarse.
+User-agent: *
+Disallow: /
