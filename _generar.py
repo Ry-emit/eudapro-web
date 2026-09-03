@@ -206,7 +206,7 @@ CTA_FINAL = '''  <section class="bloque">
 ICO_CIBER = '''<svg class="portada__icono" viewBox="0 0 120 140" fill="none" aria-hidden="true">
           <circle cx="60" cy="70" r="46" stroke="#007db3" stroke-width="2" fill="rgba(0,125,179,.08)"/>
           <circle cx="60" cy="70" r="30" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/>
-          <circle cx="60" cy="70" r="7" fill="#18a300"/>
+          <circle cx="60" cy="70" r="7" fill="#4498e7"/>
           <path d="M60 24v-14M60 130v-14M14 70H0M120 70h-14M27 37 17 27M93 103l10 10M93 37l10-10M27 103 17 113" stroke="#007db3" stroke-width="2" stroke-linecap="round"/>
         </svg>'''
 
@@ -214,13 +214,13 @@ ICO_OJO = '''<svg class="portada__icono" viewBox="0 0 140 120" fill="none" aria-
           <path d="M6 60s26-38 64-38 64 38 64 38-26 38-64 38S6 60 6 60z" stroke="#007db3" stroke-width="2" fill="rgba(0,125,179,.08)"/>
           <circle cx="70" cy="60" r="22" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.5)" stroke-width="1.4"/>
           <circle cx="70" cy="60" r="10" fill="#007db3"/>
-          <circle cx="76" cy="53" r="3.4" fill="#18a300"/>
+          <circle cx="76" cy="53" r="3.4" fill="#4498e7"/>
         </svg>'''
 
 ICO_RED = '''<svg class="portada__icono" viewBox="0 0 130 130" fill="none" aria-hidden="true">
           <path d="M65 22 24 48v34l41 26 41-26V48L65 22z" stroke="rgba(255,255,255,.35)" stroke-width="1.4"/>
           <path d="M65 22v86M24 48l82 34M106 48 24 82" stroke="#007db3" stroke-width="1.2" opacity=".7"/>
-          <circle cx="65" cy="22" r="7" fill="#18a300"/>
+          <circle cx="65" cy="22" r="7" fill="#4498e7"/>
           <circle cx="24" cy="48" r="6" fill="#007db3"/>
           <circle cx="106" cy="48" r="6" fill="#007db3"/>
           <circle cx="24" cy="82" r="6" fill="#007db3"/>
@@ -231,21 +231,21 @@ ICO_RED = '''<svg class="portada__icono" viewBox="0 0 130 130" fill="none" aria-
 ICO_LIBRO = '''<svg class="portada__icono" viewBox="0 0 130 120" fill="none" aria-hidden="true">
           <path d="M65 34 12 52l53 18 53-18-53-18z" fill="rgba(0,125,179,.16)" stroke="#007db3" stroke-width="2" stroke-linejoin="round"/>
           <path d="M30 62v26c0 8 16 14 35 14s35-6 35-14V62" stroke="rgba(255,255,255,.5)" stroke-width="1.6"/>
-          <path d="M112 56v26" stroke="#18a300" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M112 56v26" stroke="#4498e7" stroke-width="2.4" stroke-linecap="round"/>
         </svg>'''
 
 ICO_LLAVE = '''<svg class="portada__icono" viewBox="0 0 120 130" fill="none" aria-hidden="true">
           <circle cx="60" cy="36" r="24" stroke="#007db3" stroke-width="3" fill="rgba(0,125,179,.1)"/>
           <path d="M60 60v58" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
           <path d="M60 86h20M60 102h16" stroke="#007db3" stroke-width="3" stroke-linecap="round"/>
-          <circle cx="60" cy="36" r="7" fill="#18a300"/>
+          <circle cx="60" cy="36" r="7" fill="#4498e7"/>
         </svg>'''
 
 ICO_DOC = '''<svg class="portada__icono" viewBox="0 0 110 130" fill="none" aria-hidden="true">
           <path d="M18 10h48l26 26v84H18V10z" fill="rgba(0,125,179,.1)" stroke="#007db3" stroke-width="2" stroke-linejoin="round"/>
           <path d="M66 10v26h26" stroke="#007db3" stroke-width="2" stroke-linejoin="round"/>
           <path d="M34 62h42M34 78h42M34 94h26" stroke="rgba(255,255,255,.55)" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="84" cy="98" r="9" fill="#18a300"/>
+          <circle cx="84" cy="98" r="9" fill="#4498e7"/>
         </svg>'''
 
 # --------------------------------------------------------------------------

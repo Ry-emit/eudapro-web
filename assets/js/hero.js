@@ -119,9 +119,9 @@ async function arrancar() {
         if (a < 0.02) discard;
         vec3 azul   = vec3(0.0, 0.49, 0.70);     /* #007DB3 — azul del logotipo */
         vec3 blanco = vec3(1.0, 1.0, 1.0);
-        vec3 verde  = vec3(0.09, 0.64, 0.0);     /* #18A300 — verde corporativo */
+        vec3 claro  = vec3(0.27, 0.60, 0.91);    /* #4498E7 — azul claro suyo */
         vec3 col = mix(azul, blanco, smoothstep(0.55, 1.0, vRnd));
-        col = mix(col, verde, step(0.986, vRnd));
+        col = mix(col, claro, step(0.986, vRnd));
         col += vDisp * 0.18;
         gl_FragColor = vec4(col, min(a * (0.32 + vRnd * 0.45) * (0.4 + vDepth * 0.8) * uOpacidad, 1.0));
       }`

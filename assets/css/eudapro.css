@@ -1,35 +1,42 @@
 /* =========================================================================
    EUDAPRO — hoja de estilo única
-   Sistema visual: "Hero de partículas" (Chivo + JetBrains Mono, violeta/ámbar
-   sobre negro violáceo). Todo se sirve desde el propio dominio: ni fuentes ni
-   scripts de terceros.
+   Marca de Eudapro: Raleway + Open Sans y los dos azules de su propia
+   identidad, sobre fondo negro. Todo se sirve desde el propio dominio: ni
+   fuentes ni scripts de terceros.
    ========================================================================= */
 
 @import url('../fonts/marca.css');
 
 /* ---------- tokens ---------- */
 :root {
-  /* Paleta de la marca real de Eudapro, sacada de su propio logotipo y del
-     tema de su web anterior:
-       · azul del logotipo  #007DB3  (muestreado del archivo original)
-       · verde corporativo  #18A300  (color principal de su tema web)
-     El azul manda porque es lo que hay en el logotipo, que se mantiene.
-     El verde queda como señal: lo incluido, lo que no cuesta, lo obligatorio. */
+  /* PALETA DE MARCA — solo colores que Eudapro ya usa.
+     Muestreados de su logotipo original y de su web en vivo (allins4b.com),
+     no del CSS del tema: ahí había un verde #18A300 que no se ve en pantalla
+     en ninguna parte y que por eso se ha descartado.
+       · #007DB3  azul del logotipo — el color que de verdad es suyo
+       · #4498E7  azul claro — el que ya usan en enlaces, iconos y menú
+       · #5791DE  azul medio — el de sus titulares
+     Todo lo demás son neutros fríos. */
   --bg:        #05080a;
   --bg-2:      #0a0f13;
   --bg-3:      #121a1f;
   --ink:       #ffffff;
   --ink-2:     #a3adb4;
   --ink-3:     #6b767d;
-  --violet:    #007db3;   /* azul de marca */
-  --violet-2:  #29a3d4;   /* azul claro: enlaces sobre fondo oscuro */
-  --violet-3:  #7fd0ee;   /* azul pálido: estado activo */
-  --azul:      #007db3;
-  --azul-2:    #29a3d4;
-  --amber:     #18a300;   /* verde corporativo — la señal */
-  --lima:      #18a300;
-  --verde:     #18a300;
-  --verde-2:   #2fc717;
+
+  --azul:      #007db3;   /* PRINCIPAL — logotipo, botones, partículas */
+  --azul-2:    #4498e7;   /* SECUNDARIO — enlaces, etiquetas, acentos */
+  --azul-3:    #7fd0ee;   /* apoyo — estado activo y hover */
+  --azul-titular: #5791de;
+
+  /* nombres antiguos, mantenidos para no romper el resto de la hoja */
+  --violet:    #007db3;
+  --violet-2:  #4498e7;
+  --violet-3:  #7fd0ee;
+  --amber:     #4498e7;
+  --lima:      #4498e7;
+  --verde:     #4498e7;
+
   --pearl:     #ffffff;
   --line:      rgba(255, 255, 255, .12);
   --line-2:    rgba(255, 255, 255, .26);
@@ -112,8 +119,8 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 .bloque--alt::before { top: 0; }
 .bloque--alt::after { bottom: 0; }
 
-/* Encabezado de bloque con aparato técnico: filete fino arriba y marca lima
-   a la izquierda, como en las hojas de norma. */
+/* Encabezado de bloque: filete fino arriba y marca en azul claro a la
+   izquierda, como en las hojas de norma. */
 .encabezado {
   position: relative; max-width: 720px;
   padding-top: 26px; border-top: 1px solid var(--line);
@@ -296,7 +303,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   position: absolute; inset: 0; display: none; place-content: center;
   background:
     radial-gradient(40vmin 40vmin at 62% 46%, rgba(0, 125, 179, .28), transparent 68%),
-    radial-gradient(30vmin 30vmin at 30% 70%, rgba(24, 163, 0, .1), transparent 70%);
+    radial-gradient(30vmin 30vmin at 30% 70%, rgba(68, 152, 231, .1), transparent 70%);
 }
 .escena__estatico svg { width: min(38vmin, 320px); opacity: .8; }
 .escena.sin-webgl .escena__estatico { display: grid; }
@@ -476,7 +483,7 @@ a.tarjeta:hover { border-color: var(--line-2); transform: translateY(-3px); back
   width: 7px; height: 7px; border-radius: 50%; background: var(--violet);
   box-shadow: 0 0 12px rgba(0, 125, 179, .7);
 }
-.lista--amber li::before { background: var(--amber); box-shadow: 0 0 12px rgba(24, 163, 0, .6); }
+.lista--amber li::before { background: var(--amber); box-shadow: 0 0 12px rgba(68, 152, 231, .6); }
 .lista strong { color: var(--ink); font-weight: 600; }
 
 /* ---------- muro de logos ----------
@@ -523,7 +530,7 @@ td strong { color: var(--ink); }
 
 /* ---------- aviso / nota ---------- */
 .aviso {
-  border-left: 2px solid var(--amber); background: rgba(24, 163, 0, .06);
+  border-left: 2px solid var(--amber); background: rgba(68, 152, 231, .06);
   padding: 20px 24px; border-radius: 0 12px 12px 0;
 }
 .aviso p { color: var(--ink-2); font-size: 15px; }
@@ -572,7 +579,7 @@ input::placeholder, textarea::placeholder { color: #574f74; }
   transition: border-color .2s ease, background .2s ease;
 }
 .descarga:hover { border-color: var(--line-2); background: rgba(0, 125, 179, .06); }
-.descarga__tipo { margin-top: 3px; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--amber); border: 1px solid rgba(24, 163, 0, .35); padding: 5px 8px; border-radius: 6px; }
+.descarga__tipo { margin-top: 3px; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--amber); border: 1px solid rgba(68, 152, 231, .35); padding: 5px 8px; border-radius: 6px; }
 .descarga__txt { min-width: 0; }
 .descarga__txt b { display: block; color: var(--ink); font-weight: 600; font-size: 15px; line-height: 1.35; letter-spacing: -.01em; }
 .descarga__txt span { display: block; margin-top: 7px; font-family: var(--mono); font-size: 11px; line-height: 1.55; color: var(--ink-3); }
@@ -581,7 +588,7 @@ input::placeholder, textarea::placeholder { color: #574f74; }
 /* ---------- banda CTA ---------- */
 .cta-banda {
   border: 1px solid var(--line-2); border-radius: 20px; padding: clamp(32px, 4.5vw, 56px);
-  background: linear-gradient(150deg, rgba(0, 125, 179, .14), rgba(24, 163, 0, .05) 70%, transparent);
+  background: linear-gradient(150deg, rgba(0, 125, 179, .14), rgba(68, 152, 231, .05) 70%, transparent);
   display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gap); align-items: center;
 }
 .cta-banda h2 { margin-bottom: 12px; }

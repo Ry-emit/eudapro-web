@@ -9,7 +9,7 @@ export function materials() {
     violet: new THREE.MeshStandardMaterial({ name: 'azul', color: 0x007db3, roughness: 0.34, metalness: 0.3 }),
     graphite: new THREE.MeshStandardMaterial({ name: 'graphite', color: 0x2a2a33, roughness: 0.55, metalness: 0.28 }),
     pearl: new THREE.MeshStandardMaterial({ name: 'pearl', color: 0xffffff, roughness: 0.22, metalness: 0.12 }),
-    amber: new THREE.MeshStandardMaterial({ name: 'verde', color: 0x18a300, roughness: 0.38, metalness: 0.2 })
+    amber: new THREE.MeshStandardMaterial({ name: 'azul_claro', color: 0x4498e7, roughness: 0.38, metalness: 0.2 })
   };
 }
 
