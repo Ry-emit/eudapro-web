@@ -117,11 +117,11 @@ async function arrancar() {
         vec2 c = gl_PointCoord - 0.5;
         float a = smoothstep(0.5, 0.2, length(c));
         if (a < 0.02) discard;
-        vec3 violeta = vec3(0.49, 0.22, 0.92);   /* #7D39EB */
-        vec3 blanco  = vec3(1.0, 1.0, 1.0);
-        vec3 lima    = vec3(0.78, 1.0, 0.20);     /* #C6FF33 */
-        vec3 col = mix(violeta, blanco, smoothstep(0.55, 1.0, vRnd));
-        col = mix(col, lima, step(0.986, vRnd));
+        vec3 azul   = vec3(0.0, 0.49, 0.70);     /* #007DB3 — azul del logotipo */
+        vec3 blanco = vec3(1.0, 1.0, 1.0);
+        vec3 verde  = vec3(0.09, 0.64, 0.0);     /* #18A300 — verde corporativo */
+        vec3 col = mix(azul, blanco, smoothstep(0.55, 1.0, vRnd));
+        col = mix(col, verde, step(0.986, vRnd));
         col += vDisp * 0.18;
         gl_FragColor = vec4(col, min(a * (0.32 + vRnd * 0.45) * (0.4 + vDepth * 0.8) * uOpacidad, 1.0));
       }`
@@ -139,7 +139,7 @@ async function arrancar() {
     lineGeo = new THREE.BufferGeometry();
     lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(MAXPAR * 6), 3));
     lineas = new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({
-      color: 0x7d39eb, transparent: true, opacity: 0.16, blending: THREE.AdditiveBlending, depthWrite: false
+      color: 0x007db3, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false
     }));
     nube.add(lineas);
     posNodo = new Float32Array(NODOS * 3);
