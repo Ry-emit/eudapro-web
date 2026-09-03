@@ -76,7 +76,7 @@ async function arrancar() {
   const uniforms = {
     uMix: { value: 0 }, uTime: { value: 0 },
     uSize: { value: (MOVIL ? 7.8 : 5.5) * dpr },
-    uOpacidad: { value: MOVIL ? 1.3 : 1 },
+    uOpacidad: { value: MOVIL ? 1.5 : 1.25 },
     /* el desvanecido por profundidad va referido a la distancia de la cámara:
        si no, al alejarla en móvil los puntos salían al 40 % de opacidad */
     uProfA: { value: DIST + 1.9 },
@@ -101,8 +101,8 @@ async function arrancar() {
         vec3 d = p - uRayO;
         vec3 perp = d - dot(d, uRayD) * uRayD;
         float dist = length(perp);
-        float f = clamp(1.0 - dist / 1.05, 0.0, 1.0) * uMouseOn;
-        p += normalize(perp + 0.0001) * f * f * 0.85;
+        float f = clamp(1.0 - dist / 0.62, 0.0, 1.0) * uMouseOn;
+        p += normalize(perp + 0.0001) * f * f * 0.42;
         vDisp = max(burst, f);
         vRnd = aRnd.z;
         vec4 mv = modelViewMatrix * vec4(p, 1.0);
@@ -117,12 +117,14 @@ async function arrancar() {
         vec2 c = gl_PointCoord - 0.5;
         float a = smoothstep(0.5, 0.2, length(c));
         if (a < 0.02) discard;
-        vec3 azul   = vec3(0.0, 0.49, 0.70);     /* #007DB3 — azul del logotipo */
-        vec3 blanco = vec3(1.0, 1.0, 1.0);
-        vec3 claro  = vec3(0.27, 0.60, 0.91);    /* #4498E7 — azul claro suyo */
-        vec3 col = mix(azul, blanco, smoothstep(0.55, 1.0, vRnd));
-        col = mix(col, claro, step(0.986, vRnd));
-        col += vDisp * 0.18;
+        /* Sobre fondo blanco los puntos van de azul de marca a azul profundo:
+           el blanco desaparecería y el claro no tiene cuerpo suficiente. */
+        vec3 azul     = vec3(0.0, 0.49, 0.70);   /* #007DB3 — el del logotipo */
+        vec3 profundo = vec3(0.0, 0.24, 0.37);   /* #003D5E — sombra del mismo azul */
+        vec3 claro    = vec3(0.27, 0.60, 0.91);  /* #4498E7 — el claro suyo */
+        vec3 col = mix(profundo, azul, smoothstep(0.0, 0.62, vRnd));
+        col = mix(col, claro, step(0.90, vRnd));
+        col -= vDisp * 0.10;
         gl_FragColor = vec4(col, min(a * (0.32 + vRnd * 0.45) * (0.4 + vDepth * 0.8) * uOpacidad, 1.0));
       }`
   });
@@ -139,7 +141,7 @@ async function arrancar() {
     lineGeo = new THREE.BufferGeometry();
     lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(MAXPAR * 6), 3));
     lineas = new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({
-      color: 0x007db3, transparent: true, opacity: 0.18, blending: THREE.AdditiveBlending, depthWrite: false
+      color: 0x007db3, transparent: true, opacity: 0.22, blending: THREE.NormalBlending, depthWrite: false
     }));
     nube.add(lineas);
     posNodo = new Float32Array(NODOS * 3);
@@ -164,7 +166,7 @@ async function arrancar() {
   /* En móvil la figura se queda casi centrada y sube a la mitad de arriba de la
      pantalla, para que el texto (que va abajo) se lea sin nada por encima. */
   const AMP = MOVIL ? 0.16 : 1;
-  const DESVIO_Y = MOVIL ? 1.25 : 0;
+  const DESVIO_Y = MOVIL ? 1.75 : 0;
   const lerp = (a, b, k) => a + (b - a) * k;
   const invMat = new THREE.Matrix4();
 
@@ -309,6 +311,9 @@ async function arrancar() {
     camera.translateX(MOVIL ? 0 : -0.9);
 
     if (!MOVIL) {
+      /* la cámara acaba de moverse con translateX: sin refrescar su matriz, el
+         rayo sale desplazado y el hueco no cae donde está el cursor */
+      camera.updateMatrixWorld(true);
       ray.setFromCamera(ndc, camera);
       nube.updateMatrixWorld();
       invMat.copy(nube.matrixWorld).invert();

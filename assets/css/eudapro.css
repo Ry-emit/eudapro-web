@@ -10,37 +10,37 @@
 /* ---------- tokens ---------- */
 :root {
   /* PALETA DE MARCA — solo colores que Eudapro ya usa.
-     Muestreados de su logotipo original y de su web en vivo (allins4b.com),
-     no del CSS del tema: ahí había un verde #18A300 que no se ve en pantalla
-     en ninguna parte y que por eso se ha descartado.
-       · #007DB3  azul del logotipo — el color que de verdad es suyo
-       · #4498E7  azul claro — el que ya usan en enlaces, iconos y menú
-       · #5791DE  azul medio — el de sus titulares
-     Todo lo demás son neutros fríos. */
-  --bg:        #05080a;
-  --bg-2:      #0a0f13;
-  --bg-3:      #121a1f;
-  --ink:       #ffffff;
-  --ink-2:     #a3adb4;
-  --ink-3:     #6b767d;
+     Fondo blanco, como su web actual. Muestreados de su logotipo original y de
+     allins4b.com; el verde #18A300 del CSS del tema queda descartado porque no
+     se usa en pantalla en ninguna parte.
 
-  --azul:      #007db3;   /* PRINCIPAL — logotipo, botones, partículas */
-  --azul-2:    #4498e7;   /* SECUNDARIO — enlaces, etiquetas, acentos */
-  --azul-3:    #7fd0ee;   /* apoyo — estado activo y hover */
+     Ojo con el reparto sobre blanco: el azul claro #4498E7 solo llega a 3,1:1
+     de contraste, así que NO vale para texto pequeño. Ahí manda el principal
+     #007DB3 (4,7:1). El claro se queda para iconos, bordes y superficies. */
+  --bg:        #ffffff;
+  --bg-2:      #f3f5f7;   /* bloques alternos — el gris de sus tarjetas */
+  --bg-3:      #ffffff;   /* capas flotantes, con sombra */
+  --ink:       #10191f;   /* titulares */
+  --ink-2:     #49585f;   /* párrafos */
+  --ink-3:     #5f6b72;   /* etiquetas pequeñas */
+
+  --azul:      #007db3;   /* PRINCIPAL — logotipo, botones, enlaces, etiquetas */
+  --azul-2:    #4498e7;   /* SECUNDARIO — iconos, bordes, superficies */
+  --azul-3:    #005e87;   /* apoyo — hover sobre blanco: más oscuro, no más claro */
   --azul-titular: #5791de;
 
   /* nombres antiguos, mantenidos para no romper el resto de la hoja */
   --violet:    #007db3;
-  --violet-2:  #4498e7;
-  --violet-3:  #7fd0ee;
-  --amber:     #4498e7;
-  --lima:      #4498e7;
-  --verde:     #4498e7;
+  --violet-2:  #007db3;
+  --violet-3:  #005e87;
+  --amber:     #007db3;
+  --lima:      #007db3;
+  --verde:     #007db3;
 
-  --pearl:     #ffffff;
-  --line:      rgba(255, 255, 255, .12);
-  --line-2:    rgba(255, 255, 255, .26);
-  --card:      rgba(255, 255, 255, .03);
+  --pearl:     #10191f;
+  --line:      rgba(16, 25, 31, .13);
+  --line-2:    rgba(16, 25, 31, .24);
+  --card:      rgba(16, 25, 31, .015);
 
   --sans: 'Raleway', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'Open Sans', system-ui, -apple-system, sans-serif;
@@ -71,7 +71,7 @@ a { color: var(--violet-2); text-decoration: none; transition: color .2s ease; }
 a:hover { color: var(--violet-3); }
 img { max-width: 100%; height: auto; display: block; }
 
-::selection { background: rgba(0, 125, 179, .35); color: #fff; }
+::selection { background: rgba(0, 125, 179, .18); color: #10191f; }
 
 :focus-visible {
   outline: 2px solid var(--violet-2);
@@ -81,10 +81,10 @@ img { max-width: 100%; height: auto; display: block; }
 
 .saltar {
   position: absolute; left: -9999px; top: 0; z-index: 99;
-  background: var(--violet); color: #000000; padding: 12px 18px;
+  background: var(--violet); color: #fff; padding: 12px 18px;
   font-family: var(--mono); font-size: 12px; border-radius: 0 0 8px 0;
 }
-.saltar:focus { left: 0; color: #000000; }
+.saltar:focus { left: 0; color: #fff; }
 
 /* ---------- tipografía ---------- */
 h1, h2, h3, h4 { margin: 0 0 .5em; text-wrap: balance; letter-spacing: -.02em; font-weight: 800; font-family: var(--sans); }
@@ -143,7 +143,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 .btn:hover { transform: translateY(-2px); }
 .btn--pri { background: var(--violet); color: #fff; }
 .btn--pri:hover { background: var(--violet-2); color: #fff; }
-.btn--sec { border-color: var(--line-2); color: var(--ink); background: rgba(0, 125, 179, .06); }
+.btn--sec { border-color: var(--line-2); color: var(--ink); background: #fff; }
 .btn--sec:hover { border-color: var(--violet); color: #fff; }
 .btn--tel { font-family: var(--mono); font-size: 14px; letter-spacing: .02em; }
 
@@ -156,10 +156,10 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 
 /* ---------- capas ambientales ---------- */
 .scanline {
-  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .22;
-  background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .05) 0 1px, transparent 1px 4px);
+  position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(to bottom, rgba(16, 25, 31, .022) 0 1px, transparent 1px 4px);
 }
-.progreso { position: fixed; z-index: 40; left: 0; top: 0; height: 2px; width: 100%; background: rgba(255, 255, 255, .08); }
+.progreso { position: fixed; z-index: 40; left: 0; top: 0; height: 2px; width: 100%; background: rgba(16, 25, 31, .08); }
 .progreso i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--violet), var(--amber)); }
 
 /* ---------- cabecera ---------- */
@@ -171,7 +171,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   border-bottom: 1px solid transparent;
 }
 .cabecera.fija {
-  background: rgba(0, 0, 0, .78);
+  background: rgba(255, 255, 255, .86);
   backdrop-filter: blur(14px) saturate(1.3);
   -webkit-backdrop-filter: blur(14px) saturate(1.3);
   border-bottom-color: var(--line);
@@ -214,8 +214,8 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 .desplegable__panel {
   position: absolute; top: calc(100% + 14px); left: 50%; transform: translate(-50%, -6px);
   width: 288px; padding: 8px; border-radius: 12px;
-  background: rgba(8, 8, 11, .98); backdrop-filter: blur(18px);
-  border: 1px solid var(--line-2); box-shadow: 0 24px 60px rgba(0, 0, 0, .7);
+  background: #ffffff; backdrop-filter: blur(18px);
+  border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(16, 25, 31, .16);
   display: grid; gap: 1px; opacity: 0; pointer-events: none; transition: .18s var(--ease);
 }
 /* puente invisible sobre el hueco entre el botón y el panel: sin él, el ratón
@@ -266,7 +266,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   .cabecera__cta { display: none; }
   .nav {
     position: fixed; inset: 62px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0;
-    background: rgba(10, 8, 17, .97); backdrop-filter: blur(18px);
+    background: #ffffff; backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--line); padding: 8px 0 18px;
     transform: translateY(-8px); opacity: 0; pointer-events: none; transition: .25s var(--ease);
   }
@@ -290,20 +290,20 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 
 .escena__glow {
   position: absolute; left: 0; top: 0; width: 56vmin; height: 56vmin; border-radius: 50%;
-  pointer-events: none; opacity: .35;
-  background: radial-gradient(circle, rgba(0, 125, 179, .5), rgba(0, 125, 179, .12) 45%, transparent 70%);
+  pointer-events: none; opacity: .2;
+  background: radial-gradient(circle, rgba(0, 125, 179, .22), rgba(0, 125, 179, .06) 45%, transparent 70%);
   filter: blur(46px); will-change: transform, opacity;
 }
 .escena__vineta {
   position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(120% 90% at 50% 45%, transparent 30%, rgba(0, 0, 0, .55) 72%, rgba(0, 0, 0, .95) 100%);
+  background: radial-gradient(120% 90% at 50% 45%, transparent 34%, rgba(255, 255, 255, .55) 74%, rgba(255, 255, 255, .95) 100%);
 }
 /* respaldo estático cuando no hay WebGL o se pide menos movimiento */
 .escena__estatico {
   position: absolute; inset: 0; display: none; place-content: center;
   background:
-    radial-gradient(40vmin 40vmin at 62% 46%, rgba(0, 125, 179, .28), transparent 68%),
-    radial-gradient(30vmin 30vmin at 30% 70%, rgba(68, 152, 231, .1), transparent 70%);
+    radial-gradient(40vmin 40vmin at 62% 46%, rgba(0, 125, 179, .1), transparent 68%),
+    radial-gradient(30vmin 30vmin at 30% 70%, rgba(68, 152, 231, .06), transparent 70%);
 }
 .escena__estatico svg { width: min(38vmin, 320px); opacity: .8; }
 .escena.sin-webgl .escena__estatico { display: grid; }
@@ -327,7 +327,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
    texto deje de leerse */
 .paso__panel::before {
   content: ''; position: absolute; inset: -50px -70px; z-index: -1; pointer-events: none;
-  background: radial-gradient(72% 62% at 50% 50%, rgba(0, 0, 0, .78), rgba(0, 0, 0, .45) 55%, transparent 76%);
+  background: radial-gradient(72% 62% at 50% 50%, rgba(255, 255, 255, .88), rgba(255, 255, 255, .62) 55%, transparent 78%);
 }
 .paso__panel > * {
   opacity: 0; transform: translateY(26px); filter: blur(6px);
@@ -376,7 +376,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   .scanline { display: none; }
   .escena__glow { display: none; }
   .cabecera.fija {
-    background: rgba(0, 0, 0, .92);
+    background: rgba(255, 255, 255, .96);
     backdrop-filter: none; -webkit-backdrop-filter: none;
   }
   /* la entrada del texto sin desenfoque: en móvil el blur anima fatal */
@@ -393,15 +393,24 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   .escena__vineta {
     background: linear-gradient(to bottom,
       transparent 0%, transparent 44%,
-      rgba(0, 0, 0, .55) 58%, rgba(0, 0, 0, .92) 72%, #000 86%);
+      rgba(255, 255, 255, .6) 58%, rgba(255, 255, 255, .94) 72%, #fff 86%);
   }
   /* La figura ocupa la mitad de arriba y el texto crece hacia abajo desde el
      46 % de la pantalla. Sin centrarlo con transform: así un panel alto nunca
      se corta por arriba. */
+  /* Con los textos completos del cliente los paneles crecen bastante, así que
+     en móvil la figura se queda en el tercio de arriba y el texto se lleva el
+     resto. La tipografía también baja un punto para que quepa entero. */
   .paso__panel, .paso--der .paso__panel {
     max-width: 100%; margin-left: 0; text-align: left;
-    top: 46vh; transform: none;
+    top: 31vh; transform: none;
   }
+  .paso__panel h1 { font-size: clamp(26px, 7.4vw, 34px); line-height: 1.04; }
+  .paso__panel h2 { font-size: clamp(22px, 6.2vw, 28px); line-height: 1.08; }
+  .paso__panel .lede { font-size: 15px; line-height: 1.58; }
+  .paso__panel p { font-size: 14.5px; line-height: 1.58; }
+  .paso__panel .kicker { font-size: 10px; margin-bottom: 11px; }
+  .datos b { font-size: 20px; }
   .paso__panel::before { inset: -30px -26px; }
   /* botones más compactos: los dos caben en una línea y el bloque baja 60 px */
   .paso__cta .btn { padding: 12px 20px; font-size: 14px; }
@@ -489,15 +498,19 @@ a.tarjeta:hover { border-color: var(--line-2); transform: translateY(-3px); back
 /* ---------- muro de logos ----------
    Los logotipos se sirven en versión monocroma sobre fondo transparente
    (assets/img/clientes/mono/), generados desde los originales. */
-.logos { display: flex; flex-wrap: wrap; gap: 10px; }
+/* Muro de clientes. Sobre blanco van los logotipos originales, a todo color y
+   sin recortes: son marcas de terceros y deben verse tal como son. */
+.logos { display: flex; flex-wrap: wrap; gap: 12px; }
 .logos a, .logos span {
-  flex: 1 1 150px; display: grid; place-content: center; padding: 24px 20px; min-height: 104px;
-  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
-  transition: background .25s ease, border-color .25s ease, transform .25s var(--ease);
+  flex: 1 1 168px; display: flex; align-items: center; justify-content: center;
+  padding: 26px 22px; min-height: 116px;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s var(--ease);
 }
-.logos a:hover { background: rgba(0, 125, 179, .08); border-color: var(--line-2); transform: translateY(-2px); }
-.logos img { max-height: 42px; width: auto; object-fit: contain; opacity: .58; transition: opacity .25s ease; }
-.logos a:hover img { opacity: 1; }
+.logos a:hover { border-color: var(--azul-2); box-shadow: 0 8px 24px rgba(16, 25, 31, .08); transform: translateY(-2px); }
+/* medida explícita: sin ella el contenedor las encoge a 0x0 y, con
+   loading="lazy", el navegador nunca llega a descargarlas */
+.logos img { width: 100%; height: 52px; object-fit: contain; }
 
 /* ---------- lámina: passepartout para documentos en papel ---------- */
 .lamina { padding: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }

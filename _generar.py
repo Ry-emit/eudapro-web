@@ -657,22 +657,22 @@ colectivos = portada(
       </div>
       <div class="rejilla rejilla--3">
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/mono/gremi-alt-penedes.png" alt="" loading="lazy" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/gremi-alt-penedes.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
           <h3>Gremi Comarcal d'Hostaleria i Turisme de l'Alt Penedès</h3>
           <p>Convenio firmado con el gremio comarcal. Adaptación presencial, sin cuota de mantenimiento y con consultas y asesoría jurídica durante todo el año.</p>
         </div>
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/mono/fhirt.png" alt="" loading="lazy" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/fhirt.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
           <h3>Federació Intercomarcal d'Hostaleria, Restauració i Turisme</h3>
           <p>Convenio con la federación y, por extensión, con los gremios que la integran.</p>
         </div>
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/mono/cadena-88.png" alt="" loading="lazy" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/cadena-88.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
           <h3>Ehlis / Cadena 88</h3>
           <p>Promoción especial para los asociados de la red de ferreterías: servicio integral de RGPD con el que la empresa queda adecuada a la reglamentación europea.</p>
         </div>
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/mono/gremi-bages.png" alt="" loading="lazy" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/gremi-bages.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
           <h3>Gremi d'Hostaleria i Turisme del Bages</h3>
           <p>Colaboración con el gremio comarcal del Bages, en la zona de Manresa y Sant Fruitós.</p>
         </div>
