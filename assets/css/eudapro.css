@@ -1,7 +1,7 @@
 /* =========================================================================
    EUDAPRO — hoja de estilo única
    Marca de Eudapro: Raleway + Open Sans y los dos azules de su propia
-   identidad, sobre fondo negro. Todo se sirve desde el propio dominio: ni
+   identidad, sobre fondo blanco. Todo se sirve desde el propio dominio: ni
    fuentes ni scripts de terceros.
    ========================================================================= */
 
@@ -177,12 +177,15 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   border-bottom-color: var(--line);
 }
 
-.marca { display: flex; align-items: center; gap: 11px; color: var(--ink); }
-.marca:hover { color: #fff; }
-.marca svg { width: 26px; height: 26px; flex: none; }
-.marca__txt { display: flex; flex-direction: column; line-height: 1; }
-.marca__nombre { font-weight: 800; font-size: 18px; letter-spacing: -.02em; }
-.marca__claim { font-family: var(--mono); font-size: 9px; letter-spacing: .16em; color: var(--ink-3); text-transform: uppercase; margin-top: 4px; }
+/* Logotipo de Eudapro (septiembre de 2026). En la cabecera va solo la franja
+   EUDAPRO con el escudo; en el pie, el logotipo completo con el lema. */
+.marca { display: flex; align-items: center; flex: none; }
+.marca__logo { display: block; height: 36px; width: auto; }
+.pie__marca .marca__logo--completo { height: 92px; }
+@media (max-width: 940px) {
+  .marca__logo { height: 28px; }
+  .pie__marca .marca__logo--completo { height: 76px; }
+}
 
 .nav { display: flex; align-items: center; gap: clamp(14px, 1.8vw, 26px); }
 .nav a {

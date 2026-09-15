@@ -23,13 +23,11 @@ RAIZ = os.path.dirname(os.path.abspath(__file__))
 # Estructura común
 # --------------------------------------------------------------------------
 
-MARCA = '''<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M7.4 10.4V7.2a4.6 4.6 0 0 1 9.2 0v3.2" stroke="#ffffff" stroke-width="1.9" stroke-linecap="round"/>
-      <rect x="3.6" y="10.2" width="16.8" height="11.4" rx="3.2" fill="#007db3"/>
-      <circle cx="12" cy="14.9" r="1.7" fill="#000000"/>
-      <path d="M12 15.9v2.5" stroke="#000000" stroke-width="1.9" stroke-linecap="round"/>
-    </svg>
-    <span class="marca__txt"><span class="marca__nombre">EUDAPRO</span><span class="marca__claim">Protección de datos</span></span>'''
+# Logotipo de Eudapro (septiembre de 2026). En la cabecera solo va la franja
+# EUDAPRO con el escudo, porque el lema no se leería a ese tamaño; en el pie va
+# el logotipo completo.
+MARCA_CABECERA = '<img class="marca__logo" src="assets/img/marca/eudapro-marca.webp" alt="Eudapro" width="523" height="96">'
+MARCA_PIE = '<img class="marca__logo marca__logo--completo" src="assets/img/marca/eudapro-logo.webp" alt="Eudapro, European Data Protect: protección de datos" width="637" height="196">'
 
 SERVICIOS = [
     ('proteccion-de-datos.html', 'Protección de datos', 'RGPD y LOPDGDD · DPD incluido'),
@@ -70,14 +68,14 @@ def cabecera(archivo):
   </nav>
   <a class="cabecera__cta" href="contacto.html">Solicitar auditoría</a>
   <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
-</header>''' % (MARCA, servicios, sueltas)
+</header>''' % (MARCA_CABECERA, servicios, sueltas)
 
 
 PIE = '''<footer class="pie">
   <div class="wrap">
     <div class="pie__grid">
       <div>
-        <a class="marca pie__marca" href="index.html">
+        <a class="marca pie__marca" href="index.html" aria-label="Eudapro, inicio">
     %s
         </a>
         <p class="pie__nota">EUDAPRO, S.L. es la marca actual de All in Solutions for Business, S.L. Consultoría de protección de datos para pymes desde Barcelona y Sant Fruitós de Bages.</p>
@@ -124,7 +122,7 @@ PIE = '''<footer class="pie">
       <span>Sin cookies de terceros. Fuentes servidas desde este dominio.</span>
     </div>
   </div>
-</footer>''' % MARCA
+</footer>''' % MARCA_PIE
 
 
 def pagina(archivo, titulo, descripcion, cuerpo):
@@ -136,7 +134,8 @@ def pagina(archivo, titulo, descripcion, cuerpo):
 <title>%s</title>
 <meta name="description" content="%s">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/css/eudapro.css">
 </head>
 <body>
