@@ -33,7 +33,8 @@ con el nombre **eudapro**.
 ## Qué hay
 
 ```
-index.html                     portada, con la escena de partículas (6 tramos)
+index.html                     portada, con la escena de partículas (6 tramos; el primero es la O del logotipo)
+logo-3d.html                   prueba aparte de la figura 3D del logotipo (fuera del menú)
 proteccion-de-datos.html       el servicio principal — NO existía en la web vieja
 ciberseguridad.html            normativa NIS, RD-ley 12/2018 y sanciones
 videovigilancia.html           requisitos, cartel descargable y cláusula completa

@@ -313,6 +313,36 @@ function logo(M) {
   return g;
 }
 
+/* Color de cada punto del logotipo, por piezas (rgb + factor de opacidad),
+   a partir de una muestra de sampleGroupTagged. Lo usan la portada y la
+   página de prueba, para que se vean exactamente igual.
+   Aro: del marino (abajo a la izquierda) al cian (arriba a la derecha), como
+   en el logotipo. Sobre blanco y con transparencia el marino puro se ve gris:
+   se sube un punto de saturación manteniendo el mismo recorrido. */
+export function coloresLogo(muestra) {
+  const C = (h) => new THREE.Color(h);
+  const MARINO = C('#08357a'), AZUL = C('#007db3'), CIAN = C('#00b0cf');
+  const MARCO = C('#0a4a8a'), PLACA = C('#58acd8'), CERRADURA = C('#032e6b');
+  const n = muestra.tag.length;
+  const tono = new Float32Array(n * 4);
+  const tmp = new THREE.Color();
+  for (let i = 0; i < n; i++) {
+    const pieza = muestra.names[muestra.tag[i]];
+    const x = muestra.pos[i * 3], y = muestra.pos[i * 3 + 1];
+    let a = 1;
+    if (pieza === 'aro') {
+      const l = Math.hypot(x, y) || 1;
+      const t = Math.min(Math.max(0.5 + 0.5 * (x * 0.707 + y * 0.707) / l, 0), 1);
+      if (t < 0.6) tmp.copy(MARINO).lerp(AZUL, t / 0.6); else tmp.copy(AZUL).lerp(CIAN, (t - 0.6) / 0.4);
+    } else if (pieza === 'filo') { tmp.copy(CIAN); }
+    else if (pieza === 'marco') { tmp.copy(MARCO); }
+    else if (pieza === 'cerradura') { tmp.copy(CERRADURA); a = 1.25; }
+    else { tmp.copy(PLACA); a = 0.34; }
+    tono[i * 4] = tmp.r; tono[i * 4 + 1] = tmp.g; tono[i * 4 + 2] = tmp.b; tono[i * 4 + 3] = a;
+  }
+  return tono;
+}
+
 export const SHAPES = [
   { id: 'shield', label: 'Escudo', build: shield },
   { id: 'lock', label: 'Candado', build: lock },

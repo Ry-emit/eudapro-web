@@ -4,7 +4,7 @@
    mismo tipo de nube, pero coloreada por piezas con los azules del logotipo.
    ========================================================================= */
 import * as THREE from 'three';
-import { buildShape, materials, sampleGroup, sampleGroupTagged } from './cyber-shapes.js';
+import { buildShape, coloresLogo, materials, sampleGroup, sampleGroupTagged } from './cyber-shapes.js';
 
 const escenario = document.querySelector('.escenario');
 const brillo = document.querySelector('.brillo');
@@ -48,29 +48,8 @@ async function arrancar() {
     suelta[i * 3 + 2] = Math.sin(th) * s * r * 0.6;
   }
 
-  /* color por pieza, muestreado del logotipo:
-     aro: del marino (abajo a la izquierda) al cian (arriba a la derecha) */
-  const C = (h) => new THREE.Color(h);
-  /* sobre blanco y con transparencia, el marino puro se ve gris: se sube un
-     punto de saturación manteniendo el mismo recorrido del logotipo */
-  const MARINO = C('#08357a'), AZUL = C('#007db3'), CIAN = C('#00b0cf');
-  const MARCO = C('#0a4a8a'), PLACA = C('#58acd8'), CERRADURA = C('#032e6b');
-  const tono = new Float32Array(COUNT * 4);
-  const tmp = new THREE.Color();
-  for (let i = 0; i < COUNT; i++) {
-    const pieza = logo.names[logo.tag[i]];
-    const x = logo.pos[i * 3], y = logo.pos[i * 3 + 1];
-    let a = 1;
-    if (pieza === 'aro') {
-      const l = Math.hypot(x, y) || 1;
-      const t = Math.min(Math.max(0.5 + 0.5 * (x * 0.707 + y * 0.707) / l, 0), 1);
-      if (t < 0.6) tmp.copy(MARINO).lerp(AZUL, t / 0.6); else tmp.copy(AZUL).lerp(CIAN, (t - 0.6) / 0.4);
-    } else if (pieza === 'filo') { tmp.copy(CIAN); }
-    else if (pieza === 'marco') { tmp.copy(MARCO); }
-    else if (pieza === 'cerradura') { tmp.copy(CERRADURA); a = 1.25; }
-    else { tmp.copy(PLACA); a = 0.34; }
-    tono[i * 4] = tmp.r; tono[i * 4 + 1] = tmp.g; tono[i * 4 + 2] = tmp.b; tono[i * 4 + 3] = a;
-  }
+  /* color por pieza: la misma paleta que usa la portada */
+  const tono = coloresLogo(logo);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   const dpr = Math.min(devicePixelRatio, 2);

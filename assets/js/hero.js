@@ -6,7 +6,7 @@
    el respaldo estático y no se carga nada más.
    ========================================================================= */
 import * as THREE from 'three';
-import { buildShape, materials, sampleGroup } from './cyber-shapes.js';
+import { buildShape, coloresLogo, materials, sampleGroup, sampleGroupTagged } from './cyber-shapes.js';
 
 const escena = document.querySelector('.escena');
 const canvas = document.getElementById('nube');
@@ -48,11 +48,34 @@ async function arrancar() {
 
   const M = materials();
   const objetivos = [], objetivosNodo = [];
+  /* La figura del logotipo se ve como en su página de prueba: colores por
+     pieza, puntos más grandes y líneas más discretas. Las demás, como siempre. */
+  const esLogo = formas.map(f => f === 'logo');
+  let tono = null;
   for (let i = 0; i < formas.length; i++) {
     const g = buildShape(formas[i], M);
-    objetivos.push(sampleGroup(g, COUNT, 100 + i * 7));
+    if (esLogo[i] && !tono) {
+      const muestra = sampleGroupTagged(g, COUNT, 100 + i * 7);
+      objetivos.push(muestra.pos);
+      tono = coloresLogo(muestra);
+    } else {
+      objetivos.push(sampleGroup(g, COUNT, 100 + i * 7));
+    }
     if (LINEAS) objetivosNodo.push(sampleGroup(g, NODOS, 900 + i * 13));
     await new Promise(r => requestAnimationFrame(r));
+  }
+  const TAM_LOGO = MOVIL ? 1.28 : 1.53;
+
+  /* Animación de inicio: si la primera figura es el logotipo, al cargar la
+     página las partículas llegan desde una nube suelta y lo forman. */
+  const INTRO = esLogo[0] ? 2.8 : 0;
+  const suelta = new Float32Array(INTRO ? COUNT * 3 : 0);
+  for (let i = 0; INTRO && i < COUNT; i++) {
+    const u = Math.random() * 2 - 1, th = Math.random() * Math.PI * 2;
+    const rr = 1.9 + Math.random() * 1.3, s = Math.sqrt(1 - u * u);
+    suelta[i * 3] = Math.cos(th) * s * rr;
+    suelta[i * 3 + 1] = u * rr;
+    suelta[i * 3 + 2] = Math.sin(th) * s * rr * 0.6;
   }
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
@@ -72,6 +95,7 @@ async function arrancar() {
   const rnd = new Float32Array(COUNT * 3);
   for (let i = 0; i < COUNT * 3; i++) rnd[i] = Math.random();
   geo.setAttribute('aRnd', new THREE.BufferAttribute(rnd, 3));
+  geo.setAttribute('aTono', new THREE.BufferAttribute(tono || new Float32Array(COUNT * 4), 4));
 
   const uniforms = {
     uMix: { value: 0 }, uTime: { value: 0 },
@@ -82,19 +106,21 @@ async function arrancar() {
     uProfA: { value: DIST + 1.9 },
     uProfB: { value: DIST - 2.1 },
     uRayO: { value: new THREE.Vector3(0, 0, 5) }, uRayD: { value: new THREE.Vector3(0, 0, -1) },
-    uMouseOn: { value: 0 }
+    uMouseOn: { value: 0 },
+    /* peso del logotipo (colores y tamaño) en la figura A y en la B del par */
+    uLogoA: { value: 0 }, uLogoB: { value: 0 }, uEstallido: { value: 1 }
   };
 
   const mat = new THREE.ShaderMaterial({
     uniforms, transparent: true, depthWrite: false, blending: THREE.NormalBlending,
     vertexShader: `
-      attribute vec3 aPosB; attribute vec3 aRnd;
-      uniform float uMix, uTime, uSize, uMouseOn, uProfA, uProfB;
+      attribute vec3 aPosB; attribute vec3 aRnd; attribute vec4 aTono;
+      uniform float uMix, uTime, uSize, uMouseOn, uProfA, uProfB, uLogoA, uLogoB, uEstallido;
       uniform vec3 uRayO, uRayD;
-      varying float vRnd; varying float vDisp; varying float vDepth;
+      varying float vRnd; varying float vDisp; varying float vDepth; varying float vLogo; varying vec4 vTono;
       void main() {
         vec3 p = mix(position, aPosB, uMix);
-        float burst = sin(uMix * 3.14159265);
+        float burst = sin(uMix * 3.14159265) * uEstallido;
         vec3 dir = normalize(aRnd - 0.5 + 0.0001);
         p += dir * burst * (0.34 + aRnd.x * 0.9);
         p += dir * sin(uTime * 0.7 + aRnd.y * 12.0) * 0.018;
@@ -105,14 +131,16 @@ async function arrancar() {
         p += normalize(perp + 0.0001) * f * f * 0.42;
         vDisp = max(burst, f);
         vRnd = aRnd.z;
+        vLogo = mix(uLogoA, uLogoB, uMix);
+        vTono = aTono;
         vec4 mv = modelViewMatrix * vec4(p, 1.0);
-        gl_PointSize = uSize * (1.0 / -mv.z) * (0.6 + aRnd.x * 0.7);
+        gl_PointSize = uSize * mix(1.0, ${TAM_LOGO.toFixed(2)}, vLogo) * (1.0 / -mv.z) * (0.6 + aRnd.x * 0.7);
         vDepth = smoothstep(uProfA, uProfB, -mv.z);
         gl_Position = projectionMatrix * mv;
       }`,
     fragmentShader: `
       uniform float uOpacidad;
-      varying float vRnd; varying float vDisp; varying float vDepth;
+      varying float vRnd; varying float vDisp; varying float vDepth; varying float vLogo; varying vec4 vTono;
       void main() {
         vec2 c = gl_PointCoord - 0.5;
         float a = smoothstep(0.5, 0.2, length(c));
@@ -125,7 +153,11 @@ async function arrancar() {
         vec3 col = mix(profundo, azul, smoothstep(0.0, 0.62, vRnd));
         col = mix(col, claro, step(0.90, vRnd));
         col -= vDisp * 0.10;
-        gl_FragColor = vec4(col, min(a * (0.32 + vRnd * 0.45) * (0.4 + vDepth * 0.8) * uOpacidad, 1.0));
+        float alfa = a * (0.32 + vRnd * 0.45) * (0.4 + vDepth * 0.8) * uOpacidad;
+        /* el logotipo: el color de su pieza y más cuerpo */
+        vec3 colLogo = vTono.rgb * (0.9 + vRnd * 0.18);
+        float alfaLogo = a * (0.55 + vRnd * 0.45) * (0.55 + vDepth * 0.6) * vTono.a * 1.35;
+        gl_FragColor = vec4(mix(col, colLogo, vLogo), min(mix(alfa, alfaLogo, vLogo), 1.0));
       }`
   });
 
@@ -171,12 +203,15 @@ async function arrancar() {
   const invMat = new THREE.Matrix4();
 
   let idxA = 0;
+  const pesoLogo = (i) => (esLogo[Math.min(i, esLogo.length - 1)] ? 1 : 0);
   function fijarPar(i) {
     idxA = i;
     geo.attributes.position.array.set(objetivos[i]);
     geo.attributes.aPosB.array.set(objetivos[Math.min(i + 1, objetivos.length - 1)]);
     geo.attributes.position.needsUpdate = true;
     geo.attributes.aPosB.needsUpdate = true;
+    uniforms.uLogoA.value = pesoLogo(i);
+    uniforms.uLogoB.value = pesoLogo(i + 1);
   }
 
   /* puntero → rayo en el mundo (el ratón repele las partículas) */
@@ -205,13 +240,15 @@ async function arrancar() {
   });
 
   let framesLineas = 99;
-  function rehacerLineas() {
+  function rehacerLineas(enIntro) {
     if (!LINEAS) return;
-    const A = objetivosNodo[idxA], B = objetivosNodo[Math.min(idxA + 1, objetivosNodo.length - 1)];
-    for (let i = 0; i < NODOS * 3; i++) posNodo[i] = A[i] + (B[i] - A[i]) * uniforms.uMix.value;
+    const A = objetivosNodo[idxA], B = enIntro ? A : objetivosNodo[Math.min(idxA + 1, objetivosNodo.length - 1)];
+    const k = uniforms.uMix.value;
+    for (let i = 0; i < NODOS * 3; i++) posNodo[i] = A[i] + (B[i] - A[i]) * k;
     const arr = lineGeo.attributes.position.array;
     let n = 0;
-    const umbral = 0.62;
+    /* en el logotipo las líneas son más cortas: que no tapen la cerradura */
+    const umbral = enIntro ? 0.45 : lerp(pesoLogo(idxA) ? 0.45 : 0.62, pesoLogo(idxA + 1) ? 0.45 : 0.62, k);
     for (let i = 0; i < NODOS && n < MAXPAR; i++) {
       for (let j = i + 1; j < NODOS && n < MAXPAR; j++) {
         const dx = posNodo[i * 3] - posNodo[j * 3];
@@ -236,7 +273,9 @@ async function arrancar() {
     if (visible && !corriendo) { corriendo = true; requestAnimationFrame(tick); }
   }, { rootMargin: '120px' }).observe(escena);
 
-  const reloj = new THREE.Clock();
+  const inicioReloj = performance.now();
+  const suave = (x) => x * x * x * (x * (x * 6 - 15) + 10);
+  let intro = INTRO ? { t0: null } : null;
   const proy = new THREE.Vector3();
   let mostrado = 0, ratonSuave = 0;
   /* En móvil no hay movimiento de fondo: la figura solo se mueve con el dedo.
@@ -245,18 +284,43 @@ async function arrancar() {
 
   function tick() {
     if (!visible) { corriendo = false; return; }
-    const t = reloj.getElapsedTime();
+    const t = (performance.now() - inicioReloj) / 1000;
+
+    /* ---------- animación de inicio: la nube suelta forma el logotipo ----------
+       Mientras dura, la figura no sigue al scroll (el texto sí): así no hay
+       saltos entre la formación y la primera transformación. */
+    let enIntro = false, mezclaIntro = 0;
+    if (intro) {
+      if (intro.t0 === null) {
+        intro.t0 = t;
+        geo.attributes.position.array.set(suelta);
+        geo.attributes.aPosB.array.set(objetivos[0]);
+        geo.attributes.position.needsUpdate = true;
+        geo.attributes.aPosB.needsUpdate = true;
+        uniforms.uLogoA.value = 1; uniforms.uLogoB.value = 1;
+        uniforms.uEstallido.value = 0.35;
+      }
+      const avanceIntro = Math.min((t - intro.t0) / INTRO, 1);
+      mezclaIntro = suave(avanceIntro);
+      enIntro = true;
+      if (avanceIntro >= 1) {
+        intro = null;
+        uniforms.uEstallido.value = 1;
+        fijarPar(0);
+        mezclaIntro = 0;   /* el par (logo → siguiente) empieza en el logotipo */
+      }
+    }
     /* Cada tramo de texto tiene su figura: cuando el panel k está centrado en
        pantalla, la figura k ya está hecha y quieta a su lado. Por eso el índice
        se calcula contra el número de tramos y con medio tramo de desfase, no
        repartiendo el scroll a partes iguales. */
     const N = objetivos.length;
     const objetivo = Math.min(Math.max(estado.avance * N - 0.5, 0), N - 1);
-    mostrado += (objetivo - mostrado) * 0.032;   /* inercia lenta: pesa */
+    if (!intro) mostrado += (objetivo - mostrado) * 0.032;   /* inercia lenta: pesa */
 
     const i = Math.min(Math.floor(mostrado), objetivos.length - 2);
-    if (i !== idxA) fijarPar(Math.max(i, 0));
-    const local = Math.min(Math.max(mostrado - i, 0), 1);
+    if (!intro && i !== idxA) fijarPar(Math.max(i, 0));
+    const local = intro ? 0 : Math.min(Math.max(mostrado - i, 0), 1);
 
     /* Dos tiempos distintos, y esta es la clave del movimiento:
 
@@ -268,8 +332,8 @@ async function arrancar() {
          todo el tramo. El 70 % restante se ve la forma entera cruzando el
          medio. La figura no gira: se desplaza. */
     const e = Math.min(Math.max((local - 0.02) / 0.28, 0), 1);
-    const mezcla = e * e * e * (e * (e * 6 - 15) + 10);
-    const estallido = Math.sin(Math.PI * mezcla);
+    const mezcla = intro ? mezclaIntro : suave(e);
+    const estallido = Math.sin(Math.PI * mezcla) * (intro ? 0.35 : 1);
     const kPos = local * local * local * (local * (local * 6 - 15) + 10);
 
     ratonSuave += (raton - ratonSuave) * 0.06;
@@ -288,6 +352,10 @@ async function arrancar() {
        dedo está quieto. */
     const balanceo = MOVIL ? 0 : Math.sin(t * 0.16) * 0.035;
     const respira = MOVIL ? 0 : Math.sin(t * 0.22) * 0.05;
+    /* el logotipo, además, se mece para que se vea su volumen */
+    const logoAhora = intro ? 1 : lerp(pesoLogo(idxA), pesoLogo(idxA + 1), mezcla);
+    const vaiven = MOVIL ? 0 : Math.sin(t * 0.32) * 0.3 * logoAhora;
+    const cabeceo = MOVIL ? 0 : Math.sin(t * 0.21) * 0.06 * logoAhora;
     const peso = Math.sin(Math.PI * k);            /* el hundimiento del cruce */
 
     nube.position.set(
@@ -296,13 +364,17 @@ async function arrancar() {
       lerp(A.z, B.z, k) - peso * 0.25
     );
     nube.rotation.set(
-      lerp(A.rx, B.rx, k) + balanceo * 0.5,
-      lerp(A.ry, B.ry, k),
+      lerp(A.rx, B.rx, k) + balanceo * 0.5 + cabeceo,
+      lerp(A.ry, B.ry, k) + vaiven,
       lerp(A.rz || 0, B.rz || 0, k) + balanceo
     );
     /* al cruzar pesa más: se encoge un pelo en vez de crecer */
     nube.scale.setScalar(lerp(A.s, B.s, k) * (1 - peso * 0.04));
-    if (lineas) lineas.material.opacity = 0.14 + estallido * 0.22;
+    if (lineas) {
+      const normal = 0.14 + estallido * 0.22;
+      lineas.material.opacity = intro ? 0.08 * mezcla
+        : lerp(pesoLogo(idxA) ? 0.08 : normal, pesoLogo(idxA + 1) ? 0.08 : normal, mezcla);
+    }
 
     /* cámara fija: mirar siempre de frente es lo que hace que la figura
        parezca un objeto y no un planeta girando */
@@ -329,10 +401,11 @@ async function arrancar() {
       glow.style.opacity = String(0.3 + estallido * 0.4);
     }
 
-    if (LINEAS && ++framesLineas > 5) { rehacerLineas(); framesLineas = 0; }
+    if (LINEAS && ++framesLineas > 5) { rehacerLineas(!!intro); framesLineas = 0; }
 
-    /* en móvil: si el dedo no ha movido nada, no se repinta */
-    if (!MOVIL || !(Math.abs(mostrado - ultimoDibujo) < 0.0004)) {
+    /* en móvil: si el dedo no ha movido nada, no se repinta (salvo durante la
+       animación de inicio) */
+    if (!MOVIL || enIntro || !(Math.abs(mostrado - ultimoDibujo) < 0.0004)) {
       ultimoDibujo = mostrado;
       renderer.render(scene, camera);
     }
