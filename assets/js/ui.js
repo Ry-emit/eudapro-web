@@ -107,7 +107,7 @@
 
     /* medidas de la zona de partículas: se toman una vez y se refrescan solo
        al redimensionar */
-    var arriba = 0, recorrido = 1, activoPrevio = -1, pistaPrevia = -1;
+    var arriba = 0, recorrido = 1, activoPrevio = -1, pistaPrevia = -1, rielPrevio = -1;
     alMedir.push(function () {
       arriba = scrolly.getBoundingClientRect().top + window.scrollY;
       recorrido = scrolly.offsetHeight - (escena ? escena.offsetHeight : innerHeight);
@@ -123,8 +123,14 @@
       var visible = estado.avance > 0.02 ? 0 : 1;
       if (visible !== pistaPrevia) {
         if (pista) pista.style.opacity = visible;
-        if (riel) riel.style.opacity = estado.avance >= 0.999 ? '0' : '1';
         pistaPrevia = visible;
+      }
+      /* el riel se evalúa por separado: si dependiera del cambio de la pista,
+         al bajar de la zona de partículas se quedaba encima del resto de la web */
+      var conRiel = estado.avance >= 0.999 ? 0 : 1;
+      if (riel && conRiel !== rielPrevio) {
+        riel.style.opacity = conRiel;
+        rielPrevio = conRiel;
       }
     });
   }
@@ -156,7 +162,7 @@
      escritos. En cuanto exista endpoint, basta con cambiar ENVIO a la URL y
      quitar el bloque del mailto (ver README). */
   var ENVIO = null; // p. ej. 'https://formularios.eudapro.com/contacto'
-  var DESTINO = 'info@allins4b.com';
+  var DESTINO = 'info@eudapro.es';
 
   document.querySelectorAll('form[data-contacto]').forEach(function (form) {
     var estado = form.querySelector('.form__estado');

@@ -3,7 +3,7 @@
 Web estática de EUDAPRO, S.L. (consultoría de protección de datos), reconstruida
 desde cero a partir de dos cosas:
 
-- **El contenido:** la extracción completa de `allins4b.com` en
+- **El contenido:** la extracción completa de la web anterior en
   `~/Desktop/Eudapro-Web/` (17 páginas, 93 artículos, 533 archivos).
 - **El diseño:** el sistema "Hero de partículas" del proyecto de Claude Design
   (`hero-particulas.html`) más las referencias que puso Àlex en `referencias/`:
@@ -35,15 +35,14 @@ con el nombre **eudapro**.
 ```
 index.html                     portada, con la escena de partículas (6 tramos)
 proteccion-de-datos.html       el servicio principal — NO existía en la web vieja
-formacion.html                 formación bonificada (FUNDAE)
 ciberseguridad.html            normativa NIS, RD-ley 12/2018 y sanciones
 videovigilancia.html           requisitos, cartel descargable y cláusula completa
 blanqueo-de-capitales.html     LPBC Diligence e Integral
 colectivos.html                los 6 convenios con gremios y asociaciones
 conocenos.html                 el texto de Isaac Higueras + datos de la empresa
-recursos.html                  los 53 PDF ordenados y con peso
+recursos.html                  boletines y notas en PDF (solo los que no llevan la marca antigua)
 contacto.html                  formulario con doble consentimiento diferenciado
-aviso-legal.html · politica-de-privacidad.html
+aviso-legal.html · politica-de-privacidad.html (desplegable por tratamiento)
 politica-de-cookies.html · politica-redes-sociales.html
 
 assets/css/eudapro.css         todo el CSS del sitio
@@ -59,8 +58,10 @@ referencias/01-Tipografia/     TIPOGRAFIA.md + tipografia.html + las fuentes
 referencias/02-Colores/        COLORES.md + colores.html + tokens.css
 referencias/03-Estilo/         ESTILO.md + estilo.html
 
-_generar.py                    genera las 12 páginas interiores
+_generar.py                    genera las 11 páginas interiores
 _serve_nocache.py              servidor local sin caché
+_config.yml                    GitHub Pages: no publica README ni COMPARTIR
+_retirados/                    PDF e imágenes retirados de la web (no se suben a git)
 ```
 
 ### Sobre `_generar.py`
@@ -69,7 +70,8 @@ La cabecera y el pie son idénticos en todas las páginas, así que están escri
 una sola vez ahí y el script vuelca los `.html` ya montados. **El resultado es
 HTML plano**: se puede editar a mano sin problema. Lo único que hay que tener en
 cuenta es que volver a ejecutar el script sobrescribe esas 12 páginas
-(`index.html` y `proteccion-de-datos.html` están a mano y no las toca).
+(`index.html` y `proteccion-de-datos.html` están a mano y no las toca). Ahora
+son 11 páginas: la de formación se eliminó en septiembre de 2026.
 
 ---
 
@@ -106,8 +108,17 @@ contacto y el aviso legal decían cosas distintas. Ahora aparecen etiquetadas:
 *oficina de atención* (C/ Irlanda 7, Barcelona) y *domicilio social* (Ctra. de
 Vic 105, Sant Fruitós). **Hay que confirmarlo con el cliente.**
 
-**8. La marca.** Se presenta como Eudapro, con una línea en el pie y en Conócenos
-que explica que es la marca actual de All in Solutions for Business, S.L.
+**8. La marca.** Solo Eudapro. Por petición del cliente (briefing del 17/09/2026)
+no queda ninguna mención a la marca anterior ni a su dominio, tampoco dentro de
+PDF o imágenes, y todos los correos se unifican en `info@eudapro.es`.
+
+**9. Cambios del briefing del 17/09/2026.** Fuera la formación bonificada entera
+(página, menú, tarjeta, catálogos y guías); "Solicitar auditoría" pasa a
+"Contáctanos"; la política de privacidad recupera el texto literal de la web
+antigua en desplegables. Los PDF con la marca anterior (casi todos los boletines,
+todas las notas, catálogos y guías), el folleto y el artículo del Gremi y la franja
+de marca del cartel de videovigilancia se han retirado a `_retirados/`: cuando
+Eudapro pase las versiones con su marca, se vuelven a dejar en `assets/doc/`.
 
 ---
 
@@ -115,14 +126,14 @@ que explica que es la marca actual de All in Solutions for Business, S.L.
 
 | Tema | Estado |
 |---|---|
-| **¿Eudapro o All in S4B?** | La web dice Eudapro. Falta decidir dominio y correo: hoy siguen siendo `allins4b.com`. Si se migra, hay que redirigir y renombrar las redes. |
-| **Las dos direcciones** | Publicadas como oficina y domicilio social. Confirmar. |
+| **Conócenos** | Eudapro enviará el texto nuevo. De momento solo se han quitado las menciones a la marca anterior. |
+| **Colectivos** | Oscar confirmará qué gremios se mantienen (afecta también a la tarjeta 05 de la portada). |
+| **Confían en nosotros** | Texto y logos nuevos pendientes de Oscar. |
+| **PDF con la marca nueva** | Boletines y notas informativas: en la web solo quedan 3 documentos limpios. |
+| **Web en inglés** | Pregunta abierta del cliente: hay que pasar valoración. |
 | **Backend del formulario** | No hay. Hoy el formulario abre el correo del usuario con los datos ya escritos. Para conectarlo: en `assets/js/ui.js`, poner la URL en `var ENVIO` y quitar el bloque del `mailto`. |
-| **Logos de clientes** | Son marcas de terceros. Se han mantenido porque ya estaban en la web anterior, pero conviene confirmar el permiso de cada empresa antes de publicar. |
-| **Política de privacidad** | La web original la tenía dentro de acordeones JavaScript y la extracción solo pudo recuperar la introducción. La página se ha montado con lo que sí consta (responsable, tratamientos de web y videovigilancia, derechos). **Debe revisarla y completarla el cliente**, que para eso se dedica a esto. |
-| **Dato caducado** | La página de ciberseguridad de la web vieja citaba "1.000 ciberataques en España en 2018". Se ha quitado por antiguo; si se quiere una cifra, que sea reciente y con fuente. |
-| **Blog** | 93 artículos en Markdown esperando decisión. |
-| **Convenios** | Los últimos datados son de 2020. Confirmar cuáles siguen vigentes antes de publicar `colectivos.html`. |
+| **Las dos direcciones** | Publicadas como oficina y domicilio social. Confirmar. |
+| **Logos de clientes** | Son marcas de terceros: confirmar el permiso de cada empresa antes de publicar. |
 
 ---
 

@@ -1,0 +1,5 @@
+# GitHub Pages: la web es HTML plano. Estos archivos son notas internas del
+# proyecto y no deben servirse en el enlace que se comparte con el cliente.
+exclude:
+  - README.md
+  - COMPARTIR.md

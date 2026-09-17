@@ -11,7 +11,7 @@
 :root {
   /* PALETA DE MARCA — solo colores que Eudapro ya usa.
      Fondo blanco, como su web actual. Muestreados de su logotipo original y de
-     allins4b.com; el verde #18A300 del CSS del tema queda descartado porque no
+     su web anterior; el verde #18A300 del CSS del tema queda descartado porque no
      se usa en pantalla en ninguna parte.
 
      Ojo con el reparto sobre blanco: el azul claro #4498E7 solo llega a 3,1:1
@@ -144,7 +144,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 .btn--pri { background: var(--violet); color: #fff; }
 .btn--pri:hover { background: var(--violet-2); color: #fff; }
 .btn--sec { border-color: var(--line-2); color: var(--ink); background: #fff; }
-.btn--sec:hover { border-color: var(--violet); color: #fff; }
+.btn--sec:hover { border-color: var(--violet); color: var(--violet); }
 .btn--tel { font-family: var(--mono); font-size: 14px; letter-spacing: .02em; }
 
 .enlace-flecha {
@@ -201,7 +201,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   font-family: var(--mono); font-size: 12px; color: var(--ink);
   transition: border-color .2s ease, background .2s ease;
 }
-.cabecera__cta:hover { border-color: var(--violet); background: rgba(0, 125, 179, .1); color: #fff; }
+.cabecera__cta:hover { border-color: var(--violet); background: rgba(0, 125, 179, .1); color: var(--violet-3); }
 
 /* desplegable de servicios */
 .desplegable { position: relative; }
@@ -232,7 +232,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
   font-family: var(--sans); font-size: 14px; line-height: 1.25; color: var(--ink);
   transition: background .15s ease, color .15s ease;
 }
-.desplegable__panel a:hover { background: rgba(0, 125, 179, .16); color: #fff; }
+.desplegable__panel a:hover { background: rgba(0, 125, 179, .1); color: var(--violet-3); }
 .desplegable__panel a[aria-current="page"] { background: rgba(0, 125, 179, .1); }
 .desplegable__panel a[aria-current="page"]::before {
   content: ''; position: absolute; left: 4px; top: 50%; transform: translateY(-50%);
@@ -245,7 +245,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
 
 @media (max-width: 940px) {
   .desplegable { display: grid; }
-  .desplegable__btn { padding: 13px clamp(20px, 3vw, 34px); border-bottom: 1px solid rgba(255, 255, 255, .08); font-size: 14px; justify-content: space-between; }
+  .desplegable__btn { padding: 13px clamp(20px, 3vw, 34px); border-bottom: 1px solid var(--line); font-size: 14px; justify-content: space-between; }
   .desplegable__panel {
     position: static; transform: none; opacity: 1; pointer-events: auto;
     width: auto; min-width: 0;
@@ -274,7 +274,7 @@ section[class*="bloque"] { padding: clamp(64px, 8.5vw, 128px) 0; position: relat
     transform: translateY(-8px); opacity: 0; pointer-events: none; transition: .25s var(--ease);
   }
   .nav.abierto { transform: none; opacity: 1; pointer-events: auto; }
-  .nav a { padding: 13px clamp(20px, 3vw, 34px); font-size: 14px; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+  .nav a { padding: 13px clamp(20px, 3vw, 34px); font-size: 14px; border-bottom: 1px solid var(--line); }
 }
 
 /* =========================================================================
@@ -532,7 +532,7 @@ a.tarjeta:hover { border-color: var(--line-2); transform: translateY(-3px); back
   font-family: var(--mono); font-size: 20px; color: var(--violet-2); transition: transform .25s var(--ease);
 }
 .acordeon details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
-.acordeon summary:hover { color: #fff; }
+.acordeon summary:hover { color: var(--violet); }
 .acordeon__cuerpo { padding: 0 0 28px; max-width: 820px; }
 .acordeon__cuerpo p, .acordeon__cuerpo li { font-size: 15px; }
 
@@ -636,3 +636,22 @@ input::placeholder, textarea::placeholder { color: #574f74; }
 .mt-l { margin-top: clamp(30px, 4vw, 48px); }
 .mt-m { margin-top: 24px; }
 .centro { text-align: center; margin-left: auto; margin-right: auto; }
+
+/* ---------- política de privacidad: un desplegable por tratamiento ---------- */
+.acordeon--legal { margin-top: 2.4em; }
+.acordeon--legal .acordeon__cuerpo { max-width: none; }
+.acordeon--legal h3 { font-size: 17px; margin: 1.8em 0 .8em; }
+.acordeon--legal h3:first-child { margin-top: 0; }
+.acordeon--legal h4 { font-family: var(--sans); font-size: 16px; color: var(--ink); margin: 1.7em 0 .5em; }
+.acordeon--legal dl {
+  grid-template-columns: max-content minmax(0, 1fr); column-gap: 24px; row-gap: 0;
+  border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+}
+.acordeon--legal dt, .acordeon--legal dd { padding: 12px 16px; border-bottom: 1px solid var(--line); margin: 0; }
+.acordeon--legal dt { padding-right: 0; line-height: 1.9; }
+.acordeon--legal dd { font-size: 15px; line-height: 1.6; }
+.acordeon--legal dt:nth-last-of-type(1), .acordeon--legal dd:last-of-type { border-bottom: none; }
+@media (max-width: 560px) {
+  .acordeon--legal dl { grid-template-columns: 1fr; }
+  .acordeon--legal dt { border-bottom: none; padding-bottom: 0; }
+}

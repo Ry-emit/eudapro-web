@@ -31,7 +31,6 @@ MARCA_PIE = '<img class="marca__logo marca__logo--completo" src="assets/img/marc
 
 SERVICIOS = [
     ('proteccion-de-datos.html', 'Protección de datos', 'RGPD y LOPDGDD · DPD incluido'),
-    ('formacion.html', 'Formación bonificada', 'Cursos financiados con FUNDAE'),
     ('ciberseguridad.html', 'Ciberseguridad', 'Normativa NIS y sanciones'),
     ('videovigilancia.html', 'Videovigilancia', 'Cámaras conformes a la AEPD'),
     ('blanqueo-de-capitales.html', 'Prevención del blanqueo', 'LPBC · Ley 10/2010'),
@@ -66,7 +65,7 @@ def cabecera(archivo):
     </div>
 %s
   </nav>
-  <a class="cabecera__cta" href="contacto.html">Solicitar auditoría</a>
+  <a class="cabecera__cta" href="contacto.html">Contáctanos</a>
   <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
 </header>''' % (MARCA_CABECERA, servicios, sueltas)
 
@@ -78,13 +77,12 @@ PIE = '''<footer class="pie">
         <a class="marca pie__marca" href="index.html" aria-label="Eudapro, inicio">
     %s
         </a>
-        <p class="pie__nota">EUDAPRO, S.L. es la marca actual de All in Solutions for Business, S.L. Consultoría de protección de datos para pymes desde Barcelona y Sant Fruitós de Bages.</p>
+        <p class="pie__nota">Consultoría de protección de datos para pymes desde Barcelona y Sant Fruitós de Bages.</p>
       </div>
       <div>
         <h4>Servicios</h4>
         <ul>
           <li><a href="proteccion-de-datos.html">Protección de datos</a></li>
-          <li><a href="formacion.html">Formación bonificada</a></li>
           <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
           <li><a href="videovigilancia.html">Videovigilancia</a></li>
           <li><a href="blanqueo-de-capitales.html">Prevención del blanqueo</a></li>
@@ -103,7 +101,7 @@ PIE = '''<footer class="pie">
         <h4>Contacto</h4>
         <address>
           <a href="tel:+34900929806">900 929 806</a><br>
-          <a href="mailto:info@allins4b.com">info@allins4b.com</a><br><br>
+          <a href="mailto:info@eudapro.es">info@eudapro.es</a><br><br>
           Oficina de atención<br>
           C/ Irlanda, 7 — 08030 Barcelona<br><br>
           Domicilio social<br>
@@ -162,7 +160,7 @@ def portada(migas, kicker, h1, lede, icono='', acciones=True):
     if acciones:
         botones = '''
           <div class="paso__cta mt-m">
-            <a class="btn btn--pri" href="contacto.html">Solicitar auditoría</a>
+            <a class="btn btn--pri" href="contacto.html">Contáctanos</a>
             <a class="btn btn--sec btn--tel" href="tel:+34900929806">900 929 806</a>
           </div>'''
     return '''  <section class="portada">
@@ -190,7 +188,7 @@ CTA_FINAL = '''  <section class="bloque">
           <p>%s</p>
         </div>
         <div class="cta-banda__acciones">
-          <a class="btn btn--pri" href="contacto.html">Solicitar auditoría</a>
+          <a class="btn btn--pri" href="contacto.html">Contáctanos</a>
           <a class="btn btn--sec btn--tel" href="tel:+34900929806">900 929 806</a>
         </div>
       </div>
@@ -225,12 +223,6 @@ ICO_RED = '''<svg class="portada__icono" viewBox="0 0 130 130" fill="none" aria-
           <circle cx="24" cy="82" r="6" fill="#007db3"/>
           <circle cx="106" cy="82" r="6" fill="#007db3"/>
           <circle cx="65" cy="108" r="7" fill="#ffffff"/>
-        </svg>'''
-
-ICO_LIBRO = '''<svg class="portada__icono" viewBox="0 0 130 120" fill="none" aria-hidden="true">
-          <path d="M65 34 12 52l53 18 53-18-53-18z" fill="rgba(0,125,179,.16)" stroke="#007db3" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M30 62v26c0 8 16 14 35 14s35-6 35-14V62" stroke="rgba(255,255,255,.5)" stroke-width="1.6"/>
-          <path d="M112 56v26" stroke="#4498e7" stroke-width="2.4" stroke-linecap="round"/>
         </svg>'''
 
 ICO_LLAVE = '''<svg class="portada__icono" viewBox="0 0 120 130" fill="none" aria-hidden="true">
@@ -454,8 +446,7 @@ video = portada(
       </div>
     </div>
   </section>
-''' + CTA_FINAL % ('¿Tus cámaras están en regla?',
-                   'Revisamos la instalación, los carteles, los plazos y quién tiene acceso a las grabaciones.')
+'''
 
 # --------------------------------------------------------------------------
 # BLANQUEO DE CAPITALES
@@ -528,93 +519,6 @@ blanqueo = portada(
                    'Empezamos por el análisis previo y te decimos qué modalidad te corresponde.')
 
 # --------------------------------------------------------------------------
-# FORMACIÓN
-# --------------------------------------------------------------------------
-
-formacion = portada(
-    '<a href="index.html">Inicio</a> / Servicios / Formación bonificada',
-    'Servicio', 'Formación bonificada',
-    'Cursos online financiados con los créditos de FUNDAE que tu empresa ya tiene asignados. Con materiales propios, guías didácticas y catálogo abierto y también <em>in company</em>.',
-    ICO_LIBRO) + '''
-  <section class="bloque">
-    <div class="wrap">
-      <div class="aviso aviso--violeta" data-aparece>
-        <p><strong>La formación en protección de datos es una obligación legal, no un extra.</strong> Si tu equipo trata datos personales, tiene que estar formado para hacerlo. Y si la formación es bonificada, el coste efectivo para la empresa suele ser cero.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque" style="padding-top:0">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Catálogo</span>
-        <h2>Cursos que impartimos</h2>
-      </div>
-      <div class="rejilla rejilla--3">
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">40 horas · online</div><h3>RGPD</h3><p>El reglamento aplicado al día a día de la empresa: qué son datos personales, qué se puede hacer con ellos y qué no.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">60 horas · online</div><h3>RGPD ampliado</h3><p>La versión larga, para quien lleva la responsabilidad del cumplimiento dentro de la organización.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">Online</div><h3>Ciberseguridad laboral y personal</h3><p>Contraseñas, correo, dispositivos, teletrabajo y las estafas que llegan por email a cualquier empresa.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">60 horas · online</div><h3>Prevención del blanqueo de capitales</h3><p>Obligaciones de los sujetos obligados, señales de alerta y procedimientos internos.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">Restauración</div><h3>Manipulación de alimentos y alérgenos</h3><p>El curso que piden los gremios de restauración y hostelería, junto con la adaptación al RGPD.</p></div>
-        <div class="tarjeta tarjeta--destacada" data-aparece><div class="tarjeta__num">A medida</div><h3><em>In company</em></h3><p>El mismo contenido adaptado a tu sector, con los ejemplos y los procedimientos de tu empresa.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Descargables</span>
-        <h2>Los catálogos, en PDF</h2>
-      </div>
-      <div class="rejilla rejilla--2" style="align-items:center; gap:clamp(28px,4vw,60px)">
-        <a class="tarjeta" href="assets/doc/catalogos/Catalogoeuda2025-1.pdf" data-aparece style="flex-direction:row; gap:24px; align-items:center">
-          <img src="assets/img/contenido/catalogo-eudapro-2025.jpg" alt="Portada del catálogo de formación Eudapro 2025" loading="lazy" style="width:120px; border-radius:8px; flex:none">
-          <span>
-            <h3>Catálogo de formación 2025</h3>
-            <p>El catálogo actual, con la relación de cursos, horas y modalidades.</p>
-            <span class="enlace-flecha" style="margin-top:12px; display:inline-flex">Descargar PDF</span>
-          </span>
-        </a>
-        <a class="tarjeta" href="assets/doc/catalogos/CATALOGO-CURSOS.pdf" data-aparece style="flex-direction:row; gap:24px; align-items:center">
-          <img src="assets/img/contenido/catalogo-cursos.png" alt="Portada del catálogo de cursos" loading="lazy" style="width:120px; border-radius:8px; flex:none">
-          <span>
-            <h3>Catálogo de cursos</h3>
-            <p>Fichas por curso: objetivos, contenidos y a quién va dirigido.</p>
-            <span class="enlace-flecha" style="margin-top:12px; display:inline-flex">Descargar PDF</span>
-          </span>
-        </a>
-      </div>
-      <p class="mt-l" data-aparece><a class="enlace-flecha" href="recursos.html">Ver también las guías didácticas de cada curso</a></p>
-    </div>
-  </section>
-
-  <section class="bloque">
-    <div class="wrap wrap--slim">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Cómo funciona la bonificación</span>
-        <h2>De dónde sale el dinero</h2>
-      </div>
-      <div class="acordeon" data-aparece>
-        <details open>
-          <summary>¿Qué significa que la formación es bonificada?</summary>
-          <div class="acordeon__cuerpo"><p>Que se financia a través del crédito de formación que tu empresa ya tiene asignado en FUNDAE por cotizar. No es una subvención que haya que pedir: es un crédito que se pierde si no se usa.</p></div>
-        </details>
-        <details>
-          <summary>¿Qué tengo que hacer yo?</summary>
-          <div class="acordeon__cuerpo"><p>Decidir qué curso y quién lo hace. Del resto (alta del grupo, documentación y justificación) nos ocupamos nosotros, como del back office de la adaptación.</p></div>
-        </details>
-        <details>
-          <summary>¿Vale también para una empresa pequeña?</summary>
-          <div class="acordeon__cuerpo"><p>Sí. El crédito existe desde el primer trabajador; lo que cambia es la cuantía. Consúltanos y lo miramos antes de que empieces.</p></div>
-        </details>
-      </div>
-    </div>
-  </section>
-''' + CTA_FINAL % ('¿Formamos a tu equipo este trimestre?',
-                   'Dinos cuántas personas sois y a qué os dedicáis, y te decimos qué curso encaja y qué crédito tienes.')
-
-# --------------------------------------------------------------------------
 # COLECTIVOS
 # --------------------------------------------------------------------------
 
@@ -629,19 +533,15 @@ colectivos = portada(
         <div data-aparece>
           <span class="kicker">Desde 2016</span>
           <h2>Gremi de Restauració de Barcelona</h2>
-          <p>Desde 2016 ofrecemos, junto al Gremi de Restauració de Barcelona, un servicio integral en protección de datos. Con esta oferta los agremiados quedan adecuados al RGPD y, a la vez, reciben formación en protección de datos y en manipulación de alimentos y alérgenos.</p>
+          <p>Desde 2016 ofrecemos, junto al Gremi de Restauració de Barcelona, un servicio integral en protección de datos. Con esta oferta los agremiados quedan adecuados al RGPD.</p>
           <p>Eudapro figura en la Guía de Proveedores del Gremi.</p>
           <div class="paso__cta">
             <a class="btn btn--pri" href="contacto.html">Soy agremiado</a>
-            <a class="btn btn--sec" href="assets/img/gremios/Flyer-Promo-Gremi.jpg" target="_blank" rel="noopener">Ver la promoción</a>
           </div>
         </div>
-        <div data-aparece style="display:grid; gap:16px">
+        <div data-aparece>
           <div style="border:1px solid var(--line); border-radius:16px; padding:24px; background:var(--card)">
             <img src="assets/img/gremios/gremi-web.png" alt="Gremi de Restauració de Barcelona" loading="lazy">
-          </div>
-          <div style="border:1px solid var(--line); border-radius:16px; padding:20px; background:var(--card)">
-            <img src="assets/img/gremios/signatura-gremi.png" alt="Firma del convenio de colaboración con el Gremi de Restauració de Barcelona" loading="lazy">
           </div>
         </div>
       </div>
@@ -656,22 +556,22 @@ colectivos = portada(
       </div>
       <div class="rejilla rejilla--3">
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/gremi-alt-penedes.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/gremi-alt-penedes.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1); opacity:.85">
           <h3>Gremi Comarcal d'Hostaleria i Turisme de l'Alt Penedès</h3>
           <p>Convenio firmado con el gremio comarcal. Adaptación presencial, sin cuota de mantenimiento y con consultas y asesoría jurídica durante todo el año.</p>
         </div>
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/fhirt.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/fhirt.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1); opacity:.85">
           <h3>Federació Intercomarcal d'Hostaleria, Restauració i Turisme</h3>
           <p>Convenio con la federación y, por extensión, con los gremios que la integran.</p>
         </div>
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/cadena-88.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/cadena-88.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1); opacity:.85">
           <h3>Ehlis / Cadena 88</h3>
           <p>Promoción especial para los asociados de la red de ferreterías: servicio integral de RGPD con el que la empresa queda adecuada a la reglamentación europea.</p>
         </div>
         <div class="tarjeta" data-aparece>
-          <img src="assets/img/clientes/gremi-bages.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1) brightness(1.9); opacity:.75">
+          <img src="assets/img/clientes/gremi-bages.png" alt="" style="height:44px; width:auto; object-fit:contain; margin-bottom:18px; filter:grayscale(1); opacity:.85">
           <h3>Gremi d'Hostaleria i Turisme del Bages</h3>
           <p>Colaboración con el gremio comarcal del Bages, en la zona de Manresa y Sant Fruitós.</p>
         </div>
@@ -683,27 +583,6 @@ colectivos = portada(
           <h3>¿Representas a un colectivo?</h3>
           <p>Si eres gremio, federación, asociación o central de compras y quieres una promoción para tus asociados, hablemos. Preparamos la oferta y el material informativo.</p>
           <div class="tarjeta__pie"><a class="enlace-flecha" href="contacto.html">Proponer un convenio</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque">
-    <div class="wrap">
-      <div class="rejilla rejilla--2" style="gap:clamp(34px,5vw,70px); align-items:center">
-        <div class="lamina" data-aparece>
-          <img src="assets/img/contenido/guia-proveedores-gremi.png" alt="Guía de Proveedores del Gremi de Restauració de Barcelona" loading="lazy">
-        </div>
-        <div data-aparece>
-          <span class="kicker">Qué incluye la promoción</span>
-          <h2>Lo mismo que cualquier cliente, con condiciones de agremiado</h2>
-          <ul class="lista">
-            <li>Adaptación completa al RGPD y a la LOPDGDD, presencial.</li>
-            <li>Contratos y cláusulas personalizados para el negocio.</li>
-            <li>DPD incluido, sin coste extra.</li>
-            <li>Formación en protección de datos y, en restauración, en manipulación de alimentos y alérgenos.</li>
-            <li>Sin cuota de mantenimiento: consultas y asesoría jurídica todo el año.</li>
-          </ul>
         </div>
       </div>
     </div>
@@ -725,7 +604,7 @@ conocenos = portada(
       <div class="prosa" data-aparece>
         <span class="kicker">En primera persona</span>
         <h2>Por qué trabajamos así</h2>
-        <p>En All in Solutions for Business no creemos en los productos estándar, así como no hay personas estándar ni empresas que así lo sean. Nosotros solo trabajamos en un producto personalizado, a medida, para cubrir así todas las necesidades de nuestros clientes y crecer juntos, estando al día en todos los nuevos retos empresariales que se nos irán presentando. Bienvenidos: estamos aquí para ayudaros, vuestra confianza es nuestro mayor activo.</p>
+        <p>En Eudapro no creemos en los productos estándar, así como no hay personas estándar ni empresas que así lo sean. Nosotros solo trabajamos en un producto personalizado, a medida, para cubrir así todas las necesidades de nuestros clientes y crecer juntos, estando al día en todos los nuevos retos empresariales que se nos irán presentando. Bienvenidos: estamos aquí para ayudaros, vuestra confianza es nuestro mayor activo.</p>
         <p>Nos gusta trabajar a medida de nuestros clientes. Además de ofreceros nuestros servicios, lo haremos de modo que os resulte sencillo adaptaros a las novedades del nuevo reglamento. Por eso os daremos todos los contratos y cláusulas personalizados para vuestra empresa: de este modo podremos ocuparnos de todo el <em>back office</em> que esto genera y vosotros podréis seguir creciendo en vuestro sector sin preocuparos de nada más.</p>
         <p>Además, estamos formados para ofreceros el servicio de DPD (Delegado en Protección de Datos) sin que esto genere ningún gasto extra, evitando así cualquier sanción.</p>
         <p style="margin-top:2em"><strong>Isaac Higueras</strong><br><span style="font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ink-3)">DIRECTOR</span></p>
@@ -760,12 +639,9 @@ conocenos = portada(
           <dt>Oficina de atención</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
           <dt>Registro Mercantil</dt><dd>Santa Cruz de Tenerife, tomo 3396, folio 212, hoja TF-55772, inscripción primera</dd>
           <dt>Teléfono</dt><dd><a href="tel:+34900929806">900 929 806</a> (gratuito)</dd>
-          <dt>Correo</dt><dd><a href="mailto:info@allins4b.com">info@allins4b.com</a></dd>
+          <dt>Correo</dt><dd><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
           <dt>Dirección</dt><dd>Isaac Higueras, director</dd>
         </dl>
-        <div class="aviso" style="margin-top:2em">
-          <p><strong>Sobre el nombre.</strong> La empresa nació como All in Solutions for Business, S.L. — de ahí el dominio allins4b.com — y hoy es EUDAPRO, S.L. Los convenios firmados con los gremios y parte de los materiales antiguos llevan todavía el nombre anterior: es la misma empresa y el mismo equipo.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -797,13 +673,30 @@ def item(ruta_rel, titulo, sub):
         </a>''' % (ruta_rel, titulo, sub)
 
 
-def listar_boletines():
-    carpeta = os.path.join(RAIZ, 'assets', 'doc', 'boletines')
-    filas = []
-    for f in sorted(os.listdir(carpeta)):
-        if not f.lower().endswith('.pdf'):
+def pdfs(carpeta):
+    """Los PDF de una carpeta de assets/doc, con el nombre en NFC.
+
+    macOS devuelve los nombres en NFD (la tilde como carácter aparte) y el
+    servidor de GitHub Pages los guarda en NFC: si el enlace sale en NFD, en la
+    web publicada da 404. Se saltan también los ._ que crea macOS en discos
+    externos."""
+    ruta = os.path.join(RAIZ, 'assets', 'doc', carpeta)
+    if not os.path.isdir(ruta):
+        return []
+    out = []
+    for f in sorted(os.listdir(ruta)):
+        if f.startswith('.') or not f.lower().endswith('.pdf'):
             continue
+        out.append((unicodedata.normalize('NFC', f), os.path.join(ruta, f)))
+    return out
+
+
+def listar_boletines():
+    filas = []
+    for f, ruta in pdfs('boletines'):
         plano = sin_tildes(f)
+        if 'bolet' not in plano:
+            continue  # solo boletines: el resto de documentos va en su bloque
         mes = next((m for m in MESES if m in plano), None)
         anyo = re.search(r'20\d{2}', f)
         anyo = anyo.group(0) if anyo else ''
@@ -814,43 +707,27 @@ def listar_boletines():
         else:
             titulo = 'Boletín RGPD'
         orden = (anyo or '0000', '%02d' % (MESES.index(mes) + 1 if mes else 0))
-        filas.append((orden, item('assets/doc/boletines/' + f, titulo, kb(os.path.join(carpeta, f)))))
+        filas.append((orden, item('assets/doc/boletines/' + f, titulo, kb(ruta))))
     filas.sort(key=lambda x: x[0], reverse=True)
     return '\n'.join(f[1] for f in filas)
 
 
+# Septiembre de 2026: el cliente pide que no quede ningún documento con la marca
+# antigua. Las notas informativas, los catálogos,
+# las guías de los cursos y casi todos los boletines la llevan en la cabecera o en
+# el pie, así que se han sacado de la web a _retirados/ (no se publica). Cuando
+# Eudapro los pase con su marca, basta con volver a dejarlos en assets/doc/ y
+# añadirlos aquí.
 NOTAS = [
-    ('Nota-Infomativa-diciembre-2023.pdf', 'Control laboral mediante huella dactilar',
-     'Diciembre 2023 · qué dijo la AEPD sobre fichar con huella o reconocimiento facial'),
-    ('Nota-Infomativa-Uso-DNI.pdf', 'El criterio de la AEPD respecto al DNI',
-     'Septiembre 2024 · cuándo se puede pedir y fotocopiar el documento de identidad'),
-    ('Nota-Infomativa-cookies.pdf', 'La normativa de cookies',
-     'Abril 2024 · qué exige el banner y qué se considera consentimiento válido'),
-    ('Nota-Infomativa-registro-alojamientos-turisticos.pdf', 'Registro de datos en alojamientos turísticos',
-     'Mayo 2024 · el registro de viajeros y los datos que hay que comunicar'),
-    ('NOTA-INFOMATIVA-FORMACION-EN-PROTECCION-DE-DATOS-COMO-OBLICACION-LEGAL.pdf',
-     'La formación en protección de datos es una obligación legal',
-     'Enero 2024 · por qué formar al equipo no es opcional'),
-]
-
-GUIAS = [
-    ('GUIA-DIDACTICA-ALUMNO-ONLINE-RGPD-40-HORAS-2023.pdf', 'Guía didáctica — RGPD 40 horas', 'Curso online'),
-    ('GUIA-DIDACTICA-ALUMNO-ONLINE-RGPD-60-2023.pdf', 'Guía didáctica — RGPD 60 horas', 'Curso online'),
-    ('GUÍA-DIDÁCTICA-ALUMNO-ONLINE-UNIÓN-FORMATIVA-GESIDEA-RGPD-60..pdf', 'Guía didáctica — RGPD 60 horas (unión formativa)', 'Curso online'),
-    ('GUIA-DIDACTICA-ALUMNO-ONLINE-UNION-FORMATIVA-GESIDEA-BLANQUEO-60-2023.pdf', 'Guía didáctica — Blanqueo de capitales 60 horas', 'Curso online'),
-    ('GUIA-DIDACTICA-CURSO-CIBERSEGURIDAD-LABORAL-Y-PERSONAL-2023.pdf', 'Guía didáctica — Ciberseguridad laboral y personal', 'Curso online'),
-    ('GUIA-2024.pdf', 'Guía didáctica 2024', 'Curso online'),
-    ('GUIA-2024-IMPL.pdf', 'Guía didáctica 2024 — implantación', 'Curso online'),
-]
-
-CATALOGOS = [
-    ('Catalogoeuda2025-1.pdf', 'Catálogo de formación 2025', 'El catálogo vigente'),
-    ('CATALOGO-CURSOS.pdf', 'Catálogo de cursos', 'Fichas por curso'),
-    ('Catalogoallin2023.pdf', 'Catálogo de formación 2023', 'Archivo'),
+    ('info-derechos-llamadas-comerciales-no-solicitadas.pdf',
+     'Derecho a no recibir llamadas comerciales no solicitadas',
+     'Agencia Española de Protección de Datos · Ley 11/2022 General de Telecomunicaciones'),
 ]
 
 
 def bloque_descargas(titulo, kicker, intro, filas, alt=False):
+    if not filas:
+        return ''
     return '''  <section class="bloque%s">
     <div class="wrap">
       <div class="encabezado" data-aparece>
@@ -872,25 +749,21 @@ def filas_fijas(carpeta, lista):
     for archivo, titulo, sub in lista:
         ruta = os.path.join(base, archivo)
         if os.path.exists(ruta):
-            out.append(item('assets/doc/%s/%s' % (carpeta, archivo), titulo, '%s · %s' % (sub, kb(ruta))))
+            out.append(item('assets/doc/%s/%s' % (carpeta, unicodedata.normalize('NFC', archivo)), titulo, '%s · %s' % (sub, kb(ruta))))
     return '\n'.join(out)
 
 
 recursos = portada(
     '<a href="index.html">Inicio</a> / Recursos',
     'Biblioteca', 'Recursos y descargas',
-    'Boletines mensuales, notas informativas cuando cambia la norma, guías de los cursos y catálogos de formación. Todo en abierto, sin registro y sin dejar tu correo.',
+    'Boletines mensuales y notas informativas cuando cambia la norma. Todo en abierto, sin registro y sin dejar tu correo.',
     ICO_DOC, acciones=False) + \
-    bloque_descargas('Notas informativas', 'Avisos', 'Cuando cambia algo que afecta a nuestros clientes, lo escribimos y lo publicamos.',
-                     filas_fijas('notas', NOTAS)) + \
-    bloque_descargas('Catálogos de formación', 'Formación', 'Los cursos bonificables, sus horas y sus modalidades.',
-                     filas_fijas('catalogos', CATALOGOS), alt=True) + \
-    bloque_descargas('Guías didácticas de los cursos', 'Formación', 'Objetivos, contenidos y metodología de cada curso online.',
-                     filas_fijas('guias', GUIAS)) + \
     bloque_descargas('Boletines RGPD', 'Boletín mensual', 'El resumen de novedades en protección de datos, número a número.',
-                     listar_boletines(), alt=True) + \
+                     listar_boletines()) + \
+    bloque_descargas('Notas informativas', 'Avisos', 'Cuando cambia algo que afecta a nuestros clientes, lo publicamos aquí.',
+                     filas_fijas('notas', NOTAS), alt=True) + \
     CTA_FINAL % ('¿Te falta algún documento?',
-                 'Si buscas una nota concreta o quieres recibir el boletín cuando se retome, escríbenos.')
+                 'Si buscas una nota concreta o quieres recibir el boletín, escríbenos.')
 
 # --------------------------------------------------------------------------
 # CONTACTO
@@ -955,9 +828,9 @@ contacto = portada(
               <div class="tarjeta__num">Teléfono gratuito</div>
               <h3 style="margin:0">900 929 806</h3>
             </a>
-            <a class="tarjeta" href="mailto:info@allins4b.com">
+            <a class="tarjeta" href="mailto:info@eudapro.es">
               <div class="tarjeta__num">Correo</div>
-              <h3 style="margin:0">info@allins4b.com</h3>
+              <h3 style="margin:0">info@eudapro.es</h3>
             </a>
           </div>
 
@@ -1019,7 +892,7 @@ aviso_legal = legal('Legal', 'Aviso legal',
         <p>Para comunicarse con nosotros ponemos a su disposición los siguientes medios de contacto:</p>
         <ul>
           <li>Teléfono: <a href="tel:+34900929806">900 929 806</a></li>
-          <li>Correo electrónico: <a href="mailto:info@allins4b.com">info@allins4b.com</a></li>
+          <li>Correo electrónico: <a href="mailto:info@eudapro.es">info@eudapro.es</a></li>
         </ul>
         <p>Todas las notificaciones y comunicaciones entre los usuarios y EL PROPIETARIO DE LA WEB se considerarán eficaces, a todos los efectos, cuando se realicen a través de cualquiera de los medios detallados anteriormente.</p>
 
@@ -1070,43 +943,236 @@ aviso_legal = legal('Legal', 'Aviso legal',
         <p>La lengua utilizada será el castellano.</p>
 ''')
 
+# Texto literal de la política de la web antigua (allí iba en un acordeón de
+# WordPress). El cliente pide mantener el texto y cambiar solo el formato: un
+# desplegable por tratamiento. Únicos retoques: los correos antiguos pasan a
+# info@eudapro.es y se corrige la errata «AUDAPRO».
 privacidad = legal('Legal', 'Política de privacidad',
-                   'Cómo tratamos los datos personales que llegan a través de esta web.', '''
-        <p>En EUDAPRO, S.L. nos preocupamos por la privacidad y la transparencia.</p>
-        <p>A continuación le indicamos en detalle los tratamientos de datos personales que realizamos, así como toda la información relativa a los mismos, de acuerdo con lo establecido por el REGLAMENTO (UE) 2016/679, de 27 de abril de 2016, del Parlamento Europeo y del Consejo, relativo a la protección de las personas físicas en lo que respecta al tratamiento de sus datos personales, y por la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.</p>
+                   'Los tratamientos de datos personales que realiza EUDAPRO, S.L., por apartados.', '''
+        <p>En EUDAPRO, SL. nos preocupamos por la privacidad y la transparencia.</p>
+        <p>A continuación, le indicamos en detalle los tratamientos de datos personales que realizamos, así como toda la información relativa a los mismos, de acuerdo con lo establecido por el REGLAMENTO (UE) 2016/679, de 27 de abril de 2016 del Parlamento Europeo, y del Consejo relativo a la Protección de las personas físicas en lo que respecta al tratamiento de sus datos personales y por la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.</p>
 
-        <h2>Responsable del tratamiento</h2>
-        <dl>
-          <dt>Identidad</dt><dd>EUDAPRO, S.L. — CIF B75390377</dd>
-          <dt>Domicilio social</dt><dd>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages, Barcelona</dd>
-          <dt>Oficina de atención</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-          <dt>Teléfono</dt><dd><a href="tel:+34900929806">900 929 806</a></dd>
-          <dt>Correo electrónico</dt><dd><a href="mailto:info@allins4b.com">info@allins4b.com</a></dd>
-        </dl>
-
-        <h2>Tratamiento: contactos y potenciales clientes de la web</h2>
-        <h3>¿Con qué finalidad tratamos sus datos personales?</h3>
-        <p>Para gestionar la solicitud que nos hace llegar a través del formulario de contacto o del correo electrónico, y proporcionarle los servicios solicitados. Si nos da su consentimiento expreso, también para enviarle comunicaciones sobre nuestros productos y servicios, así como sobre otros contenidos que puedan interesarle.</p>
-        <h3>¿Cuál es la legitimación para el tratamiento de sus datos?</h3>
-        <p>El consentimiento del interesado, que se recoge de forma diferenciada: uno para poder atender la solicitud y otro, independiente y opcional, para recibir comunicaciones comerciales.</p>
-        <h3>¿Por cuánto tiempo conservaremos sus datos?</h3>
-        <p>Durante el tiempo necesario para atender su solicitud y, después, durante los plazos legalmente previstos para atender posibles responsabilidades. Si consintió recibir comunicaciones comerciales, hasta que solicite la baja.</p>
-        <h3>¿A qué destinatarios se comunicarán sus datos?</h3>
-        <p>No se comunican datos a terceros, salvo obligación legal. No están previstas transferencias de datos a terceros países.</p>
-
-        <h2>Tratamiento: videovigilancia</h2>
-        <p>El tratamiento de las imágenes captadas por los sistemas de videovigilancia se detalla en la <a href="videovigilancia.html">cláusula informativa de videovigilancia</a>: finalidad, plazo de conservación de 30 días, base legal, destinatarios y ejercicio de derechos.</p>
-
-        <h2>¿Cuáles son sus derechos cuando nos facilita sus datos?</h2>
-        <p>Cualquier persona tiene derecho a obtener confirmación sobre si estamos tratando, o no, datos personales que le conciernan.</p>
-        <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines para los que fueron recogidos. Igualmente tienen derecho a la portabilidad de sus datos.</p>
-        <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
-        <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso dejaremos de tratarlos, salvo por motivos legítimos imperiosos o el ejercicio o la defensa de posibles reclamaciones.</p>
-        <p>Puede ejercer sus derechos escribiendo a <a href="mailto:info@allins4b.com">info@allins4b.com</a> o por correo postal a la dirección del responsable, acreditando su identidad.</p>
-        <p>Si considera vulnerados sus derechos, especialmente cuando no haya obtenido satisfacción en su ejercicio, puede presentar una reclamación ante la Agencia Española de Protección de Datos a través de <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
-
-        <h2>Cookies</h2>
-        <p>El uso de cookies de este sitio se detalla en la <a href="politica-de-cookies.html">Política de Cookies</a>.</p>
+        <div class="acordeon acordeon--legal">
+          <details>
+            <summary>Tratamiento de los datos de clientes</summary>
+            <div class="acordeon__cuerpo">
+              <h3>Información básica sobre Protección de datos</h3>
+              <dl>
+                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
+                <dt>Finalidad</dt><dd>Prestar los servicios solicitados y enviar comunicaciones comerciales.</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Interés legítimo del Responsable.</dd>
+                <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria; Entidades financieras.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado</dd>
+              </dl>
+              <h3>Información completa sobre Protección de Datos</h3>
+              <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
+              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic, nº 105, 08272, Sant Fruitós de Bages, Barcelona<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
+              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
+              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión administrativa, contable y fiscal de los servicios solicitados, así como enviar comunicaciones comerciales sobre nuestros productos y servicios. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
+              <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
+              <p>Los datos se conservarán mientras el interesado no solicite su supresión, y en su caso, durante los años necesarios para cumplir con las obligaciones legales.</p>
+              <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
+              <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
+              <ul>
+                <li>Ejecución de un contrato: Gestión fiscal, contable y administrativa de clientes. (RGPD art. 6.1.b).</li>
+                <li>Interés legítimo del Responsable: Envío de comunicaciones comerciales incluso por vía electrónica. (RGPD Considerando 47, LSSICE art. 21.2).</li>
+              </ul>
+              <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
+              <p>Los datos se comunicarán a los siguientes destinatarios:</p>
+              <ul>
+                <li>Administración Tributaria, con la finalidad de cumplir con las obligaciones legales (requisito legal).</li>
+                <li>Entidades financieras, con la finalidad de girar los recibos correspondientes (requisito contractual).</li>
+              </ul>
+              <h4>6. Transferencias de datos a terceros países</h4>
+              <p>No están previstas transferencias de datos a terceros países.</p>
+              <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
+              <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
+              <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+              <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+              <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
+              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
+              <p>Las categorías de datos que se tratan son:</p>
+              <ul>
+                <li>Datos identificativos.</li>
+                <li>Direcciones postales y electrónicas.</li>
+                <li>Información comercial.</li>
+                <li>Datos económicos.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Tratamiento de los datos de potenciales clientes y contactos</summary>
+            <div class="acordeon__cuerpo">
+              <h3>Información básica sobre Protección de datos</h3>
+              <dl>
+                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
+                <dt>Finalidad</dt><dd>Atender su solicitud y enviarle comunicaciones comerciales</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Consentimiento del interesado.<br>Interés legítimo del Responsable.</dd>
+                <dt>Destinatarios</dt><dd>No se cederán datos a terceros, salvo obligación legal.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado.</dd>
+              </dl>
+              <h3>Información completa sobre Protección de Datos</h3>
+              <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
+              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic nº 105, 08272, Sant Fruitós de Bages, Barcelona.<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
+              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
+              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios, así como otros contactos comerciales y realizar, en su caso, el envío de comunicaciones comerciales inclusive por vía electrónica. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
+              <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
+              <p>Los datos se conservarán mientras el interesado no solicite su supresión.</p>
+              <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
+              <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
+              <ul>
+                <li>Ejecución de un contrato: Gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios. (RGPD, art. 6.1.b).</li>
+                <li>Consentimiento del interesado: Enviar comunicaciones comerciales, inclusive por vía electrónica. (RGPD, art. 6.1.a, LSSICE art.21).</li>
+                <li>Interés legítimo del Responsable: Gestión de los datos de contacto profesionales (LOPDGDD art.19, RGPD art. 6.1.f).</li>
+              </ul>
+              <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
+              <p>No se cederán datos a terceros, salvo obligación legal.</p>
+              <h4>6. Transferencias de datos a terceros países</h4>
+              <p>No están previstas transferencias de datos a terceros países.</p>
+              <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
+              <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
+              <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+              <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+              <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
+              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
+              <p>Las categorías de datos que se tratan son:</p>
+              <ul>
+                <li>Direcciones postales y electrónicas.</li>
+                <li>Información comercial.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Tratamiento de los datos de proveedores</summary>
+            <div class="acordeon__cuerpo">
+              <h3>Información básica sobre Protección de datos</h3>
+              <dl>
+                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
+                <dt>Finalidad</dt><dd>Gestionar la prestación de los servicios contratados.</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Interés legítimo del Responsable.</dd>
+                <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria; Entidades financieras.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado.</dd>
+              </dl>
+              <h3>Información completa sobre Protección de Datos</h3>
+              <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
+              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic nº 105, 08272, Sant Fruitós de Bages, Barcelona.<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
+              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
+              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión fiscal, contable y administrativa de proveedores así como los datos de contacto profesionales. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
+              <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
+              <p>Los datos se conservarán mientras el interesado no solicite su supresión, y en su caso, durante los años necesarios para cumplir con las obligaciones legales.</p>
+              <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
+              <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
+              <ul>
+                <li>Ejecución de un contrato: Realizar la gestión administrativa, contable y fiscal de los servicios contratados. (RGPD art. 6.1.b).</li>
+                <li>Interés legítimo del Responsable: Gestión de los datos de contacto profesionales. (LOPDGDD art.19, RGPD art. 6.1.f).</li>
+              </ul>
+              <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
+              <p>Los datos se comunicarán a los siguientes destinatarios:</p>
+              <ul>
+                <li>Administración Tributaria, con la finalidad de cumplir con las obligaciones legales (requisito legal).</li>
+                <li>Entidades financieras, con la finalidad de realizar los pagos correspondientes (requisito contractual).</li>
+              </ul>
+              <h4>6. Transferencias de datos a terceros países</h4>
+              <p>No están previstas transferencias de datos a terceros países.</p>
+              <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
+              <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
+              <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+              <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+              <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
+              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
+              <p>Las categorías de datos que se tratan son:</p>
+              <ul>
+                <li>Datos identificativos.</li>
+                <li>Direcciones postales y electrónicas.</li>
+                <li>Información comercial.</li>
+                <li>Datos económicos.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>Tratamiento de los datos del personal</summary>
+            <div class="acordeon__cuerpo">
+              <h3>Información básica sobre Protección de datos</h3>
+              <dl>
+                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
+                <dt>Finalidad</dt><dd>Gestionar la relación laboral.</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Cumplimiento de una obligación legal.</dd>
+                <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria, Seguridad Social y Mutua; Bancos y entidades financieras; Fundación estatal para la formación en el empleo (Fundae).</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado.</dd>
+              </dl>
+              <h3>Información completa sobre Protección de Datos</h3>
+              <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
+              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic nº 105, 08272, Sant Fruitós de Bages, Barcelona.<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
+              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
+              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de personal; formación; prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; accidentes laborales, en su caso. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
+              <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
+              <p>Mientras se mantenga la relación laboral con la entidad y durante los años necesarios para cumplir con las obligaciones legales.</p>
+              <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
+              <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
+              <ul>
+                <li>Ejecución de un contrato: Gestión de personal, formación y capacitación. (RGPD art.6.1.b).</li>
+                <li>Cumplimiento de una obligación legal: Prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; gestion de accidentes laborales, en su caso. (Ley 31/1995, de 8 de noviembre, de prevención de Riesgos Laborales; Real Decreto Legislativo 2/2015, de 23 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto de los Trabajadores; Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social; Real Decreto-ley 8/2019, de 8 de marzo, de medidas urgentes de protección social y de lucha contra la precariedad laboral en la jornada de trabajo; RGPD arts. 6.1.c y 9.2.b). Real Decreto 902/2020, de 13 de octubre, de igualdad retributiva entre mujeres y hombres.</li>
+              </ul>
+              <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
+              <p>Los datos se comunicarán a los siguientes destinatarios:</p>
+              <ul>
+                <li>Administración Tributaria, Seguridad Social y Mutua, con la finalidad de presentar los impuestos y las obligaciones relativas a seguros sociales (requisito legal).</li>
+                <li>Bancos y entidades financieras, con la finalidad de realizar el pago de las nóminas (requisito contractual).</li>
+                <li>Fundación estatal para la formación en el empleo (Fundae), con la finalidad de realizar la gestión de la bonificación a la formación de empleados (requisito contractual).</li>
+              </ul>
+              <h4>6. Transferencias de datos a terceros países</h4>
+              <p>No están previstas transferencias de datos a terceros países.</p>
+              <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
+              <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
+              <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+              <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+              <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
+              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
+              <p>Las categorías de datos que se tratan son:</p>
+              <ul>
+                <li>Datos identificativos.</li>
+                <li>Direcciones postales y electrónicas.</li>
+                <li>Datos económicos.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
 ''')
 
 cookies = legal('Legal', 'Política de cookies',
@@ -1158,7 +1224,7 @@ redes = legal('Legal', 'Política de redes sociales',
 
         <dl>
           <dt>Datos de EUDAPRO, S.L.</dt>
-          <dd>CIF B75390377<br>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages, Barcelona<br><a href="mailto:info@allins4b.com">info@allins4b.com</a></dd>
+          <dd>CIF B75390377<br>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
         </dl>
 
         <p>El usuario dispone de un perfil en la misma red social y ha decidido unirse a la página creada por EL PROPIETARIO DE LA WEB, mostrando así interés en la información que se publicite en la red. Al unirse a nuestra página, nos facilita su consentimiento para el tratamiento de aquellos datos personales publicados en su perfil.</p>
@@ -1202,16 +1268,14 @@ PAGINAS = [
      'Cámaras de seguridad conformes a la guía de la AEPD: cartel informativo, cláusula completa, conservación máxima de 30 días y atención de los derechos de las personas grabadas.', video),
     ('blanqueo-de-capitales.html', 'Prevención del blanqueo de capitales — Eudapro',
      'Adaptación a la Ley 10/2010 de Prevención del Blanqueo de Capitales: servicios LPBC Diligence y LPBC Integral, representante ante el SEPBLAC, política interna y auditoría anual.', blanqueo),
-    ('formacion.html', 'Formación bonificada — Eudapro',
-     'Cursos online de RGPD, ciberseguridad, blanqueo de capitales y manipulación de alimentos, bonificables con el crédito de FUNDAE. Catálogo y guías didácticas descargables.', formacion),
     ('colectivos.html', 'Colectivos con convenio — Eudapro',
      'Convenios con gremios, federaciones y asociaciones: Gremi de Restauració de Barcelona desde 2016, Alt Penedès, FIHRT, Bages, Anoia y Ehlis / Cadena 88.', colectivos),
     ('conocenos.html', 'Conócenos — Eudapro',
      'Quiénes somos y por qué trabajamos a medida, en persona y sin cuota de mantenimiento. Datos de la empresa EUDAPRO, S.L.', conocenos),
     ('recursos.html', 'Recursos y descargas — Eudapro',
-     'Boletines RGPD, notas informativas, guías didácticas y catálogos de formación en PDF, en abierto y sin registro.', recursos),
+     'Boletines RGPD y notas informativas en PDF, en abierto y sin registro.', recursos),
     ('contacto.html', 'Contacto — Eudapro',
-     'Teléfono gratuito 900 929 806, correo info@allins4b.com y formulario de contacto con doble consentimiento diferenciado.', contacto),
+     'Teléfono gratuito 900 929 806, correo info@eudapro.es y formulario de contacto con doble consentimiento diferenciado.', contacto),
     ('aviso-legal.html', 'Aviso legal — Eudapro', 'Aviso legal del sitio web de EUDAPRO, S.L.', aviso_legal),
     ('politica-de-privacidad.html', 'Política de privacidad — Eudapro', 'Política de privacidad de EUDAPRO, S.L.', privacidad),
     ('politica-de-cookies.html', 'Política de cookies — Eudapro', 'Política de cookies de EUDAPRO, S.L.', cookies),

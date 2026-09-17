@@ -2,3 +2,18 @@
 # material de trabajo interno: imágenes de referencia de terceros que Àlex
 # recopiló como inspiración. No se publican.
 referencias/
+
+# copias de macOS en discos externos
+._*
+
+# documentos e imágenes con la marca antigua o de formación: fuera de la web
+_retirados/
+
+# copias antiguas que la web ya no usa (llevan la marca y el correo anteriores):
+# que un "git add -A" no las publique
+/css/
+/js/
+assets/fonts/gf.css
+assets/fonts/fuentes.css
+assets/fonts/tDbv2o-*
+assets/fonts/va9I4k*
