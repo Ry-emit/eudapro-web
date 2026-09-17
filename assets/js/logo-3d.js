@@ -34,9 +34,10 @@ async function arrancar() {
 
   const M = materials();
   const logo = sampleGroupTagged(buildShape('logo', M), COUNT, 311);
-  const escudo = sampleGroup(buildShape('shield', M), COUNT, 100);
+  /* la figura siguiente de la portada: el candado de «Qué incluye» */
+  const candado = sampleGroup(buildShape('lock', M), COUNT, 107);
   const nodosLogo = NODOS ? sampleGroup(buildShape('logo', M), NODOS, 907) : null;
-  const nodosEscudo = NODOS ? sampleGroup(buildShape('shield', M), NODOS, 900) : null;
+  const nodosCandado = NODOS ? sampleGroup(buildShape('lock', M), NODOS, 913) : null;
 
   /* punto de partida: una nube suelta alrededor, para verla formarse */
   const suelta = new Float32Array(COUNT * 3);
@@ -165,8 +166,8 @@ async function arrancar() {
     lanzar([{ desde: suelta, hacia: logo.pos, nA: nodosLogo, nB: nodosLogo, dur: 2.8, estallido: 0.35 }]);
   }
   function transformar() {
-    const ida = { desde: logo.pos, hacia: escudo, nA: nodosLogo, nB: nodosEscudo, dur: MENOS_MOVIMIENTO ? 0.01 : 1.7, estallido: 1, pausa: 1.1 };
-    const vuelta = { desde: escudo, hacia: logo.pos, nA: nodosEscudo, nB: nodosLogo, dur: MENOS_MOVIMIENTO ? 0.01 : 1.7, estallido: 1 };
+    const ida = { desde: logo.pos, hacia: candado, nA: nodosLogo, nB: nodosCandado, dur: MENOS_MOVIMIENTO ? 0.01 : 1.7, estallido: 1, pausa: 1.1 };
+    const vuelta = { desde: candado, hacia: logo.pos, nA: nodosCandado, nB: nodosLogo, dur: MENOS_MOVIMIENTO ? 0.01 : 1.7, estallido: 1 };
     lanzar([ida, vuelta]);
   }
   btnTransformar?.addEventListener('click', transformar);
