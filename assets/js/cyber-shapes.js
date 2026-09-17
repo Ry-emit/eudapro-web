@@ -246,6 +246,73 @@ function key(M) {
   return g;
 }
 
+/* La «O» del logotipo de Eudapro (septiembre de 2026): un aro en media luna,
+   más grueso abajo a la izquierda, con un filo fino por fuera arriba a la
+   derecha, y dentro un escudo con la cerradura. La cerradura es un hueco de
+   verdad en la placa del escudo: en la nube se lee como espacio vacío.
+   Los nombres de las mallas empiezan por la pieza (aro_, filo_, marco_,
+   placa_) para poder colorear cada parte por separado. */
+function logo(M) {
+  const g = new THREE.Group(); g.name = 'logo';
+
+  const aro = new THREE.Shape();
+  aro.absarc(0, 0, 1.32, 0, Math.PI * 2, false);
+  const hueco = new THREE.Path();
+  hueco.absarc(0.13, 0.11, 1.05, 0, Math.PI * 2, true);
+  aro.holes.push(hueco);
+  const aroGeo = new THREE.ExtrudeGeometry(aro, { depth: 0.26, bevelEnabled: true, bevelSize: 0.04, bevelThickness: 0.05, bevelSegments: 3, curveSegments: 96 });
+  aroGeo.translate(0, 0, -0.13);
+  g.add(mesh(aroGeo, M.violet, 'aro'));
+
+  /* el filo claro que abraza el aro por arriba a la derecha */
+  const filo = new THREE.TorusGeometry(1.43, 0.034, 10, 120, 2.35);
+  filo.rotateZ(-0.95);
+  g.add(mesh(filo, M.amber, 'filo'));
+
+  const contorno = (k) => {
+    const s = new THREE.Shape();
+    s.moveTo(0, 0.70 * k);
+    s.quadraticCurveTo(0.30 * k, 0.55 * k, 0.62 * k, 0.56 * k);
+    s.lineTo(0.60 * k, 0.05 * k);
+    s.bezierCurveTo(0.58 * k, -0.40 * k, 0.30 * k, -0.66 * k, 0, -0.84 * k);
+    s.bezierCurveTo(-0.30 * k, -0.66 * k, -0.58 * k, -0.40 * k, -0.60 * k, 0.05 * k);
+    s.lineTo(-0.62 * k, 0.56 * k);
+    s.quadraticCurveTo(-0.30 * k, 0.55 * k, 0, 0.70 * k);
+    return s;
+  };
+  /* el escudo va centrado en el hueco, no en el aro, y ocupa lo mismo que en
+     el logotipo: algo más de la mitad del ancho de la O */
+  const DX = 0.07, DY = 0.08, ESC = 1.12;
+
+  const marco = contorno(1);
+  const dentro = new THREE.Path(contorno(0.84).getPoints(48));
+  marco.holes.push(dentro);
+  const marcoGeo = new THREE.ExtrudeGeometry(marco, { depth: 0.22, bevelEnabled: true, bevelSize: 0.025, bevelThickness: 0.03, bevelSegments: 2, curveSegments: 32 });
+  marcoGeo.scale(ESC, ESC, 1); marcoGeo.translate(DX, DY, -0.11);
+  g.add(mesh(marcoGeo, M.violet, 'marco'));
+
+  const placa = contorno(0.85);
+  const r = 0.155, cy = 0.13, ancho = 0.06;
+  const corte = Math.sqrt(r * r - ancho * ancho);
+  const cerradura = new THREE.Path();
+  cerradura.moveTo(-0.13, -0.38);
+  cerradura.lineTo(-ancho, cy - corte);
+  cerradura.absarc(0, cy, r, Math.atan2(-corte, -ancho) + Math.PI * 2, Math.atan2(-corte, ancho), true);
+  cerradura.lineTo(0.13, -0.38);
+  cerradura.lineTo(-0.13, -0.38);
+  placa.holes.push(cerradura);
+  const placaGeo = new THREE.ExtrudeGeometry(placa, { depth: 0.1, bevelEnabled: false, curveSegments: 40 });
+  placaGeo.scale(ESC, ESC, 1); placaGeo.translate(DX, DY, -0.05);
+  g.add(mesh(placaGeo, M.pearl, 'placa'));
+
+  /* y la cerradura, maciza y por delante de la placa, como en el logotipo */
+  const llave = new THREE.ExtrudeGeometry(new THREE.Shape(cerradura.getPoints(40)), { depth: 0.07, bevelEnabled: false });
+  llave.scale(ESC, ESC, 1); llave.translate(DX, DY, 0.05);
+  g.add(mesh(llave, M.graphite, 'cerradura'));
+
+  return g;
+}
+
 export const SHAPES = [
   { id: 'shield', label: 'Escudo', build: shield },
   { id: 'lock', label: 'Candado', build: lock },
@@ -255,7 +322,8 @@ export const SHAPES = [
   { id: 'brain', label: 'Cerebro', build: brain },
   { id: 'eye', label: 'Ojo', build: eye },
   { id: 'data_cube', label: 'Cubo de datos', build: dataCube },
-  { id: 'key', label: 'Llave', build: key }
+  { id: 'key', label: 'Llave', build: key },
+  { id: 'logo', label: 'Logotipo', build: logo }
 ];
 
 export function buildShape(id, M = materials()) {
@@ -267,13 +335,21 @@ export function buildShape(id, M = materials()) {
    normalizado a una esfera de radio `fit` y centrado: así todas las formas
    se transforman unas en otras de manera comparable. */
 export function sampleGroup(group, count, seed = 1, fit = 1.35) {
+  return sampleGroupTagged(group, count, seed, fit).pos;
+}
+
+/* Igual que sampleGroup, pero además dice de qué malla sale cada punto
+   (`tag` = índice en `names`), para poder colorear por piezas. */
+export function sampleGroupTagged(group, count, seed = 1, fit = 1.35) {
   group.updateMatrixWorld(true);
-  const tri = [], cum = [];
+  const tri = [], cum = [], triMesh = [], names = [];
   let total = 0;
   const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
   const ab = new THREE.Vector3(), ac = new THREE.Vector3(), cr = new THREE.Vector3();
   group.traverse(o => {
     if (!o.isMesh) return;
+    names.push(o.name);
+    const meshIdx = names.length - 1;
     const pos = o.geometry.attributes.position, idx = o.geometry.index, m = o.matrixWorld;
     const n = idx ? idx.count : pos.count;
     for (let i = 0; i + 2 < n; i += 3) {
@@ -287,10 +363,12 @@ export function sampleGroup(group, count, seed = 1, fit = 1.35) {
       total += area;
       tri.push(a.x, a.y, a.z, b.x, b.y, b.z, c.x, c.y, c.z);
       cum.push(total);
+      triMesh.push(meshIdx);
     }
   });
   const rnd = mulberry32(seed);
   const out = new Float32Array(count * 3);
+  const tag = new Uint8Array(count);
   let minX = Infinity, minY = Infinity, minZ = Infinity, maxX = -Infinity, maxY = -Infinity, maxZ = -Infinity;
   for (let i = 0; i < count; i++) {
     const r = rnd() * total;
@@ -304,6 +382,7 @@ export function sampleGroup(group, count, seed = 1, fit = 1.35) {
     const y = tri[o + 1] * w + tri[o + 4] * u + tri[o + 7] * v;
     const z = tri[o + 2] * w + tri[o + 5] * u + tri[o + 8] * v;
     out[i * 3] = x; out[i * 3 + 1] = y; out[i * 3 + 2] = z;
+    tag[i] = triMesh[lo];
     if (x < minX) minX = x; if (x > maxX) maxX = x;
     if (y < minY) minY = y; if (y > maxY) maxY = y;
     if (z < minZ) minZ = z; if (z > maxZ) maxZ = z;
@@ -316,5 +395,5 @@ export function sampleGroup(group, count, seed = 1, fit = 1.35) {
     out[i * 3 + 1] = (out[i * 3 + 1] - cy) * k;
     out[i * 3 + 2] = (out[i * 3 + 2] - cz) * k;
   }
-  return out;
+  return { pos: out, tag, names };
 }

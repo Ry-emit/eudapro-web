@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figura 3D del logotipo — Eudapro</title>
+<meta name="description" content="Propuesta: la O del logotipo de Eudapro, con el escudo y la cerradura, convertida en una figura 3D de partículas.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/fonts/marca.css">
+<style>
+  :root {
+    --bg: #ffffff; --ink: #10191f; --ink-2: #49585f; --ink-3: #5f6b72;
+    --azul: #007db3; --azul-3: #005e87; --line: rgba(16, 25, 31, .13);
+    --sans: 'Raleway', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --texto: 'Open Sans', system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--texto); -webkit-font-smoothing: antialiased; overflow: hidden; }
+  a { color: var(--azul); }
+  :focus-visible { outline: 2px solid var(--azul); outline-offset: 3px; border-radius: 6px; }
+
+  .barra {
+    position: fixed; inset: 0 0 auto 0; z-index: 5; height: 72px;
+    display: flex; align-items: center; gap: 18px; padding: 0 clamp(18px, 3vw, 44px);
+    background: rgba(255, 255, 255, .86); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+  }
+  .barra img { height: 26px; width: auto; display: block; }
+  .chip { font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; }
+  .barra .volver { margin-left: auto; font-size: 13px; text-decoration: none; border: 1px solid rgba(16, 25, 31, .24); color: var(--ink); border-radius: 999px; padding: 8px 16px; }
+  .barra .volver:hover { border-color: var(--azul); color: var(--azul-3); }
+
+  .escenario { position: fixed; inset: 72px 0 0 0; }
+  .brillo {
+    position: absolute; left: 0; top: 0; width: 60vmin; height: 60vmin; border-radius: 50%; opacity: 0;
+    background: radial-gradient(circle, rgba(0, 125, 179, .16), rgba(0, 168, 196, .06) 45%, transparent 70%);
+    filter: blur(40px); pointer-events: none; transition: opacity .9s ease; will-change: transform;
+  }
+  body.lista .brillo { opacity: 1; }
+  #nube { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; opacity: 0; transition: opacity .9s ease; }
+  #nube.agarrando { cursor: grabbing; }
+  body.lista #nube { opacity: 1; }
+
+  .nota {
+    position: fixed; z-index: 2; left: clamp(18px, 5vw, 80px); top: calc(50% + 36px); transform: translateY(-50%);
+    max-width: 400px; display: grid; gap: 16px; pointer-events: none;
+  }
+  .nota > * { margin: 0; }
+  .kicker { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--azul); font-weight: 600; }
+  .nota h1 { font-family: var(--sans); font-weight: 800; font-size: clamp(30px, 3.6vw, 48px); line-height: 1.02; letter-spacing: -.03em; text-wrap: balance; }
+  .nota p { color: var(--ink-2); font-size: 15.5px; line-height: 1.65; }
+  .nota .pista { font-size: 13px; color: var(--ink-3); }
+  .acciones { display: flex; flex-wrap: wrap; gap: 10px; pointer-events: auto; }
+  .btn {
+    font: 600 14.5px var(--sans); letter-spacing: -.01em; border-radius: 999px; padding: 12px 22px; cursor: pointer;
+    border: 1px solid transparent; transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn--pri { background: var(--azul); color: #fff; }
+  .btn--pri:hover { background: var(--azul-3); }
+  .btn--sec { background: #fff; color: var(--ink); border-color: rgba(16, 25, 31, .24); }
+  .btn--sec:hover { border-color: var(--azul); color: var(--azul-3); }
+
+  .respaldo { display: none; position: absolute; inset: 0; place-items: center; align-content: center; gap: 14px; text-align: center; padding: 24px; }
+  .respaldo img { width: min(420px, 80vw); height: auto; }
+  .respaldo p { color: var(--ink-3); font-size: 14px; margin: 0; }
+  body.sin-webgl .respaldo { display: grid; }
+  body.sin-webgl #nube, body.sin-webgl .nota .pista, body.sin-webgl .acciones { display: none; }
+
+  @media (max-width: 820px) {
+    body { overflow: auto; }
+    .barra { height: 60px; gap: 10px; }
+    .barra img { height: 20px; }
+    .chip { display: none; }
+    .escenario { position: relative; inset: auto; margin-top: 60px; height: 62svh; min-height: 360px; }
+    .nota { position: static; transform: none; max-width: none; padding: 8px 20px 36px; pointer-events: auto; }
+    body.sin-webgl .nota { padding-top: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { #nube { transition: none; } .btn { transition: none; } }
+</style>
+<script type="importmap">
+{ "imports": { "three": "./assets/js/three.module.js" } }
+</script>
+</head>
+<body>
+
+<header class="barra">
+  <a href="index.html" aria-label="Eudapro, inicio"><img src="assets/img/marca/eudapro-marca.webp" alt="Eudapro" width="523" height="96"></a>
+  <span class="chip">Propuesta · figura 3D del logotipo</span>
+  <a class="volver" href="index.html">Ver la web</a>
+</header>
+
+<main>
+<div class="escenario">
+  <div class="brillo" aria-hidden="true"></div>
+  <canvas id="nube" role="img" aria-label="Figura 3D de partículas con la O del logotipo de Eudapro: el aro, el escudo y la cerradura"></canvas>
+  <div class="respaldo">
+    <img src="assets/img/marca/eudapro-logo.webp" alt="Logotipo de Eudapro" width="637" height="196">
+    <p>Este navegador no puede mostrar gráficos 3D. Pruébalo desde Chrome, Safari, Edge o Firefox actualizados.</p>
+  </div>
+</div>
+  <section class="nota">
+    <p class="kicker">Figura 3D con partículas</p>
+    <h1>La O del logotipo, hecha de partículas</h1>
+    <p>El aro, el escudo y la cerradura del logotipo, construidos en tres dimensiones y dibujados con miles de puntos en los azules de la marca. Es el mismo sistema de las figuras de la portada, así que puede sumarse a ellas.</p>
+    <p class="pista">Pasa el ratón por encima para apartar las partículas y arrastra para girar la figura.</p>
+    <div class="acciones">
+      <button class="btn btn--pri" id="transformar" type="button">Ver la transformación</button>
+      <button class="btn btn--sec" id="rearmar" type="button">Volver a formar</button>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="assets/js/logo-3d.js"></script>
+</body>
+</html>
