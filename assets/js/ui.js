@@ -164,6 +164,31 @@
   var ENVIO = null; // p. ej. 'https://formularios.eudapro.com/contacto'
   var DESTINO = 'info@eudapro.es';
 
+  /* La web está en español y en inglés: los mensajes salen del idioma de la
+     página, para que no se mezclen los dos. */
+  var EN = (document.documentElement.lang || 'es').toLowerCase().indexOf('en') === 0;
+  var T = EN ? {
+    falta: 'To handle your request we need you to accept the processing of your data.',
+    enviando: 'Sending…',
+    enviado: 'Received. We will reply within 24 working hours.',
+    error: 'We could not send it. Call us on 900 929 806 or write to ',
+    nombre: 'Name: ', correo: 'E-mail: ', telefono: 'Phone: ', empresa: 'Company / association: ',
+    consentimiento: '— Consent to processing: yes',
+    comerciales: '— Marketing communications: ', si: 'yes', no: 'no',
+    asunto: 'Information request from the website',
+    mailto: 'Your e-mail program will open with the message already written. If it does not, write to us at '
+  } : {
+    falta: 'Para poder atender tu solicitud necesitamos que aceptes el tratamiento de tus datos.',
+    enviando: 'Enviando…',
+    enviado: 'Recibido. Te respondemos en menos de 24 h laborables.',
+    error: 'No hemos podido enviarlo. Llámanos al 900 929 806 o escribe a ',
+    nombre: 'Nombre: ', correo: 'Correo: ', telefono: 'Teléfono: ', empresa: 'Empresa / colectivo: ',
+    consentimiento: '— Consentimiento de tratamiento: sí',
+    comerciales: '— Comunicaciones comerciales: ', si: 'sí', no: 'no',
+    asunto: 'Solicitud de información desde la web',
+    mailto: 'Se abrirá tu programa de correo con el mensaje ya escrito. Si no ocurre, escríbenos a '
+  };
+
   document.querySelectorAll('form[data-contacto]').forEach(function (form) {
     var estado = form.querySelector('.form__estado');
     form.addEventListener('submit', function (e) {
@@ -171,39 +196,39 @@
       var d = new FormData(form);
       var tratamiento = form.querySelector('[name="consent-tratamiento"]');
       if (tratamiento && !tratamiento.checked) {
-        if (estado) estado.textContent = 'Para poder atender tu solicitud necesitamos que aceptes el tratamiento de tus datos.';
+        if (estado) estado.textContent = T.falta;
         tratamiento.focus();
         return;
       }
       if (ENVIO) {
-        if (estado) estado.textContent = 'Enviando…';
+        if (estado) estado.textContent = T.enviando;
         fetch(ENVIO, { method: 'POST', body: d })
           .then(function (r) {
             if (!r.ok) throw new Error(r.status);
             form.reset();
-            if (estado) estado.textContent = 'Recibido. Te respondemos en menos de 24 h laborables.';
+            if (estado) estado.textContent = T.enviado;
           })
           .catch(function () {
-            if (estado) estado.textContent = 'No hemos podido enviarlo. Llámanos al 900 929 806 o escribe a ' + DESTINO + '.';
+            if (estado) estado.textContent = T.error + DESTINO + '.';
           });
         return;
       }
       var cuerpo = [
-        'Nombre: ' + (d.get('nombre') || ''),
-        'Correo: ' + (d.get('correo') || ''),
-        'Teléfono: ' + (d.get('telefono') || ''),
-        'Empresa / colectivo: ' + (d.get('empresa') || ''),
+        T.nombre + (d.get('nombre') || ''),
+        T.correo + (d.get('correo') || ''),
+        T.telefono + (d.get('telefono') || ''),
+        T.empresa + (d.get('empresa') || ''),
         '',
         (d.get('mensaje') || ''),
         '',
-        '— Consentimiento de tratamiento: sí',
-        '— Comunicaciones comerciales: ' + (d.get('consent-comercial') ? 'sí' : 'no')
+        T.consentimiento,
+        T.comerciales + (d.get('consent-comercial') ? T.si : T.no)
       ].join('\n');
-      var asunto = d.get('asunto') || 'Solicitud de información desde la web';
+      var asunto = d.get('asunto') || T.asunto;
       window.location.href = 'mailto:' + DESTINO +
         '?subject=' + encodeURIComponent(asunto) +
         '&body=' + encodeURIComponent(cuerpo);
-      if (estado) estado.textContent = 'Se abrirá tu programa de correo con el mensaje ya escrito. Si no ocurre, escríbenos a ' + DESTINO + '.';
+      if (estado) estado.textContent = T.mailto + DESTINO + '.';
     });
   });
 })();

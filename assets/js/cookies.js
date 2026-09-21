@@ -25,6 +25,38 @@
   var CLAVE = 'eudapro:cookies';
   var VERSION = 1;
 
+  /* La web tiene versión en español y en inglés: los textos salen del idioma
+     de la página (<html lang>), y el enlace apunta a la política de cookies
+     que corresponde, que vive en la misma carpeta. */
+  var EN = (document.documentElement.lang || 'es').toLowerCase().indexOf('en') === 0;
+  var T = EN ? {
+    region: 'Cookie information',
+    aviso: 'We use first-party and third-party cookies for analytics purposes, to understand how the site is used. ' +
+           'You can accept them, reject them or choose which ones you accept. More information in our ',
+    politica: 'Cookies Policy', politicaHref: 'cookies-policy.html',
+    aceptar: 'Accept', rechazar: 'Reject', ajustes: 'Settings',
+    titulo: 'Cookie settings',
+    intro: 'Choose which cookies you accept on this website. You can change this whenever you like from the footer or from the Cookies Policy.',
+    tecnicas: 'Strictly necessary cookies', siempre: 'Always on',
+    tecnicasTxt: 'These are needed for the website to work and to remember your choice about cookies. They cannot be switched off.',
+    analisis: 'Analytics cookies', activar: 'Enable',
+    analisisTxt: 'Google Analytics. They tell us how many people visit the site and which pages they read, as statistics. If you reject them, the website works just the same.',
+    guardar: 'Save my choice', todas: 'Accept all', ninguna: 'Reject all'
+  } : {
+    region: 'Información sobre cookies',
+    aviso: 'Utilizamos cookies propias y de terceros con fines analíticos, para saber cómo se usa la web. ' +
+           'Puede aceptarlas, rechazarlas o elegir cuáles acepta. Más información en nuestra ',
+    politica: 'Política de Cookies', politicaHref: 'politica-de-cookies.html',
+    aceptar: 'Aceptar', rechazar: 'Rechazar', ajustes: 'Ajustes',
+    titulo: 'Configuración de cookies',
+    intro: 'Elija qué cookies acepta en esta web. Puede cambiarlo cuando quiera desde el pie de página o desde la Política de Cookies.',
+    tecnicas: 'Cookies técnicas', siempre: 'Siempre activas',
+    tecnicasTxt: 'Son las necesarias para que la web funcione y se recuerde su decisión sobre las cookies. No se pueden desactivar.',
+    analisis: 'Cookies de análisis', activar: 'Activar',
+    analisisTxt: 'Google Analytics. Nos dicen cuántas personas visitan la web y qué páginas leen, de forma estadística. Si las rechaza, la web funciona igual.',
+    guardar: 'Guardar mi elección', todas: 'Aceptar todas', ninguna: 'Rechazar todas'
+  };
+
   function leer() {
     try {
       var d = JSON.parse(localStorage.getItem(CLAVE));
@@ -82,16 +114,15 @@
     faldon = document.createElement('div');
     faldon.className = 'cookies';
     faldon.setAttribute('role', 'region');
-    faldon.setAttribute('aria-label', 'Información sobre cookies');
+    faldon.setAttribute('aria-label', T.region);
     faldon.innerHTML =
       '<div class="cookies__caja">' +
-        '<p class="cookies__txt">Utilizamos cookies propias y de terceros con fines analíticos, para saber cómo se usa la web. ' +
-        'Puede aceptarlas, rechazarlas o elegir cuáles acepta. Más información en nuestra ' +
-        '<a href="politica-de-cookies.html">Política de Cookies</a>.</p>' +
+        '<p class="cookies__txt">' + T.aviso +
+        '<a href="' + T.politicaHref + '">' + T.politica + '</a>.</p>' +
         '<div class="cookies__acciones">' +
-          '<button type="button" class="cookies__btn" data-cookies="aceptar">Aceptar</button>' +
-          '<button type="button" class="cookies__btn" data-cookies="rechazar">Rechazar</button>' +
-          '<button type="button" class="cookies__btn" data-cookies="ajustes">Ajustes</button>' +
+          '<button type="button" class="cookies__btn" data-cookies="aceptar">' + T.aceptar + '</button>' +
+          '<button type="button" class="cookies__btn" data-cookies="rechazar">' + T.rechazar + '</button>' +
+          '<button type="button" class="cookies__btn" data-cookies="ajustes">' + T.ajustes + '</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(faldon);
@@ -108,23 +139,23 @@
     panel.innerHTML =
       '<div class="cookies-panel__fondo" data-cookies="cerrar"></div>' +
       '<div class="cookies-panel__caja" role="dialog" aria-modal="true" aria-labelledby="cookies-titulo">' +
-        '<h2 id="cookies-titulo">Configuración de cookies</h2>' +
-        '<p>Elija qué cookies acepta en esta web. Puede cambiarlo cuando quiera desde el pie de página o desde la Política de Cookies.</p>' +
+        '<h2 id="cookies-titulo">' + T.titulo + '</h2>' +
+        '<p>' + T.intro + '</p>' +
         '<div class="cookies-grupo">' +
-          '<div class="cookies-grupo__cab"><b>Cookies técnicas</b><span class="cookies-fijo">Siempre activas</span></div>' +
-          '<p>Son las necesarias para que la web funcione y se recuerde su decisión sobre las cookies. No se pueden desactivar.</p>' +
+          '<div class="cookies-grupo__cab"><b>' + T.tecnicas + '</b><span class="cookies-fijo">' + T.siempre + '</span></div>' +
+          '<p>' + T.tecnicasTxt + '</p>' +
         '</div>' +
         '<div class="cookies-grupo">' +
-          '<div class="cookies-grupo__cab"><b>Cookies de análisis</b>' +
+          '<div class="cookies-grupo__cab"><b>' + T.analisis + '</b>' +
             '<label class="cookies-interruptor"><input type="checkbox" id="cookies-analitica"' + (analiticaActual ? ' checked' : '') + '>' +
-            '<span class="cookies-interruptor__pista" aria-hidden="true"></span><span class="cookies-interruptor__txt">Activar</span></label>' +
+            '<span class="cookies-interruptor__pista" aria-hidden="true"></span><span class="cookies-interruptor__txt">' + T.activar + '</span></label>' +
           '</div>' +
-          '<p>Google Analytics. Nos dicen cuántas personas visitan la web y qué páginas leen, de forma estadística. Si las rechaza, la web funciona igual.</p>' +
+          '<p>' + T.analisisTxt + '</p>' +
         '</div>' +
         '<div class="cookies-panel__acciones">' +
-          '<button type="button" class="cookies__btn" data-cookies="guardar">Guardar mi elección</button>' +
-          '<button type="button" class="cookies__btn" data-cookies="aceptar">Aceptar todas</button>' +
-          '<button type="button" class="cookies__btn" data-cookies="rechazar">Rechazar todas</button>' +
+          '<button type="button" class="cookies__btn" data-cookies="guardar">' + T.guardar + '</button>' +
+          '<button type="button" class="cookies__btn" data-cookies="aceptar">' + T.todas + '</button>' +
+          '<button type="button" class="cookies__btn" data-cookies="rechazar">' + T.ninguna + '</button>' +
         '</div>' +
       '</div>';
     document.body.appendChild(panel);

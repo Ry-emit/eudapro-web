@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Eudapro</title>
+<meta name="description" content="Freephone 900 929 806, e-mail info@eudapro.es and a contact form with separate consent options.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="alternate" hreflang="en" href="contact.html">
+<link rel="alternate" hreflang="es" href="../contacto.html">
+<link rel="alternate" hreflang="x-default" href="../contacto.html">
+<link rel="icon" href="../assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+<link rel="stylesheet" href="../assets/css/eudapro.css">
+</head>
+<body>
+
+<a class="saltar" href="#principal">Skip to content</a>
+<div class="progreso" aria-hidden="true"><i id="linea-progreso"></i></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="cabecera" id="cabecera">
+  <a class="marca" href="index.html" aria-label="Eudapro, home">
+    <img class="marca__logo" src="../assets/img/marca/eudapro-marca.webp" alt="Eudapro" width="523" height="96">
+  </a>
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="index.html">home</a>
+    <div class="desplegable" data-abierto="no">
+      <button class="desplegable__btn" type="button" aria-expanded="false">services</button>
+      <div class="desplegable__panel">
+        <a href="data-protection.html">Data protection <small>GDPR and LOPDGDD · DPO included</small></a>
+        <a href="cybersecurity.html">Cybersecurity <small>NIS Directive and penalties</small></a>
+        <a href="video-surveillance.html">Video surveillance <small>Cameras compliant with the AEPD</small></a>
+        <a href="money-laundering-prevention.html">Money laundering prevention <small>AML · Law 10/2010</small></a>
+      </div>
+    </div>
+    <a href="member-associations.html">associations</a>
+    <a href="resources.html">resources</a>
+    <a href="about-us.html">about us</a>
+  </nav>
+  <p class="idiomas" role="group" aria-label="Language">
+    <a href="../contacto.html" hreflang="es" lang="es">ES</a>
+    <span class="idiomas__on" aria-current="true">EN</span>
+  </p>
+  <a class="cabecera__cta" href="contact.html">Get in touch</a>
+  <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+</header>
+
+<main id="principal">
+  <section class="portada">
+    <div class="wrap">
+      <div class="portada__grid">
+        <div class="portada__txt">
+          <p class="migas"><a href="index.html">Home</a> / Contact</p>
+          <span class="kicker">Contact</span>
+          <h1>Let's talk</h1>
+          <p class="lede">Tell us what you do and what you already have in place. We will reply with what you are missing in order to comply, with no commitment.</p>
+        </div>
+        <svg class="portada__icono" viewBox="0 0 120 130" fill="none" aria-hidden="true">
+          <circle cx="60" cy="36" r="24" stroke="#007db3" stroke-width="3" fill="rgba(0,125,179,.1)"/>
+          <path d="M60 60v58" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+          <path d="M60 86h20M60 102h16" stroke="#007db3" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="60" cy="36" r="7" fill="#4498e7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloque">
+    <div class="wrap">
+      <div class="rejilla rejilla--2" style="gap:clamp(34px,5vw,70px); align-items:start">
+
+        <div data-aparece>
+          <span class="kicker">Form</span>
+          <h2>Write to us</h2>
+          <form class="form mt-m" data-contacto novalidate>
+            <div class="form__fila">
+              <label class="campo"><span>Your name <em>*</em></span>
+                <input type="text" name="nombre" maxlength="400" required autocomplete="name"></label>
+              <label class="campo"><span>Your e-mail <em>*</em></span>
+                <input type="email" name="correo" required autocomplete="email"></label>
+            </div>
+            <div class="form__fila">
+              <label class="campo"><span>Phone</span>
+                <input type="tel" name="telefono" autocomplete="tel"></label>
+              <label class="campo"><span>Company or association</span>
+                <input type="text" name="empresa" autocomplete="organization"></label>
+            </div>
+            <label class="campo"><span>Subject</span>
+              <input type="text" name="asunto"></label>
+            <label class="campo"><span>Your message</span>
+              <textarea name="mensaje" placeholder="What you do, what you already have in place and what worries you."></textarea></label>
+
+            <div class="consentimiento">
+              <p>EUDAPRO, S.L. is committed to protecting and respecting your privacy, and we will only use your personal information to handle your request and provide the services you ask for. From time to time we would like to contact you about our products and services, as well as other content that may be of interest to you. If you agree to us contacting you for this purpose, please tick the box below:</p>
+              <label class="check"><input type="checkbox" name="consent-comercial" value="si">
+                <span>I agree to receive other communications from EUDAPRO, S.L.</span></label>
+
+              <p>In order to handle your request, we need to store and process your personal data. If you agree to us storing your personal data for this purpose, please tick the box below.</p>
+              <label class="check"><input type="checkbox" name="consent-tratamiento" value="si" required>
+                <span>I agree to the processing of data of potential clients and web contacts (<a href="privacy-policy.html">+Info</a>). <em style="color:var(--amber); font-style:normal">*</em></span></label>
+
+              <p class="form__aviso">You can unsubscribe from these communications at any time. For more information on how to unsubscribe, on how we handle personal data and on our commitment to protecting and respecting your privacy, please read our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+            </div>
+
+            <div>
+              <button class="btn btn--pri" type="submit">Send</button>
+              <p class="form__estado" role="status" style="margin-top:14px"></p>
+            </div>
+          </form>
+        </div>
+
+        <div data-aparece>
+          <span class="kicker">Direct</span>
+          <h2>Or call us</h2>
+          <p>The phone number is free of charge. If you prefer e-mail, that works too.</p>
+
+          <div class="rejilla" style="gap:12px; margin-top:26px">
+            <a class="tarjeta" href="tel:+34900929806">
+              <div class="tarjeta__num">Freephone</div>
+              <h3 style="margin:0">900 929 806</h3>
+            </a>
+            <a class="tarjeta" href="mailto:info@eudapro.es">
+              <div class="tarjeta__num">E-mail</div>
+              <h3 style="margin:0">info@eudapro.es</h3>
+            </a>
+          </div>
+
+          <div class="prosa mt-l">
+            <h3>Where we are</h3>
+            <dl>
+              <dt>Office</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
+              <dt>Registered office</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
+              <dt>Registered name</dt><dd>EUDAPRO, S.L. — VAT no. B75390377</dd>
+            </dl>
+          </div>
+
+          <div class="aviso aviso--violeta mt-m">
+            <p><strong>We only ask for what we need.</strong> Your name and e-mail so we can reply; everything else is optional. This is what we do for a living: we are not going to do with your data what we tell our clients not to do.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie__grid">
+      <div>
+        <a class="marca pie__marca" href="index.html" aria-label="Eudapro, home">
+    <img class="marca__logo marca__logo--completo" src="../assets/img/marca/eudapro-logo.webp" alt="Eudapro, European Data Protect: data protection" width="637" height="196">
+        </a>
+        <p class="pie__nota">Data protection consultancy for small and medium-sized companies, from Barcelona and Manresa.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="data-protection.html">Data protection</a></li>
+          <li><a href="cybersecurity.html">Cybersecurity</a></li>
+          <li><a href="video-surveillance.html">Video surveillance</a></li>
+          <li><a href="money-laundering-prevention.html">Money laundering prevention</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about-us.html">About us</a></li>
+          <li><a href="member-associations.html">Trade associations</a></li>
+          <li><a href="resources.html">Resources and downloads</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <address>
+          <a href="tel:+34900929806">900 929 806</a><br>
+          <a href="mailto:info@eudapro.es">info@eudapro.es</a><br><br>
+          Office<br>
+          C/ Irlanda, 7 — 08030 Barcelona<br><br>
+          Registered office<br>
+          Plaça Fius i Palà, 1 — 08241 Manresa
+        </address>
+      </div>
+    </div>
+    <div class="pie__legal">
+      <span>© <span data-anyo>2026</span> EUDAPRO, S.L. — VAT no. B75390377</span>
+      <span>
+        <a href="legal-notice.html">Legal notice</a> ·
+        <a href="privacy-policy.html">Privacy</a> ·
+        <a href="cookies-policy.html">Cookies</a> ·
+        <a href="social-media-policy.html">Social media</a> ·
+        <a href="#" data-abrir-cookies>Cookie settings</a>
+      </span>
+      <span>Fonts served from this domain. Analytics cookies only with your consent.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/cookies.js"></script>
+</body>
+</html>

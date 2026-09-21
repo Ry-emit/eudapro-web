@@ -38,6 +38,31 @@ SERVICIOS = [
 
 SUELTAS = [('colectivos.html', 'colectivos'), ('recursos.html', 'recursos'), ('conocenos.html', 'conócenos')]
 
+# Cada página en español y su equivalente en inglés (carpeta en/).
+IDIOMAS = {
+    'index.html': 'en/index.html',
+    'proteccion-de-datos.html': 'en/data-protection.html',
+    'ciberseguridad.html': 'en/cybersecurity.html',
+    'videovigilancia.html': 'en/video-surveillance.html',
+    'blanqueo-de-capitales.html': 'en/money-laundering-prevention.html',
+    'colectivos.html': 'en/member-associations.html',
+    'recursos.html': 'en/resources.html',
+    'conocenos.html': 'en/about-us.html',
+    'contacto.html': 'en/contact.html',
+    'aviso-legal.html': 'en/legal-notice.html',
+    'politica-de-privacidad.html': 'en/privacy-policy.html',
+    'politica-de-cookies.html': 'en/cookies-policy.html',
+    'politica-redes-sociales.html': 'en/social-media-policy.html',
+}
+
+
+def selector_idioma(archivo):
+    """ES / EN en la cabecera, cada uno a su página equivalente."""
+    return '''  <p class="idiomas" role="group" aria-label="Idioma">
+    <span class="idiomas__on" aria-current="true">ES</span>
+    <a href="%s" hreflang="en" lang="en">EN</a>
+  </p>''' % IDIOMAS[archivo]
+
 
 def cabecera(archivo):
     servicios = '\n'.join(
@@ -65,9 +90,10 @@ def cabecera(archivo):
     </div>
 %s
   </nav>
+%s
   <a class="cabecera__cta" href="contacto.html">Contáctanos</a>
   <button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><span></span></button>
-</header>''' % (MARCA_CABECERA, servicios, sueltas)
+</header>''' % (MARCA_CABECERA, servicios, sueltas, selector_idioma(archivo))
 
 
 PIE = '''<footer class="pie">
@@ -118,7 +144,7 @@ PIE = '''<footer class="pie">
         <a href="politica-redes-sociales.html">Redes sociales</a> ·
         <a href="#" data-abrir-cookies>Configurar cookies</a>
       </span>
-      <span>Sin cookies de terceros. Fuentes servidas desde este dominio.</span>
+      <span>Fuentes servidas desde este dominio. Cookies de análisis solo con tu consentimiento.</span>
     </div>
   </div>
 </footer>''' % MARCA_PIE
@@ -133,6 +159,9 @@ def pagina(archivo, titulo, descripcion, cuerpo):
 <title>%s</title>
 <meta name="description" content="%s">
 <meta name="robots" content="noindex, nofollow">
+<link rel="alternate" hreflang="es" href="%s">
+<link rel="alternate" hreflang="en" href="%s">
+<link rel="alternate" hreflang="x-default" href="%s">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="stylesheet" href="assets/css/eudapro.css">
@@ -151,7 +180,7 @@ def pagina(archivo, titulo, descripcion, cuerpo):
 <script src="assets/js/cookies.js"></script>
 </body>
 </html>
-''' % (titulo, descripcion, cabecera(archivo), cuerpo, PIE)
+''' % (titulo, descripcion, archivo, IDIOMAS[archivo], archivo, cabecera(archivo), cuerpo, PIE)
     with open(os.path.join(RAIZ, archivo), 'w', encoding='utf-8') as f:
         f.write(html)
     print('  escrito  %s' % archivo)

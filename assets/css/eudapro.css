@@ -712,3 +712,15 @@ input::placeholder, textarea::placeholder { color: #574f74; }
   .cookies__acciones, .cookies-panel__acciones { width: 100%; }
   .cookies__btn { flex: 1 1 auto; }
 }
+
+/* ---------- selector de idioma ---------- */
+.idiomas { display: flex; align-items: center; gap: 4px; margin: 0; margin-left: auto; font-family: var(--mono); font-size: 12px; }
+.idiomas a, .idiomas__on { padding: 5px 9px; border-radius: 7px; line-height: 1; }
+.idiomas__on { color: var(--ink); background: rgba(0, 125, 179, .1); font-weight: 600; }
+.idiomas a { color: var(--ink-3); text-decoration: none; transition: color .2s ease, background .2s ease; }
+.idiomas a:hover { color: var(--azul-3); background: rgba(0, 125, 179, .07); }
+.cabecera__cta { margin-left: 14px; }
+@media (max-width: 940px) {
+  .cabecera__cta { margin-left: 0; }
+  .idiomas { margin-left: auto; margin-right: 6px; }
+}
