@@ -77,7 +77,7 @@ PIE = '''<footer class="pie">
         <a class="marca pie__marca" href="index.html" aria-label="Eudapro, inicio">
     %s
         </a>
-        <p class="pie__nota">Consultoría de protección de datos para pymes desde Barcelona y Sant Fruitós de Bages.</p>
+        <p class="pie__nota">Consultoría de protección de datos para pymes desde Barcelona y Manresa.</p>
       </div>
       <div>
         <h4>Servicios</h4>
@@ -105,7 +105,7 @@ PIE = '''<footer class="pie">
           Oficina de atención<br>
           C/ Irlanda, 7 — 08030 Barcelona<br><br>
           Domicilio social<br>
-          Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages
+          Plaça Fius i Palà, 1 — 08241 Manresa
         </address>
       </div>
     </div>
@@ -115,7 +115,8 @@ PIE = '''<footer class="pie">
         <a href="aviso-legal.html">Aviso legal</a> ·
         <a href="politica-de-privacidad.html">Privacidad</a> ·
         <a href="politica-de-cookies.html">Cookies</a> ·
-        <a href="politica-redes-sociales.html">Redes sociales</a>
+        <a href="politica-redes-sociales.html">Redes sociales</a> ·
+        <a href="#" data-abrir-cookies>Configurar cookies</a>
       </span>
       <span>Sin cookies de terceros. Fuentes servidas desde este dominio.</span>
     </div>
@@ -147,6 +148,7 @@ def pagina(archivo, titulo, descripcion, cuerpo):
 %s
 
 <script src="assets/js/ui.js"></script>
+<script src="assets/js/cookies.js"></script>
 </body>
 </html>
 ''' % (titulo, descripcion, cabecera(archivo), cuerpo, PIE)
@@ -597,7 +599,7 @@ colectivos = portada(
 conocenos = portada(
     '<a href="index.html">Inicio</a> / Conócenos',
     'Empresa', 'Conócenos',
-    'Somos una consultoría de protección de datos con base en Barcelona y en Sant Fruitós de Bages. Trabajamos sobre todo con pymes catalanas: restaurantes, ferreterías, clubes, colegios, clínicas y empresas familiares.',
+    'Somos una consultoría de protección de datos con base en Barcelona y en Manresa. Trabajamos sobre todo con pymes catalanas: restaurantes, ferreterías, clubes, colegios, clínicas y empresas familiares.',
     ICO_LLAVE, acciones=False) + '''
   <section class="bloque">
     <div class="wrap wrap--slim">
@@ -635,9 +637,9 @@ conocenos = portada(
           <dt>Razón social</dt><dd>EUDAPRO, S.L.</dd>
           <dt>Nombre comercial</dt><dd>Eudapro</dd>
           <dt>CIF</dt><dd>B75390377</dd>
-          <dt>Domicilio social</dt><dd>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages (Barcelona)</dd>
+          <dt>Domicilio social</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
           <dt>Oficina de atención</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-          <dt>Registro Mercantil</dt><dd>Santa Cruz de Tenerife, tomo 3396, folio 212, hoja TF-55772, inscripción primera</dd>
+          <dt>Registro Mercantil</dt><dd>Barcelona, folio 1, hoja B624236, inscripción 1</dd>
           <dt>Teléfono</dt><dd><a href="tel:+34900929806">900 929 806</a> (gratuito)</dd>
           <dt>Correo</dt><dd><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
           <dt>Dirección</dt><dd>Isaac Higueras, director</dd>
@@ -838,7 +840,7 @@ contacto = portada(
             <h3>Dónde estamos</h3>
             <dl>
               <dt>Oficina de atención</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-              <dt>Domicilio social</dt><dd>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages (Barcelona)</dd>
+              <dt>Domicilio social</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
               <dt>Razón social</dt><dd>EUDAPRO, S.L. — CIF B75390377</dd>
             </dl>
           </div>
@@ -870,87 +872,75 @@ def legal(kicker, h1, lede, prosa):
 ''' % prosa
 
 
+# Textos legales oficiales facilitados por Eudapro (septiembre de 2026):
+# aviso legal, política de privacidad, política de cookies y política de redes
+# sociales. El texto va literal; aquí solo se marca la estructura (encabezados,
+# listas, tablas y desplegables) y se enlazan correos y webs.
+
 aviso_legal = legal('Legal', 'Aviso legal',
                     'Condiciones de uso del sitio web de EUDAPRO, S.L.', '''
-        <h2>1. Objeto</h2>
-        <p>El presente aviso legal regula el uso y utilización del sitio web del que es titular <strong>EUDAPRO, S.L.</strong> (en adelante, EL PROPIETARIO DE LA WEB).</p>
-        <p>La navegación por el sitio web de EL PROPIETARIO DE LA WEB le atribuye la condición de USUARIO del mismo y conlleva su aceptación plena y sin reservas de todas y cada una de las condiciones publicadas en este aviso legal, advirtiendo de que dichas condiciones podrán ser modificadas sin notificación previa por parte de EL PROPIETARIO DE LA WEB, en cuyo caso se procederá a su publicación y aviso con la máxima antelación posible.</p>
+        <h2>Objeto</h2>
+        <p>El presente aviso legal regula el uso y utilización del sitio web <a href="https://www.eudapro.es" target="_blank" rel="noopener">www.eudapro.es</a>, del que es titular EUDAPRO, S.L. (en adelante, EUDAPRO).</p>
+        <p>La navegación por el sitio web de EUDAPRO le atribuye la condición de USUARIO de este y conlleva su aceptación plena y sin reservas de todas y cada una de las condiciones publicadas en este aviso legal, advirtiendo de que dichas condiciones podrán ser modificadas sin notificación previa por parte de EUDAPRO, en cuyo caso se procederá a su publicación y aviso con la máxima antelación posible.</p>
         <p>Por ello es recomendable leer atentamente su contenido en caso de desear acceder y hacer uso de la información y de los servicios ofrecidos desde este sitio web.</p>
-        <p>El usuario, además, se obliga a hacer un uso correcto del sitio web de conformidad con las leyes, la buena fe, el orden público, los usos del tráfico y el presente aviso legal, y responderá frente a EL PROPIETARIO DE LA WEB o frente a terceros de cualesquiera daños y perjuicios que pudieran causarse como consecuencia del incumplimiento de dicha obligación.</p>
-        <p>Cualquier utilización distinta a la autorizada está expresamente prohibida, pudiendo EL PROPIETARIO DE LA WEB denegar o retirar el acceso y su uso en cualquier momento.</p>
-
-        <h2>2. Identificación</h2>
-        <p>EL PROPIETARIO DE LA WEB, en cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, le informa de que:</p>
-        <dl>
-          <dt>Denominación social</dt><dd>EUDAPRO, S.L.</dd>
-          <dt>CIF</dt><dd>B75390377</dd>
-          <dt>Domicilio social</dt><dd>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages, Barcelona</dd>
-          <dt>Registro Mercantil</dt><dd>Santa Cruz de Tenerife, tomo 3396, folio 212, hoja TF-55772, inscripción primera</dd>
-        </dl>
-
-        <h2>3. Comunicaciones</h2>
-        <p>Para comunicarse con nosotros ponemos a su disposición los siguientes medios de contacto:</p>
+        <p>El usuario, además, se obliga a hacer un uso correcto del sitio web de conformidad con las leyes, la buena fe, el orden público, los usos del tráfico y el presente Aviso Legal, y responderá frente a EUDAPRO o frente a terceros, de cualesquiera daños y perjuicios que pudieran causarse como consecuencia del incumplimiento de dicha obligación.</p>
+        <p>Cualquier utilización distinta a la autorizada está expresamente prohibida, pudiendo EUDAPRO denegar o retirar el acceso y su uso en cualquier momento.</p>
+        <h2>Identificación</h2>
+        <p>EUDAPRO, en cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, le informa de que:</p>
         <ul>
-          <li>Teléfono: <a href="tel:+34900929806">900 929 806</a></li>
-          <li>Correo electrónico: <a href="mailto:info@eudapro.es">info@eudapro.es</a></li>
+          <li>Su denominación social es: EUDAPRO, S.L.</li>
+          <li>Su CIF es: B75390377</li>
+          <li>Su domicilio social está en: Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA</li>
+          <li>Registro Mercantil de Barcelona, Folio 1, Hoja B624236, Inscripción 1.</li>
         </ul>
-        <p>Todas las notificaciones y comunicaciones entre los usuarios y EL PROPIETARIO DE LA WEB se considerarán eficaces, a todos los efectos, cuando se realicen a través de cualquiera de los medios detallados anteriormente.</p>
-
-        <h2>4. Condiciones de acceso y utilización</h2>
-        <p>El sitio web y sus servicios son de acceso libre y gratuito. No obstante, EL PROPIETARIO DE LA WEB puede condicionar la utilización de algunos de los servicios ofrecidos en su web a la previa cumplimentación del correspondiente formulario.</p>
-        <p>El usuario garantiza la autenticidad y actualidad de todos aquellos datos que comunique a EL PROPIETARIO DE LA WEB y será el único responsable de las manifestaciones falsas o inexactas que realice.</p>
-        <p>El usuario se compromete expresamente a hacer un uso adecuado de los contenidos y servicios de EL PROPIETARIO DE LA WEB y a no emplearlos para, entre otros:</p>
-        <ol>
+        <h2>Comunicaciones</h2>
+        <p>Para comunicarse con nosotros, ponemos a su disposición diferentes medios de contacto que detallamos a continuación:</p>
+        <ul>
+          <li>Tfno.: 900929806</li>
+          <li>Email: <a href="mailto:info@eudapro.es">info@eudapro.es</a></li>
+        </ul>
+        <p>Todas las notificaciones y comunicaciones entre los usuarios y EUDAPRO se considerarán eficaces, a todos los efectos, cuando se realicen a través de cualquier medio de los detallados anteriormente.</p>
+        <h2>Condiciones de acceso y utilización</h2>
+        <p>El sitio web y sus servicios son de acceso libre y gratuito. No obstante, EUDAPRO puede condicionar la utilización de algunos de los servicios ofrecidos en su web a la previa cumplimentación del correspondiente formulario.</p>
+        <p>El usuario garantiza la autenticidad y actualidad de todos aquellos datos que comunique a EUDAPRO y será el único responsable de las manifestaciones falsas o inexactas que realice.</p>
+        <p>El usuario se compromete expresamente a hacer un uso adecuado de los contenidos y servicios de EUDAPRO y a no emplearlos para, entre otros:</p>
+        <ul>
           <li>Difundir contenidos delictivos, violentos, pornográficos, racistas, xenófobos, ofensivos, de apología del terrorismo o, en general, contrarios a la ley o al orden público.</li>
-          <li>Introducir en la red virus informáticos o realizar actuaciones susceptibles de alterar, estropear, interrumpir o generar errores o daños en los documentos electrónicos, datos o sistemas físicos y lógicos de EL PROPIETARIO DE LA WEB o de terceras personas; así como obstaculizar el acceso de otros usuarios al sitio web y a sus servicios mediante el consumo masivo de los recursos informáticos a través de los cuales EL PROPIETARIO DE LA WEB presta sus servicios.</li>
-          <li>Intentar acceder a las cuentas de correo electrónico de otros usuarios o a áreas restringidas de los sistemas informáticos de EL PROPIETARIO DE LA WEB o de terceros y, en su caso, extraer información.</li>
-          <li>Vulnerar los derechos de propiedad intelectual o industrial, así como violar la confidencialidad de la información de EL PROPIETARIO DE LA WEB o de terceros.</li>
+          <li>Introducir en la red virus informáticos o realizar actuaciones susceptibles de alterar, estropear, interrumpir o generar errores o daños en los documentos electrónicos, datos o sistemas físicos y lógicos de EUDAPRO o de terceras personas; así como obstaculizar el acceso de otros usuarios al sitio web y a sus servicios mediante el consumo masivo de los recursos informáticos a través de los cuales EUDAPRO presta sus servicios.</li>
+          <li>Intentar acceder a las cuentas de correo electrónico de otros usuarios o a áreas restringidas de los sistemas informáticos de EUDAPRO o de terceros y, en su caso, extraer información.</li>
+          <li>Vulnerar los derechos de propiedad intelectual o industrial, así como violar la confidencialidad de la información de EUDAPRO o de terceros.</li>
           <li>Suplantar la identidad de cualquier otro usuario.</li>
           <li>Reproducir, copiar, distribuir, poner a disposición de, o cualquier otra forma de comunicación pública, transformar o modificar los contenidos, a menos que se cuente con la autorización del titular de los correspondientes derechos o ello resulte legalmente permitido.</li>
-          <li>Recabar datos con finalidad publicitaria y remitir publicidad de cualquier clase y comunicaciones con fines de venta u otras de naturaleza comercial sin que medie su previa solicitud o consentimiento.</li>
-        </ol>
-        <p>Todos los contenidos del sitio web, como textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a EL PROPIETARIO DE LA WEB, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos más allá de lo estrictamente necesario para el correcto uso de la web.</p>
-        <p>En definitiva, los usuarios que accedan a este sitio web pueden visualizar los contenidos y efectuar, en su caso, copias privadas autorizadas siempre que los elementos reproducidos no sean cedidos posteriormente a terceros, ni se instalen en servidores conectados a redes, ni sean objeto de ningún tipo de explotación.</p>
-        <p>Asimismo, todas las marcas, nombres comerciales o signos distintivos de cualquier clase que aparecen en el sitio web son propiedad de EL PROPIETARIO DE LA WEB, sin que pueda entenderse que el uso o acceso al mismo atribuya al usuario derecho alguno sobre los mismos.</p>
+          <li>Recabar datos con finalidad publicitaria y de remitir publicidad de cualquier clase y comunicaciones con fines de venta u otras de naturaleza comercial sin que medie su previa solicitud o consentimiento.</li>
+        </ul>
+        <p>Todos los contenidos del sitio web, como textos, fotografías, gráficos, imágenes, iconos, tecnología, software, así como su diseño gráfico y códigos fuente, constituyen una obra cuya propiedad pertenece a EUDAPRO, sin que puedan entenderse cedidos al usuario ninguno de los derechos de explotación sobre los mismos más allá de lo estrictamente necesario para el correcto uso de la web.</p>
+        <p>En definitiva, los usuarios que accedan a este sitio web pueden visualizar los contenidos y efectuar, en su caso, copias privadas autorizadas siempre que los elementos reproducidos no sean cedidos posteriormente a terceros, ni se instalen a servidores conectados a redes, ni sean objeto de ningún tipo de explotación.</p>
+        <p>Asimismo, todas las marcas, nombres comerciales o signos distintivos de cualquier clase que aparecen en el sitio web son propiedad de EUDAPRO, sin que pueda entenderse que el uso o acceso al mismo atribuya al usuario derecho alguno sobre los mismos.</p>
         <p>La distribución, modificación, cesión o comunicación pública de los contenidos y cualquier otro acto que no haya sido expresamente autorizado por el titular de los derechos de explotación quedan prohibidos.</p>
-        <p>El establecimiento de un hiperenlace no implica en ningún caso la existencia de relaciones entre EL PROPIETARIO DE LA WEB y el propietario del sitio web en la que se establezca, ni la aceptación y aprobación por parte de EL PROPIETARIO DE LA WEB de sus contenidos o servicios.</p>
-        <p>EL PROPIETARIO DE LA WEB no se responsabiliza del uso que cada usuario dé a los materiales puestos a disposición en este sitio web ni de las actuaciones que realice en base a los mismos.</p>
-
-        <h3>4.1. Exclusión de garantías y de responsabilidad en el acceso y la utilización</h3>
+        <p>El establecimiento de un hiperenlace no implica en ningún caso la existencia de relaciones entre EUDAPRO y el propietario del sitio web en la que se establezca, ni la aceptación y aprobación por parte de EUDAPRO de sus contenidos o servicios.</p>
+        <p>EUDAPRO no se responsabiliza del uso que cada usuario les dé a los materiales puestos a disposición en este sitio web ni de las actuaciones que realice en base a los mismos.</p>
+        <h2>Exclusión de garantías y de responsabilidad en el acceso y la utilización</h2>
         <p>El contenido del presente sitio web es de carácter general y tiene una finalidad meramente informativa, sin que se garantice plenamente el acceso a todos los contenidos, ni su exhaustividad, corrección, vigencia o actualidad, ni su idoneidad o utilidad para un objetivo específico.</p>
-        <p>EL PROPIETARIO DE LA WEB excluye, hasta donde permite el ordenamiento jurídico, cualquier responsabilidad por los daños y perjuicios de toda naturaleza derivados de:</p>
-        <ol>
+        <p>EUDAPRO excluye, hasta donde permite el ordenamiento jurídico, cualquier responsabilidad por los daños y perjuicios de toda naturaleza derivados de:</p>
+        <ul>
           <li>La imposibilidad de acceso al sitio web o la falta de veracidad, exactitud, exhaustividad y/o actualidad de los contenidos, así como la existencia de vicios y defectos de toda clase de los contenidos transmitidos, difundidos, almacenados, puestos a disposición, a los que se haya accedido a través del sitio web o de los servicios que se ofrecen.</li>
           <li>La presencia de virus o de otros elementos en los contenidos que puedan producir alteraciones en los sistemas informáticos, documentos electrónicos o datos de los usuarios.</li>
-          <li>El incumplimiento de las leyes, la buena fe, el orden público, los usos del tráfico y el presente aviso legal como consecuencia del uso incorrecto del sitio web. En particular, y a modo ejemplificativo, EL PROPIETARIO DE LA WEB no se hace responsable de las actuaciones de terceros que vulneren derechos de propiedad intelectual e industrial, secretos empresariales, derechos al honor, a la intimidad personal y familiar y a la propia imagen, así como la normativa en materia de competencia desleal y publicidad ilícita.</li>
-        </ol>
-        <p>Asimismo, EL PROPIETARIO DE LA WEB declina cualquier responsabilidad respecto a la información que se halle fuera de esta web y no sea gestionada directamente por nuestro webmaster. La función de los enlaces que aparecen en esta web es exclusivamente la de informar al usuario sobre la existencia de otras fuentes susceptibles de ampliar los contenidos que ofrece este sitio web. EL PROPIETARIO DE LA WEB no garantiza ni se responsabiliza del funcionamiento o accesibilidad de los sitios enlazados; ni sugiere, invita o recomienda la visita a los mismos, por lo que tampoco será responsable del resultado obtenido. EL PROPIETARIO DE LA WEB no se responsabiliza del establecimiento de hipervínculos por parte de terceros.</p>
-
-        <h3>4.2. Procedimiento en caso de realización de actividades de carácter ilícito</h3>
-        <p>En el caso de que cualquier usuario o un tercero consideren que existen hechos o circunstancias que revelen el carácter ilícito de la utilización de cualquier contenido y/o de la realización de cualquier actividad en las páginas web incluidas o accesibles a través del sitio web, deberá enviar una notificación a EL PROPIETARIO DE LA WEB identificándose debidamente y especificando las supuestas infracciones.</p>
-
-        <h3>4.3. Publicaciones</h3>
-        <p>La información administrativa facilitada a través del sitio web no sustituye la publicidad legal de las leyes, normativas, planes, disposiciones generales y actos que tengan que ser publicados formalmente en los diarios oficiales de las administraciones públicas, que constituyen el único instrumento que da fe de su autenticidad y contenido. La información disponible en este sitio web debe entenderse como una guía sin propósito de validez legal.</p>
-
-        <h2>5. Propiedad intelectual e industrial</h2>
-        <p>EL PROPIETARIO DE LA WEB, por sí mismo o como cesionario, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (a título enunciativo: imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, selección de materiales usados, programas de ordenador necesarios para su funcionamiento, acceso y uso, etc.). Serán, por consiguiente, obras protegidas como propiedad intelectual por el ordenamiento jurídico español, siéndoles aplicables tanto la normativa española y comunitaria en este campo como los tratados internacionales relativos a la materia y suscritos por España.</p>
-        <p>Todos los derechos reservados. En virtud de lo dispuesto en los artículos 8 y 32.1, párrafo segundo, de la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización de EL PROPIETARIO DE LA WEB.</p>
-        <p>El usuario se compromete a respetar los derechos de propiedad intelectual e industrial titularidad de EL PROPIETARIO DE LA WEB. Podrá visualizar los elementos del portal e incluso imprimirlos, copiarlos y almacenarlos en el disco duro de su ordenador o en cualquier otro soporte físico siempre y cuando sea, única y exclusivamente, para su uso personal y privado. El usuario deberá abstenerse de suprimir, alterar, eludir o manipular cualquier dispositivo de protección o sistema de seguridad que estuviera instalado en las páginas de EL PROPIETARIO DE LA WEB.</p>
-
-        <h2>6. Acciones legales, legislación aplicable y jurisdicción</h2>
-        <p>EL PROPIETARIO DE LA WEB se reserva la facultad de presentar las acciones civiles o penales que considere oportunas por la utilización indebida de su sitio web y contenidos, o por el incumplimiento de las presentes condiciones.</p>
-        <p>La relación entre el usuario y el prestador se regirá por la normativa vigente y de aplicación en el territorio español. De surgir cualquier controversia, las partes podrán someter sus conflictos a arbitraje o acudir a la jurisdicción ordinaria cumpliendo con las normas sobre jurisdicción y competencia al respecto. EL PROPIETARIO DE LA WEB tiene su domicilio en Barcelona, España.</p>
-        <p>La lengua utilizada será el castellano.</p>
+          <li>El incumplimiento de las leyes, la buena fe, el orden público, los usos del tráfico y el presente aviso legal como consecuencia del uso incorrecto del sitio web. En particular, y a modo ejemplificativo, EUDAPRO no se hace responsable de las actuaciones de terceros que vulneren derechos de propiedad intelectual e industrial, secretos empresariales, derechos al honor, a la intimidad personal y familiar y a la propia imagen, así como la normativa en materia de competencia desleal y publicidad ilícita.</li>
+        </ul>
+        <p>Asimismo, EUDAPRO declina cualquier responsabilidad respecto a la información que se halle fuera de esta web y no sea gestionada directamente por nuestro webmaster. La función de los links que aparecen en esta web es exclusivamente la de informar al usuario sobre la existencia de otras fuentes susceptibles de ampliar los contenidos que ofrece este sitio web. EUDAPRO no garantiza ni se responsabiliza del funcionamiento o accesibilidad de los sitios enlazados; ni sugiere, invita o recomienda la visita a los mismos, por lo que tampoco será responsable del resultado obtenido. EUDAPRO no se responsabiliza del establecimiento de hipervínculos por parte de terceros.</p>
+        <h2>Procedimiento en caso de realización de actividades de carácter ilícito</h2>
+        <p>En el caso de que cualquier usuario o un tercero considere que existen hechos o circunstancias que revelen el carácter ilícito de la utilización de cualquier contenido y/o de la realización de cualquier actividad en las páginas web incluidas o accesibles a través del sitio web, deberá enviar una notificación a EUDAPRO identificándose debidamente y especificando las supuestas infracciones.</p>
+        <h2>Publicaciones</h2>
+        <p>La información administrativa facilitada a través del sitio web no sustituye la publicidad legal de las leyes, normativas, planes, disposiciones generales y actos que tengan que ser publicados formalmente a los diarios oficiales de las administraciones públicas, que constituyen el único instrumento que da fe de su autenticidad y contenido. La información disponible en este sitio web debe entenderse como una guía sin propósito de validez legal.</p>
+        <h2>Legislación aplicable</h2>
+        <p>Las condiciones presentes se regirán por la legislación española vigente.</p>
+        <p>La lengua utilizada será el Castellano.</p>
 ''')
 
-# Texto literal de la política de la web antigua (allí iba en un acordeón de
-# WordPress). El cliente pide mantener el texto y cambiar solo el formato: un
-# desplegable por tratamiento. Únicos retoques: los correos antiguos pasan a
-# info@eudapro.es y se corrige la errata «AUDAPRO».
 privacidad = legal('Legal', 'Política de privacidad',
                    'Los tratamientos de datos personales que realiza EUDAPRO, S.L., por apartados.', '''
-        <p>En EUDAPRO, SL. nos preocupamos por la privacidad y la transparencia.</p>
-        <p>A continuación, le indicamos en detalle los tratamientos de datos personales que realizamos, así como toda la información relativa a los mismos, de acuerdo con lo establecido por el REGLAMENTO (UE) 2016/679, de 27 de abril de 2016 del Parlamento Europeo, y del Consejo relativo a la Protección de las personas físicas en lo que respecta al tratamiento de sus datos personales y por la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.</p>
+        <p>En EUDAPRO, S.L. nos preocupamos por la privacidad y la transparencia.</p>
+        <p>A continuación, le indicamos en detalle los tratamientos de datos personales que realizamos, así como toda la información relativa a los mismos.</p>
 
         <div class="acordeon acordeon--legal">
           <details>
@@ -958,28 +948,28 @@ privacidad = legal('Legal', 'Política de privacidad',
             <div class="acordeon__cuerpo">
               <h3>Información básica sobre Protección de datos</h3>
               <dl>
-                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
-                <dt>Finalidad</dt><dd>Prestar los servicios solicitados y enviar comunicaciones comerciales.</dd>
-                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Interés legítimo del Responsable.</dd>
+                <dt>Responsable</dt><dd>EUDAPRO, S.L.</dd>
+                <dt>Finalidad</dt><dd>Prestar los servicios solicitados y enviar comunicaciones promocionales.</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Interés legítimo del Responsable.</dd>
                 <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria; Entidades financieras.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
                 <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
-              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic, nº 105, 08272, Sant Fruitós de Bages, Barcelona<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
-              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión administrativa, contable y fiscal de los servicios solicitados, así como enviar comunicaciones comerciales sobre nuestros productos y servicios. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión administrativa, contable y fiscal de los servicios solicitados, así como enviar comunicaciones promocionales sobre nuestros productos y servicios. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
               <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
               <p>Los datos se conservarán mientras el interesado no solicite su supresión, y en su caso, durante los años necesarios para cumplir con las obligaciones legales.</p>
               <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
               <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
               <ul>
-                <li>Ejecución de un contrato: Gestión fiscal, contable y administrativa de clientes. (RGPD art. 6.1.b).</li>
-                <li>Interés legítimo del Responsable: Envío de comunicaciones comerciales incluso por vía electrónica. (RGPD Considerando 47, LSSICE art. 21.2).</li>
+                <li>Ejecución de un contrato o medidas precontractuales: Gestión fiscal, contable y administrativa de clientes. (RGPD art. 6.1.b).</li>
+                <li>Interés legítimo del Responsable: Envío de comunicaciones promocionales incluso por vía electrónica. (RGPD Considerando 47, LSSICE art. 21.2).</li>
               </ul>
               <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
               <p>Los datos se comunicarán a los siguientes destinatarios:</p>
@@ -990,17 +980,16 @@ privacidad = legal('Legal', 'Política de privacidad',
               <h4>6. Transferencias de datos a terceros países</h4>
               <p>No están previstas transferencias de datos a terceros países.</p>
               <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
-              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, S.L. estamos tratando, o no, datos personales que les conciernan.</p>
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
-              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
               <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
-              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
-              <p>Las categorías de datos que se tratan son:</p>
+              <p>Los datos personales que tratamos en EUDAPRO, S.L. proceden de: El propio interesado.<br>Las categorías de datos que se tratan son:</p>
               <ul>
                 <li>Datos identificativos.</li>
                 <li>Direcciones postales y electrónicas.</li>
@@ -1014,28 +1003,28 @@ privacidad = legal('Legal', 'Política de privacidad',
             <div class="acordeon__cuerpo">
               <h3>Información básica sobre Protección de datos</h3>
               <dl>
-                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
-                <dt>Finalidad</dt><dd>Atender su solicitud y enviarle comunicaciones comerciales</dd>
-                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Consentimiento del interesado.<br>Interés legítimo del Responsable.</dd>
+                <dt>Responsable</dt><dd>EUDAPRO, S.L.</dd>
+                <dt>Finalidad</dt><dd>Atender su solicitud y enviarle comunicaciones promocionales</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Consentimiento del interesado.<br>Interés legítimo del Responsable.</dd>
                 <dt>Destinatarios</dt><dd>No se cederán datos a terceros, salvo obligación legal.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
-                <dt>Procedencia</dt><dd>El propio interesado.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
-              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic nº 105, 08272, Sant Fruitós de Bages, Barcelona.<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
-              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios, así como otros contactos comerciales y realizar, en su caso, el envío de comunicaciones comerciales inclusive por vía electrónica. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios, así como otros contactos comerciales y realizar, en su caso, el envío de comunicaciones promocionales, inclusive por vía electrónica. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
               <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
               <p>Los datos se conservarán mientras el interesado no solicite su supresión.</p>
               <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
               <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
               <ul>
-                <li>Ejecución de un contrato: Gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios. (RGPD, art. 6.1.b).</li>
-                <li>Consentimiento del interesado: Enviar comunicaciones comerciales, inclusive por vía electrónica. (RGPD, art. 6.1.a, LSSICE art.21).</li>
+                <li>Ejecución de un contrato o medidas precontractuales: Gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios. (RGPD, art. 6.1.b).</li>
+                <li>Consentimiento del interesado: Enviar comunicaciones promocionales, inclusive por vía electrónica. (RGPD, art. 6.1.a, LSSICE art.21).</li>
                 <li>Interés legítimo del Responsable: Gestión de los datos de contacto profesionales (LOPDGDD art.19, RGPD art. 6.1.f).</li>
               </ul>
               <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
@@ -1043,21 +1032,16 @@ privacidad = legal('Legal', 'Política de privacidad',
               <h4>6. Transferencias de datos a terceros países</h4>
               <p>No están previstas transferencias de datos a terceros países.</p>
               <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
-              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, S.L. estamos tratando, o no, datos personales que les conciernan.</p>
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
-              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
               <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
-              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
-              <p>Las categorías de datos que se tratan son:</p>
-              <ul>
-                <li>Direcciones postales y electrónicas.</li>
-                <li>Información comercial.</li>
-              </ul>
+              <p>Los datos personales que tratamos en EUDAPRO, S.L. proceden de: El propio interesado.</p>
             </div>
           </details>
           <details>
@@ -1065,27 +1049,27 @@ privacidad = legal('Legal', 'Política de privacidad',
             <div class="acordeon__cuerpo">
               <h3>Información básica sobre Protección de datos</h3>
               <dl>
-                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
-                <dt>Finalidad</dt><dd>Gestionar la prestación de los servicios contratados.</dd>
-                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Interés legítimo del Responsable.</dd>
+                <dt>Responsable</dt><dd>EUDAPRO, S.L.</dd>
+                <dt>Finalidad</dt><dd>Gestionar la prestación de los servicios contratados</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Interés legítimo del Responsable.</dd>
                 <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria; Entidades financieras.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
-                <dt>Procedencia</dt><dd>El propio interesado.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
-              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic nº 105, 08272, Sant Fruitós de Bages, Barcelona.<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
-              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión fiscal, contable y administrativa de proveedores así como los datos de contacto profesionales. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión fiscal, contable y administrativa de proveedores así como los datos de contacto profesionales. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
               <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
               <p>Los datos se conservarán mientras el interesado no solicite su supresión, y en su caso, durante los años necesarios para cumplir con las obligaciones legales.</p>
               <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
               <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
               <ul>
-                <li>Ejecución de un contrato: Realizar la gestión administrativa, contable y fiscal de los servicios contratados. (RGPD art. 6.1.b).</li>
+                <li>Ejecución de un contrato o medidas precontractuales: Realizar la gestión administrativa, contable y fiscal de los servicios contratados. (RGPD art. 6.1.b).</li>
                 <li>Interés legítimo del Responsable: Gestión de los datos de contacto profesionales. (LOPDGDD art.19, RGPD art. 6.1.f).</li>
               </ul>
               <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
@@ -1097,17 +1081,16 @@ privacidad = legal('Legal', 'Política de privacidad',
               <h4>6. Transferencias de datos a terceros países</h4>
               <p>No están previstas transferencias de datos a terceros países.</p>
               <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
-              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, S.L. estamos tratando, o no, datos personales que les conciernan.</p>
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
-              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
               <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
-              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
-              <p>Las categorías de datos que se tratan son:</p>
+              <p>Los datos personales que tratamos en EUDAPRO, S.L. proceden de: El propio interesado.<br>Las categorías de datos que se tratan son:</p>
               <ul>
                 <li>Datos identificativos.</li>
                 <li>Direcciones postales y electrónicas.</li>
@@ -1117,32 +1100,81 @@ privacidad = legal('Legal', 'Política de privacidad',
             </div>
           </details>
           <details>
+            <summary>Tratamiento de los datos de suscriptores a la newsletter</summary>
+            <div class="acordeon__cuerpo">
+              <h3>Información básica sobre Protección de datos</h3>
+              <dl>
+                <dt>Responsable</dt><dd>EUDAPRO, S.L.</dd>
+                <dt>Finalidad</dt><dd>Mandarle nuestra newsletter y otras comunicaciones promocionales de interés</dd>
+                <dt>Legitimación</dt><dd>Consentimiento del interesado.</dd>
+                <dt>Destinatarios</dt><dd>No se cederán datos a terceros, salvo obligación legal.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado</dd>
+              </dl>
+              <h3>Información completa sobre Protección de Datos</h3>
+              <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
+              <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
+              <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
+              <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar el envío de nuestra newsletter y otras comunicaciones promocionales de interés para los suscriptores a la misma. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
+              <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
+              <p>Los datos se conservarán mientras el interesado no solicite su supresión.</p>
+              <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
+              <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
+              <ul>
+                <li>Consentimiento del interesado: realizar el envío de nuestra newsletter y otras comunicaciones promocionales de interés para los suscriptores a la misma (RGPD, art. 6.1.a, y LSSICE art.21)</li>
+              </ul>
+              <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
+              <p>No se cederán datos a terceros, salvo obligación legal.</p>
+              <h4>6. Transferencias de datos a terceros países</h4>
+              <p>No están previstas transferencias de datos a terceros países.</p>
+              <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, S.L. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
+              <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
+              <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
+              <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
+              <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
+              <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
+              <p>Los datos personales que tratamos en EUDAPRO, S.L. proceden de: El propio interesado.<br>Las categorías de datos que se tratan son:</p>
+              <ul>
+                <li>Datos identificativos.</li>
+                <li>Direcciones postales y electrónicas.</li>
+                <li>Información comercial.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
             <summary>Tratamiento de los datos del personal</summary>
             <div class="acordeon__cuerpo">
               <h3>Información básica sobre Protección de datos</h3>
               <dl>
-                <dt>Responsable</dt><dd>EUDAPRO, SL.</dd>
-                <dt>Finalidad</dt><dd>Gestionar la relación laboral.</dd>
-                <dt>Legitimación</dt><dd>Ejecución de un contrato.<br>Cumplimiento de una obligación legal.</dd>
+                <dt>Responsable</dt><dd>EUDAPRO, S.L.</dd>
+                <dt>Finalidad</dt><dd>Gestionar la relación laboral</dd>
+                <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Cumplimiento de una obligación legal.</dd>
                 <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria, Seguridad Social y Mutua; Bancos y entidades financieras; Fundación estatal para la formación en el empleo (Fundae).</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</dd>
-                <dt>Procedencia</dt><dd>El propio interesado.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
-              <p>EUDAPRO, SL.<br>B75390377<br>Ctra de Vic nº 105, 08272, Sant Fruitós de Bages, Barcelona.<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ Irlanda nº7, local, 08030, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
-              <p>En EUDAPRO, SL. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de personal; formación; prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; accidentes laborales, en su caso. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
+              <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de personal; formación; prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; accidentes laborales, en su caso. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
               <h4>3. ¿Por cuánto tiempo conservaremos sus datos?</h4>
               <p>Mientras se mantenga la relación laboral con la entidad y durante los años necesarios para cumplir con las obligaciones legales.</p>
               <h4>4. ¿Cuál es la legitimación para el tratamiento de sus datos?</h4>
               <p>Le indicamos la base legal para el tratamiento de sus datos:</p>
               <ul>
-                <li>Ejecución de un contrato: Gestión de personal, formación y capacitación. (RGPD art.6.1.b).</li>
-                <li>Cumplimiento de una obligación legal: Prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; gestion de accidentes laborales, en su caso. (Ley 31/1995, de 8 de noviembre, de prevención de Riesgos Laborales; Real Decreto Legislativo 2/2015, de 23 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto de los Trabajadores; Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social; Real Decreto-ley 8/2019, de 8 de marzo, de medidas urgentes de protección social y de lucha contra la precariedad laboral en la jornada de trabajo; RGPD arts. 6.1.c y 9.2.b). Real Decreto 902/2020, de 13 de octubre, de igualdad retributiva entre mujeres y hombres.</li>
+                <li>Ejecución de un contrato o medidas precontractuales: Gestión de personal, formación y capacitación. (RGPD art.6.1.b).</li>
+                <li>Cumplimiento de una obligación legal: Prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; gestión de accidentes laborales, en su caso. (Ley 31/1995, de 8 de noviembre, de prevención de Riesgos Laborales; Real Decreto Legislativo 2/2015, de 23 de octubre, por el que se aprueba el texto refundido de la Ley del Estatuto de los Trabajadores; Real Decreto Legislativo 8/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley General de la Seguridad Social; Real Decreto-ley 8/2019, de 8 de marzo, de medidas urgentes de protección social y de lucha contra la precariedad laboral en la jornada de trabajo; RGPD arts. 6.1.c y 9.2.b). Real Decreto 902/2020, de 13 de octubre, de igualdad  retributiva  entre  mujeres y hombres.</li>
               </ul>
               <h4>5. ¿A qué destinatarios se comunicarán sus datos?</h4>
               <p>Los datos se comunicarán a los siguientes destinatarios:</p>
@@ -1154,17 +1186,16 @@ privacidad = legal('Legal', 'Política de privacidad',
               <h4>6. Transferencias de datos a terceros países</h4>
               <p>No están previstas transferencias de datos a terceros países.</p>
               <h4>7. ¿Cuáles son sus derechos cuando nos facilita sus datos?</h4>
-              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, SL. estamos tratando, o no, datos personales que les conciernan.</p>
+              <p>Cualquier persona tiene derecho a obtener confirmación sobre si en EUDAPRO, S.L. estamos tratando, o no, datos personales que les conciernan.</p>
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
-              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, SL. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ Irlanda nº7, local, 08030, Barcelona.</p>
+              <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
               <h4>8. ¿Cómo hemos obtenido sus datos?</h4>
-              <p>Los datos personales que tratamos en EUDAPRO, SL. proceden de: El propio interesado.</p>
-              <p>Las categorías de datos que se tratan son:</p>
+              <p>Los datos personales que tratamos en EUDAPRO, S.L. proceden de: El propio interesado.<br>Las categorías de datos que se tratan son:</p>
               <ul>
                 <li>Datos identificativos.</li>
                 <li>Direcciones postales y electrónicas.</li>
@@ -1176,87 +1207,152 @@ privacidad = legal('Legal', 'Política de privacidad',
 ''')
 
 cookies = legal('Legal', 'Política de cookies',
-                'Qué son las cookies, cuáles usa este sitio y cómo desactivarlas.', '''
-        <h2>¿Qué son las cookies?</h2>
-        <p>Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.</p>
-
-        <h2>¿Qué cookies utiliza esta página web?</h2>
-        <p>Esta web se sirve sin cookies de terceros: las tipografías y los scripts se cargan desde este mismo dominio y no se incrusta contenido externo que instale cookies. Si en el futuro se incorporan herramientas de análisis, se detallarán en esta tabla y se solicitará el consentimiento previo.</p>
+                'Qué cookies usa este sitio, para qué sirven y cómo configurarlas.', '''
+        <h2>¿Qué son las galletas?</h2>
+        <p>Este sitio web utiliza cookies y/o tecnologías similares que almacenan y recuperan información cuando navegas. En general, estas tecnologías pueden servir para finalidades muy diversas, como reconocerte como usuario, obtener información sobre tus hábitos de navegación, o personalizar la forma en que se muestra el contenido. Los usos concretos que hacemos de estas tecnologías se describen a continuación.</p>
+        <h2>¿Por qué utiliza las cookies esta página web y cuáles son?</h2>
+        <p>La identificación de quién utiliza las cookies, el tipo de cookies utilizadas y otros detalles, se indica a continuación:</p>
+        <p>El detalle de las cookies utilizadas en esta página web es el siguiente:</p>
         <div class="tabla-envoltorio">
           <table>
-            <thead><tr><th>Cookie</th><th>Tipo</th><th>Propósito</th></tr></thead>
-            <tbody><tr><td colspan="3">Actualmente no se instalan cookies de análisis, de personalización ni publicitarias.</td></tr></tbody>
+            <thead><tr><th>Cookies</th><th>Nombre</th><th>Tipo</th><th>Propósito</th><th>Más información</th></tr></thead>
+            <tbody><tr><td>_ga, _ga_&lt;ID&gt;</td><td>Google Analytics</td><td>De terceros</td><td>Recoger información sobre la navegación de los usuarios por el sitio para conocer el origen de las visitas y otros datos similares a nivel estadístico. No obtiene datos de los nombres o apellidos de los usuarios ni de la dirección postal concreta desde la que se conectan</td><td>Google Analytics · Centro de privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr></tbody>
           </table>
         </div>
-
-        <h2>¿Cómo puedo desactivar o eliminar las cookies?</h2>
-        <p>Puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador:</p>
-        <ul>
-          <li><a href="https://support.mozilla.org/es/kb/Borrar%20cookies" target="_blank" rel="noopener">Firefox</a></li>
-          <li><a href="https://support.google.com/chrome/answer/95647?hl=es" target="_blank" rel="noopener">Chrome</a></li>
-          <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Safari</a></li>
-          <li><a href="https://support.microsoft.com/es-es/microsoft-edge" target="_blank" rel="noopener">Edge</a></li>
-          <li><a href="https://help.opera.com/en/latest/web-preferences/" target="_blank" rel="noopener">Opera</a></li>
+        <p>Análisis: son aquellas cookies que bien, tratadas por nosotros o por terceros, nos permiten cuantificar el número de usuarios y así realizar la medición y el análisis estadístico de la utilización que hacen los usuarios del servicio. Por eso se analiza su navegación en nuestra página web para mejorar la experiencia del usuario.</p>
+        <p>Nota: Las cookies de tipo 'Propias' son utilizadas sólo por el propietario de esta web y las cookies 'De terceros' son utilizadas, por el prestador del servicio que está detallado en el cuadro anterior.</p>
+        <h2>¿Cómo puedo desactivar o eliminar estas cookies?</h2>
+        <p>Puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador:</p>
+        <ul class="lista">
+          <li><a href="http://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-que-los-sitios-we" target="_blank" rel="noopener">Firefox</a></li>
+          <li><a href="http://support.google.com/chrome/bin/answer.py?hl=es&answer=95647" target="_blank" rel="noopener">Chrome</a></li>
+          <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Explorer</a></li>
+          <li><a href="http://support.apple.com/kb/ph5042" target="_blank" rel="noopener">Safari</a></li>
+          <li><a href="http://help.opera.com/Windows/11.50/es-ES/cookies.html" target="_blank" rel="noopener">Opera</a></li>
         </ul>
-        <p>Para el resto de navegadores, consulte su documentación.</p>
-
+        <h3>Otros navegadores</h3>
+        <p>Consulte la documentación del navegador que tenga instalado.</p>
+        <h3>Complemento de inhabilitación para navegadores de Google Analytics</h3>
+        <p>Si desea rechazar las cookies analíticas de Google Analytics en todos los navegadores, de modo que no se envíe información suya a Google Analytics, puede descargar un complemento que realiza esta función desde este enlace: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>.</p>
+        <h2>Configurar las cookies de esta web</h2>
+        <p>Puede cambiar en cualquier momento las cookies que acepta en esta web, sin salir de esta página.</p>
+        <p><button class="btn btn--pri" type="button" data-abrir-cookies>Configurar cookies</button></p>
+        <h2>Ejercicio de derechos</h2>
+        <p>Puede conocer y ejercer sus derechos en materia de protección de datos accediendo a nuestra Política de Privacidad.</p>
         <h2>Más información sobre las cookies</h2>
-        <h3>¿Qué NO es una cookie?</h3>
-        <p>No es un virus, ni un troyano, ni un gusano, ni spam, ni spyware, ni abre ventanas emergentes.</p>
+        <h3>¿Qué es una cookie?</h3>
+        <p>Una cookie es un archivo de texto inofensivo que se almacena en su navegador cuando visita casi cualquier página web. La utilidad de la cookie es que la web sea capaz de recordar su visita cuando vuelva a navegar por esa página. Aunque mucha gente no lo sabe, las cookies se llevan utilizando desde hace 20 años, cuando aparecieron los primeros navegadores para la World Wide Web.</p>
+        <h3>¿Qué NO ES una cookie?</h3>
+        <p>No es un virus, ni un troyano, ni un gusano, ni spam, ni spyware, ni abre ventanas pop-up.</p>
         <h3>¿Qué información almacena una cookie?</h3>
-        <p>Las cookies no suelen almacenar información sensible sobre usted, como tarjetas de crédito o datos bancarios, fotografías, su DNI o información personal. Los datos que guardan son de carácter técnico, preferencias personales, personalización de contenidos, etc.</p>
-        <p>El servidor web no le asocia a usted como persona, sino a su navegador. De hecho, si navega habitualmente con un navegador y prueba a visitar la misma web con otro, verá que el sitio no reconoce que es la misma persona, porque en realidad está asociando al navegador y no a usted.</p>
+        <p>Las cookies no suelen almacenar información sensible sobre usted, como tarjetas de crédito o datos bancarios, fotografías, su DNI o información personal, etc. Los datos que guardan son de carácter técnico, preferencias personales, personalización de contenidos, etc.</p>
+        <p>El servidor web no le asocia a usted como persona si no a su navegador web. De hecho, si usted navega habitualmente con Internet Explorer e intenta navegar por la misma web con Firefox o Chrome verá que la web no se da cuenta de que es usted la misma persona porque en realidad está asociando al navegador, no a la persona.</p>
         <h3>¿Qué tipos de cookies existen?</h3>
-        <ul>
-          <li><strong>Técnicas:</strong> las más elementales; permiten tareas básicas para el funcionamiento de cualquier web dinámica.</li>
-          <li><strong>De análisis:</strong> recogen información sobre el tipo de navegación, las secciones más utilizadas, la franja horaria de uso o el idioma.</li>
-          <li><strong>Publicitarias:</strong> muestran publicidad en función de la navegación, el país de procedencia o el idioma.</li>
+        <ul class="lista">
+          <li>Cookies técnicas: Son las más elementales y permiten, entre otras cosas, saber cuándo está navegando un humano o una aplicación automatizada, cuándo navega un usuario anónimo y un registrado, tareas básicas para el funcionamiento de cualquier web dinámica.</li>
+          <li>Cookies de análisis: Recogen información sobre el tipo de navegación que está realizando, las secciones que más utiliza, productos consultados, franja horaria de uso, idioma, etc.</li>
+          <li>Cookies publicitarias: Muestran publicidad en función de su navegación, su país de procedencia, idioma, etc.</li>
         </ul>
         <h3>¿Qué son las cookies propias y las de terceros?</h3>
-        <p>Las propias son las generadas por la página que está visitando; las de terceros son las generadas por servicios o proveedores externos.</p>
-        <h3>¿Se pueden eliminar las cookies?</h3>
-        <p>Sí. No solo eliminar, también bloquear, de forma general o particular para un dominio específico. Para eliminar las cookies de un sitio web debe ir a la configuración de su navegador, buscar las asociadas al dominio en cuestión y proceder a su eliminación.</p>
+        <p>Las cookies propias son las generadas por la página que está visitando y las de terceros son las generadas por servicios o proveedores externos como Facebook, Twitter, Google, etc.</p>
+        <h3>¿Qué ocurre si desactivo las cookies?</h3>
+        <p>Para que entienda el alcance que puede tener desactivar las cookies, le mostramos unos ejemplos:</p>
+        <ul class="lista">
+          <li>No podrá compartir contenidos de esta web en Facebook, Twitter o cualquier otra red social.</li>
+          <li>El sitio web no podrá adaptar los contenidos a sus preferencias personales, como suele ocurrir en las tiendas online.</li>
+          <li>No podrá acceder al área personal de esta web, como Mi cuenta, o Mi perfil o Mis pedidos.</li>
+          <li>Tiendas online: Le será imposible realizar compras online, tendrán que ser telefónicas o visitando la tienda física si es que dispone de ella.</li>
+          <li>No será posible personalizar sus preferencias geográficas como franja horaria, divisa o idioma.</li>
+          <li>El sitio web no podrá realizar analíticas web sobre visitantes y tráfico en la web, lo que dificultará que la web sea competitiva.</li>
+          <li>No podrá escribir en el blog, no podrá subir fotos, publicar comentarios, valorar o puntuar contenidos. La web tampoco podrá saber si es usted un humano o una aplicación automatizada que publica spam.</li>
+          <li>No se podrá mostrar publicidad sectorizada, lo que reducirá los ingresos publicitarios de la web.</li>
+          <li>Todas las redes sociales utilizan cookies, si las desactiva no podrá utilizar ninguna red social.</li>
+        </ul>
+        <h3>¿Se pueden eliminar cookies?</h3>
+        <p>Sí. No sólo eliminar, también bloquear, de forma general o particular para un dominio específico.</p>
+        <p>Para eliminar las cookies de un sitio web debe ir a la configuración de su navegador y allí podrá buscar las asociadas al dominio en cuestión y proceder a su eliminación.</p>
+        <h3>Configuración de cookies para los navegadores más populares</h3>
+        <p>A continuación, le indicamos cómo acceder a una cookie determinada del navegador Chrome. Nota: estos pasos pueden variar en función de la versión del navegador:</p>
+        <ol>
+          <li>Vaya a Configuración o Preferencias mediante el menú Archivo o pinchando el icono de personalización que aparece arriba a la derecha.</li>
+          <li>Verá diferentes secciones, pinche la opción Mostrar opciones avanzadas.</li>
+          <li>Vaya a Privacidad, Configuración de contenido.</li>
+          <li>Seleccione Todas las cookies y los datos de sitios.</li>
+          <li>Aparecerá un listado con todas las cookies ordenadas por dominio. Para que le sea más fácil encontrar las cookies de un determinado dominio introduzca parcial o totalmente la dirección en el campo Buscar cookies.</li>
+          <li>Después de realizar este filtro aparecerán en pantalla una o varias líneas con las cookies de la web solicitada. Ahora sólo debe seleccionarla y pulsar la X para proceder a su eliminación.</li>
+        </ol>
+        <p>Para acceder a la configuración de cookies del navegador Internet Explorer siga estos pasos (pueden variar en función de la versión del navegador):</p>
+        <ol>
+          <li>Vaya a Herramientas, Opciones de Internet</li>
+          <li>Haga clic en Privacidad.</li>
+          <li>Mueva el deslizador hasta ajustar el nivel de privacidad que desee.</li>
+        </ol>
+        <p>Para acceder a la configuración de cookies del navegador Firefox siga estos pasos (pueden variar en función de la versión del navegador):</p>
+        <ol>
+          <li>Vaya a Opciones o Preferencias según su sistema operativo.</li>
+          <li>Haga clic en Privacidad.</li>
+          <li>En Historial elija Usar una configuración personalizada para el historial.</li>
+          <li>Ahora verá la opción Aceptar cookies, puede activarla o desactivarla según sus preferencias.</li>
+        </ol>
+        <p>Para acceder a la configuración de cookies del navegador Safari para OSX siga estos pasos (pueden variar en función de la versión del navegador):</p>
+        <ol>
+          <li>Vaya a Preferencias, luego Privacidad.</li>
+          <li>En este sitio verá la opción Bloquear cookies para que ajuste el tipo de bloqueo que desea realizar.</li>
+        </ol>
+        <p>Para acceder a la configuración de cookies del navegador Safari para iOS siga estos pasos (pueden variar en función de la versión del navegador):</p>
+        <ol>
+          <li>Vaya a Ajustes, luego Safari.</li>
+          <li>Vaya a Privacidad y Seguridad, verá la opción Bloquear cookies para que ajuste el tipo de bloqueo que desea realizar.</li>
+        </ol>
+        <p>Para acceder a la configuración de cookies del navegador para dispositivos Android siga estos pasos (pueden variar en función de la versión del navegador):</p>
+        <ol>
+          <li>Ejecute el navegador y pulse la tecla Menú, luego Ajustes.</li>
+          <li>Vaya a Seguridad y Privacidad, verá la opción Aceptar cookies para que active o desactive la casilla.</li>
+        </ol>
+        <p>Para acceder a la configuración de cookies del navegador para dispositivos Windows Phone siga estos pasos (pueden variar en función de la versión del navegador):</p>
+        <ol>
+          <li>Abre Internet Explorer, después Más, después Configuración</li>
+          <li>Ahora puede activar o desactivar la casilla Permitir cookies.</li>
+        </ol>
 ''')
 
 redes = legal('Legal', 'Política de redes sociales',
               'Qué hacemos con la información pública de quienes nos siguen en redes.', '''
-        <p>En cumplimiento del REGLAMENTO (UE) 2016/679, de 27 de abril de 2016, del Parlamento Europeo y del Consejo, relativo a la protección de las personas físicas en lo que respecta al tratamiento de sus datos personales; de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales; y de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), EUDAPRO, S.L., en adelante EL PROPIETARIO DE LA WEB, informa a los usuarios de que ha procedido a crear un perfil en las redes sociales con la finalidad principal de publicitar sus productos y servicios.</p>
-
+        <p>En cumplimiento del REGLAMENTO (UE) 2016/679, de 27 de abril de 2016 del Parlamento Europeo, y del Consejo relativo a la Protección de las personas físicas en lo que respecta al tratamiento de sus datos personales, la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales y la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), EUDAPRO, S.L., en adelante (EUDAPRO) informa a los usuarios, que ha procedido a crear un perfil en las Redes Sociales con la finalidad principal de publicitar sus productos y servicios.</p>
+        <h2>Datos de EUDAPRO, S.L.</h2>
         <dl>
-          <dt>Datos de EUDAPRO, S.L.</dt>
-          <dd>CIF B75390377<br>Ctra. de Vic, 105 — 08272 Sant Fruitós de Bages, Barcelona<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
+          <dt>CIF</dt><dd>B75390377</dd>
+          <dt>Domicilio social</dt><dd>PLAÇA FIUS I PALÀ, N.º 1, ESC. IZQ, 3º 2ª, 08241, MANRESA, BARCELONA</dd>
+          <dt>Teléfono</dt><dd><a href="tel:+34900929806">900 929 806</a></dd>
+          <dt>Correo electrónico</dt><dd><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
+          <dt>Web</dt><dd><a href="https://www.eudapro.es" target="_blank" rel="noopener">www.eudapro.es</a></dd>
         </dl>
-
-        <p>El usuario dispone de un perfil en la misma red social y ha decidido unirse a la página creada por EL PROPIETARIO DE LA WEB, mostrando así interés en la información que se publicite en la red. Al unirse a nuestra página, nos facilita su consentimiento para el tratamiento de aquellos datos personales publicados en su perfil.</p>
-        <p>El usuario puede acceder en todo momento a las políticas de privacidad de la propia red social, así como configurar su perfil para garantizar su privacidad.</p>
-        <p>EL PROPIETARIO DE LA WEB tiene acceso y trata aquella información pública del usuario, en especial su nombre de contacto. Estos datos solo son utilizados dentro de la propia red social y en ningún caso son incorporados a ningún fichero sin solicitar previamente el consentimiento expreso del interesado.</p>
-        <p>En relación con los derechos de acceso, rectificación, cancelación y oposición de los que usted dispone y que pueden ser ejercitados ante EL PROPIETARIO DE LA WEB, debe tener en cuenta que, por la propia funcionalidad de las redes sociales, normalmente deberá ejercer sus derechos ante la propia red social.</p>
-
-        <h2>Actuaciones</h2>
-        <ul>
+        <p>El usuario dispone de un perfil en la misma Red Social y ha decidido unirse a la página creada por EUDAPRO, mostrando así interés en la información que se publicite en la Red. Al unirse a nuestra página, nos facilita su consentimiento para el tratamiento de aquellos datos personales publicados en su perfil.</p>
+        <p>El usuario, puede acceder en todo momento a las políticas de privacidad de la propia Red Social, así como configurar su perfil para garantizar su privacidad.</p>
+        <p>EUDAPRO tiene acceso y trata aquella información pública del usuario, en especial, su nombre de contacto. Estos datos, sólo son utilizados dentro de la propia Red Social y en ningún caso son incorporados a ningún fichero, sin solicitar previamente el consentimiento expreso del interesado.</p>
+        <p>En relación con los derechos de acceso, rectificación, cancelación y oposición, de los que usted dispone y que pueden ser ejercitados ante EUDAPRO, de acuerdo con REGLAMENTO (UE) 2016/679, de 27 de abril de 2016 del Parlamento Europeo, debe tener en cuenta que, debido a la propia funcionalidad de las redes sociales, normalmente deberá ejercer sus derechos ante la propia Red Social.</p>
+        <p>EUDAPRO realizará las siguientes actuaciones:</p>
+        <ul class="lista">
           <li>Acceso a la información pública del perfil.</li>
-          <li>Publicación en el perfil del usuario de aquella información ya publicada en la página de EL PROPIETARIO DE LA WEB.</li>
-          <li>Envío de mensajes personales e individuales a través de los canales de la red social.</li>
+          <li>Publicación en el perfil del usuario de toda aquella información ya publicada en la página de EUDAPRO.</li>
+          <li>Enviar mensajes personales e individuales a través de los canales de la Red Social.</li>
           <li>Actualizaciones del estado de la página que se publicarán en el perfil del usuario.</li>
         </ul>
-        <p>El usuario siempre puede controlar sus conexiones, eliminar los contenidos que dejen de interesarle y restringir con quién comparte sus conexiones; para ello deberá acceder a su configuración de privacidad.</p>
-
+        <p>El usuario siempre puede controlar sus conexiones, eliminar los contenidos que dejen de interesarle y restringir con quién comparte sus conexiones, para ello deberá acceder a su configuración de privacidad.</p>
         <h2>Datos de menores</h2>
-        <p>El acceso y registro en esta red social está prohibido para menores de 14 años. El acceso al sitio oficial de EL PROPIETARIO DE LA WEB está también prohibido para menores de 14 años. Si el usuario no cumple dicho requisito, EL PROPIETARIO DE LA WEB le informa de la necesidad de tener la autorización de sus padres, tutores o responsables legales para acceder y utilizar el sitio oficial.</p>
-        <p>EL PROPIETARIO DE LA WEB queda eximido de cualquier responsabilidad derivada del uso de su sitio oficial por menores o usuarios que no cumplan los requisitos mencionados, siendo en cualquier caso sus representantes legales los únicos responsables.</p>
-
+        <p>El acceso y registro a esta red social está prohibido para menores de 14 años. El acceso al sitio oficial de EUDAPRO está también prohibido para menores de 14 años. Por su parte, si el usuario no cumple dicho requisito, EUDAPRO les informa de la necesidad de tener la autorización de sus padres, tutores o responsables legales para acceder y utilizar el sitio oficial de EUDAPRO.</p>
+        <p>EUDAPRO queda eximido de cualquier responsabilidad derivada del uso de su sitio oficial por menores o usuarios que no cumplan los requisitos previamente mencionados, siendo, en cualquier caso, sus representantes legales los únicos responsables.</p>
         <h2>Publicaciones</h2>
-        <p>El usuario, una vez unido a la página de EL PROPIETARIO DE LA WEB, podrá publicar en ella comentarios, enlaces, imágenes o fotografías o cualquier otro tipo de contenido multimedia soportado por la red social. El usuario, en todos los casos, debe ser el titular de los mismos, gozar de los derechos de autor y de propiedad intelectual o contar con el consentimiento de los terceros afectados.</p>
-        <p>Se prohíbe expresamente cualquier publicación en la página, ya sean textos, gráficos, fotografías o vídeos, que atente o sea susceptible de atentar contra la moral, la ética, el buen gusto o el decoro, y/o que infrinja, viole o quebrante los derechos de propiedad intelectual o industrial, el derecho a la imagen o la ley. En estos casos, EL PROPIETARIO DE LA WEB se reserva el derecho a retirar de inmediato el contenido, pudiendo solicitar el bloqueo permanente del usuario.</p>
-        <p>EL PROPIETARIO DE LA WEB no se hará responsable de los contenidos que libremente haya publicado un usuario. El usuario debe tener presente que sus publicaciones serán conocidas por los otros usuarios, por lo que él mismo es el principal responsable de su privacidad.</p>
-        <p>Las imágenes que puedan publicarse en la página no serán almacenadas en ningún fichero por parte de EL PROPIETARIO DE LA WEB, pero sí permanecerán en la red social.</p>
-
+        <p>El usuario, una vez unido a la página de EUDAPRO, podrá publicar en ésta última comentarios, enlaces, imágenes o fotografías o cualquier otro tipo de contenido multimedia soportado por la Red Social. El usuario, en todos los casos, debe ser el titular de estos, gozar de los derechos de autor y de propiedad intelectual o contar con el consentimiento de los terceros afectados. Se prohíbe expresamente cualquier publicación en la página, ya sean textos, gráficos, fotografías, vídeos, etc. que atenten o sean susceptibles de atentar contra la moral, la ética, el buen gusto o el decoro, y/o que infrinjan, violen o quebranten los derechos de propiedad intelectual o industrial, el derecho a la imagen o la Ley. En estos casos, EUDAPRO se reserva el derecho a retirar de inmediato el contenido, pudiendo solicitar el bloqueo permanente del usuario.</p>
+        <p>EUDAPRO no se hará responsable de los contenidos que libremente ha publicado un usuario.</p>
+        <p>El usuario debe tener presente que sus publicaciones serán conocidas por los otros usuarios, por lo que él mismo es el principal responsable de su privacidad.</p>
+        <p>Las imágenes que puedan publicarse en la página no serán almacenadas en ningún fichero por parte de EUDAPRO, pero sí que permanecerán en la Red Social.</p>
         <h2>Concursos y promociones</h2>
-        <p>EL PROPIETARIO DE LA WEB se reserva el derecho a realizar concursos y promociones en los que podrá participar el usuario unido a su página. Las bases de cada uno de ellos, cuando se utilice para ello la plataforma de la red social, serán publicadas en la misma, cumpliendo siempre con la LSSI-CE y con cualquier otra norma que le sea de aplicación. La red social no patrocina, avala ni administra de modo alguno ninguna de nuestras promociones, ni está asociada a ninguna de ellas.</p>
-
+        <p>EUDAPRO se reserva el derecho a realizar concursos y promociones, en los que podrá participar el usuario unido a su página. Las bases de cada uno de ellos, cuando se utilice para ello la plataforma de la Red Social, serán publicadas en la misma. Cumpliendo siempre con la LSSI-CE y con cualquier otra norma que le sea de aplicación.</p>
+        <p>La Red Social no patrocina, avala ni administra, de modo alguno, ninguna de nuestras promociones, ni está asociada a ninguna de ellas.</p>
         <h2>Publicidad</h2>
-        <p>EL PROPIETARIO DE LA WEB utilizará la red social para publicitar sus productos y servicios. En todo caso, si decide tratar sus datos de contacto para realizar acciones directas de prospección comercial, será siempre cumpliendo con las exigencias legales del RGPD, de la LOPDGDD y de la LSSI-CE.</p>
-        <p>No se considerará publicidad el hecho de recomendar a otros usuarios la página de EL PROPIETARIO DE LA WEB para que también ellos puedan disfrutar de las promociones o estar informados de su actividad.</p>
+        <p>EUDAPRO utilizará la Red Social para publicitar sus productos y servicios, en todo caso, si decide tratar sus datos de contacto para realizar acciones directas de prospección comercial, será siempre, cumpliendo con las exigencias legales del RGPD, de la LOPDGDD y de la LSSI-CE.</p>
+        <p>No se considerará publicidad el hecho de recomendar a otros usuarios la página de EUDAPRO para que también ellos puedan disfrutar de las promociones o estar informados de su actividad.</p>
 ''')
 
 # --------------------------------------------------------------------------

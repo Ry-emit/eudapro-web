@@ -655,3 +655,60 @@ input::placeholder, textarea::placeholder { color: #574f74; }
   .acordeon--legal dl { grid-template-columns: 1fr; }
   .acordeon--legal dt { border-bottom: none; padding-bottom: 0; }
 }
+
+/* ---------- faldón y gestor de cookies ----------
+   Los tres botones del faldón tienen exactamente el mismo aspecto: el
+   documento de Eudapro pide que «Aceptar» no destaque sobre los demás. */
+.cookies {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: var(--bg-3); border-top: 1px solid var(--line-2);
+  box-shadow: 0 -10px 40px rgba(16, 25, 31, .12);
+  padding: clamp(16px, 2.2vw, 22px) clamp(16px, 4vw, 40px);
+}
+.cookies__caja {
+  max-width: var(--wrap); margin: 0 auto;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px clamp(20px, 3vw, 40px);
+}
+.cookies__txt { flex: 1 1 420px; margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+.cookies__acciones { display: flex; flex-wrap: wrap; gap: 10px; }
+.cookies__btn {
+  font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: -.01em;
+  padding: 11px 22px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line-2); background: #fff; color: var(--ink);
+  transition: border-color .2s ease, color .2s ease;
+}
+.cookies__btn:hover { border-color: var(--azul); color: var(--azul-3); }
+
+.cookies-panel { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 20px; }
+.cookies-panel__fondo { position: absolute; inset: 0; background: rgba(16, 25, 31, .45); }
+.cookies-panel__caja {
+  position: relative; width: min(560px, 100%); max-height: 86vh; overflow: auto;
+  background: var(--bg-3); border: 1px solid var(--line); border-radius: 18px;
+  padding: clamp(22px, 3vw, 34px); box-shadow: 0 30px 80px rgba(16, 25, 31, .28);
+}
+.cookies-panel__caja h2 { font-size: clamp(21px, 2.4vw, 26px); margin-bottom: .4em; }
+.cookies-panel__caja > p { color: var(--ink-2); font-size: 15px; }
+.cookies-grupo { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; margin-top: 18px; }
+.cookies-grupo__cab { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 6px; }
+.cookies-grupo__cab b { font-family: var(--sans); font-size: 16px; }
+.cookies-grupo p { margin: 0; font-size: 14px; color: var(--ink-2); }
+.cookies-fijo { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.cookies-interruptor { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.cookies-interruptor input { position: absolute; opacity: 0; width: 0; height: 0; }
+.cookies-interruptor__pista {
+  width: 42px; height: 24px; border-radius: 999px; background: rgba(16, 25, 31, .18);
+  position: relative; transition: background .2s ease;
+}
+.cookies-interruptor__pista::after {
+  content: ''; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%;
+  background: #fff; box-shadow: 0 1px 3px rgba(16, 25, 31, .3); transition: transform .2s ease;
+}
+.cookies-interruptor input:checked + .cookies-interruptor__pista { background: var(--azul); }
+.cookies-interruptor input:checked + .cookies-interruptor__pista::after { transform: translateX(18px); }
+.cookies-interruptor input:focus-visible + .cookies-interruptor__pista { outline: 2px solid var(--azul); outline-offset: 3px; }
+.cookies-interruptor__txt { font-family: var(--mono); font-size: 12px; color: var(--ink-3); }
+.cookies-panel__acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+@media (max-width: 560px) {
+  .cookies__acciones, .cookies-panel__acciones { width: 100%; }
+  .cookies__btn { flex: 1 1 auto; }
+}
