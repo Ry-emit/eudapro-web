@@ -1401,10 +1401,14 @@ PAGINAS = [
      'Boletines RGPD y notas informativas en PDF, en abierto y sin registro.', recursos),
     ('contacto.html', 'Contacto — Eudapro',
      'Teléfono gratuito 900 929 806, correo info@eudapro.es y formulario de contacto con doble consentimiento diferenciado.', contacto),
-    ('aviso-legal.html', 'Aviso legal — Eudapro', 'Aviso legal del sitio web de EUDAPRO, S.L.', aviso_legal),
-    ('politica-de-privacidad.html', 'Política de privacidad — Eudapro', 'Política de privacidad de EUDAPRO, S.L.', privacidad),
-    ('politica-de-cookies.html', 'Política de cookies — Eudapro', 'Política de cookies de EUDAPRO, S.L.', cookies),
-    ('politica-redes-sociales.html', 'Política de redes sociales — Eudapro', 'Política de redes sociales de EUDAPRO, S.L.', redes),
+    ('aviso-legal.html', 'Aviso legal — Eudapro',
+     'Condiciones de uso del sitio web de EUDAPRO, S.L.: identificación de la empresa, medios de contacto, condiciones de acceso, propiedad intelectual y legislación aplicable.', aviso_legal),
+    ('politica-de-privacidad.html', 'Política de privacidad — Eudapro',
+     'Los tratamientos de datos personales de EUDAPRO, S.L.: clientes, potenciales clientes, proveedores, suscriptores a la newsletter y personal, con sus finalidades, plazos y derechos.', privacidad),
+    ('politica-de-cookies.html', 'Política de cookies — Eudapro',
+     'Qué cookies usa el sitio web de EUDAPRO, S.L., para qué sirven, cuánto duran y cómo aceptarlas, rechazarlas o configurarlas desde el navegador.', cookies),
+    ('politica-redes-sociales.html', 'Política de redes sociales — Eudapro',
+     'Qué datos trata EUDAPRO, S.L. en sus perfiles de redes sociales, qué actuaciones realiza, datos de menores, publicaciones de los usuarios y publicidad.', redes),
 ]
 
 if __name__ == '__main__':

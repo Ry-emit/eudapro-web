@@ -1377,10 +1377,14 @@ PAGINAS = [
      'GDPR bulletins and briefing notes in PDF, open and with no sign-up.', recursos),
     ('contact.html', 'Contact — Eudapro',
      'Freephone 900 929 806, e-mail info@eudapro.es and a contact form with separate consent options.', contacto),
-    ('legal-notice.html', 'Legal notice — Eudapro', 'Legal notice of the EUDAPRO, S.L. website.', aviso_legal),
-    ('privacy-policy.html', 'Privacy policy — Eudapro', 'Privacy policy of EUDAPRO, S.L.', privacidad),
-    ('cookies-policy.html', 'Cookies policy — Eudapro', 'Cookies policy of EUDAPRO, S.L.', cookies),
-    ('social-media-policy.html', 'Social media policy — Eudapro', 'Social media policy of EUDAPRO, S.L.', redes),
+    ('legal-notice.html', 'Legal notice — Eudapro',
+     'Terms of use of the EUDAPRO, S.L. website: company identification, contact details, conditions of access, intellectual property and applicable law.', aviso_legal),
+    ('privacy-policy.html', 'Privacy policy — Eudapro',
+     'The personal data processing carried out by EUDAPRO, S.L.: clients, potential clients, suppliers, newsletter subscribers and staff, with purposes, retention periods and rights.', privacidad),
+    ('cookies-policy.html', 'Cookies policy — Eudapro',
+     'Which cookies the EUDAPRO, S.L. website uses, what they are for and how to accept, reject or configure them from your browser.', cookies),
+    ('social-media-policy.html', 'Social media policy — Eudapro',
+     'What data EUDAPRO, S.L. processes on its social media profiles, what actions it takes, data of minors, user posts and advertising.', redes),
 ]
 
 if __name__ == '__main__':
