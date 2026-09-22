@@ -981,14 +981,14 @@ privacidad = legal('Legal', 'Política de privacidad',
                 <dt>Finalidad</dt><dd>Prestar los servicios solicitados y enviar comunicaciones promocionales.</dd>
                 <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Interés legítimo del Responsable.</dd>
                 <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria; Entidades financieras.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
                 <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
               <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
               <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión administrativa, contable y fiscal de los servicios solicitados, así como enviar comunicaciones promocionales sobre nuestros productos y servicios. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
@@ -1013,7 +1013,7 @@ privacidad = legal('Legal', 'Política de privacidad',
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
               <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
@@ -1036,14 +1036,14 @@ privacidad = legal('Legal', 'Política de privacidad',
                 <dt>Finalidad</dt><dd>Atender su solicitud y enviarle comunicaciones promocionales</dd>
                 <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Consentimiento del interesado.<br>Interés legítimo del Responsable.</dd>
                 <dt>Destinatarios</dt><dd>No se cederán datos a terceros, salvo obligación legal.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
                 <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
               <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
               <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de potenciales clientes que se han interesado sobre nuestros productos y/o servicios, así como otros contactos comerciales y realizar, en su caso, el envío de comunicaciones promocionales, inclusive por vía electrónica. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
@@ -1065,7 +1065,7 @@ privacidad = legal('Legal', 'Política de privacidad',
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
               <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
@@ -1082,14 +1082,14 @@ privacidad = legal('Legal', 'Política de privacidad',
                 <dt>Finalidad</dt><dd>Gestionar la prestación de los servicios contratados</dd>
                 <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Interés legítimo del Responsable.</dd>
                 <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria; Entidades financieras.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
                 <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
               <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
               <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión fiscal, contable y administrativa de proveedores así como los datos de contacto profesionales. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
@@ -1114,7 +1114,7 @@ privacidad = legal('Legal', 'Política de privacidad',
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
               <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
@@ -1137,14 +1137,14 @@ privacidad = legal('Legal', 'Política de privacidad',
                 <dt>Finalidad</dt><dd>Mandarle nuestra newsletter y otras comunicaciones promocionales de interés</dd>
                 <dt>Legitimación</dt><dd>Consentimiento del interesado.</dd>
                 <dt>Destinatarios</dt><dd>No se cederán datos a terceros, salvo obligación legal.</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
                 <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
               <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
               <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar el envío de nuestra newsletter y otras comunicaciones promocionales de interés para los suscriptores a la misma. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
@@ -1164,7 +1164,7 @@ privacidad = legal('Legal', 'Política de privacidad',
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
               <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
@@ -1186,14 +1186,14 @@ privacidad = legal('Legal', 'Política de privacidad',
                 <dt>Finalidad</dt><dd>Gestionar la relación laboral</dd>
                 <dt>Legitimación</dt><dd>Ejecución de un contrato o medidas precontractuales.<br>Cumplimiento de una obligación legal.</dd>
                 <dt>Destinatarios</dt><dd>Están previstas cesiones de datos a: Administración Tributaria, Seguridad Social y Mutua; Bancos y entidades financieras; Fundación estatal para la formación en el empleo (Fundae).</dd>
-                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
+                <dt>Derechos</dt><dd>Tiene derecho a acceder, rectificar y suprimir los datos, así como otros derechos, indicados en la información adicional, que puede ejercer dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</dd>
                 <dt>Procedencia</dt><dd>El propio interesado</dd>
               </dl>
               <h3>Información completa sobre Protección de Datos</h3>
               <h4>1. ¿Quién es el responsable del tratamiento de sus datos?</h4>
               <p>EUDAPRO, S.L.<br>B75390377<br>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª - 08241 - Manresa - BARCELONA<br>900929806<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>1.1 Datos de contacto del Delegado de Protección de Datos (DPD)</h4>
-              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a></p>
+              <p>JOSEP TREVIÑO<br>C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA<br><a href="mailto:info@eudapro.es">info@eudapro.es</a></p>
               <h4>2. ¿Con qué finalidad tratamos sus datos personales?</h4>
               <p>En EUDAPRO, S.L. tratamos la información que nos facilitan las personas interesadas con el fin de realizar la gestión de personal; formación; prevención de riesgos laborales y vigilancia de la salud; elaboración de nóminas, seguros sociales y cotizaciones; registro de jornada; accidentes laborales, en su caso. En el caso de que no facilite sus datos personales, no podremos cumplir con las finalidades descritas.</p>
               <p>No se van a tomar decisiones automatizadas en base a los datos proporcionados.</p>
@@ -1219,7 +1219,7 @@ privacidad = legal('Legal', 'Política de privacidad',
               <p>Las personas interesadas tienen derecho a acceder a sus datos personales, así como a solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando, entre otros motivos, los datos ya no sean necesarios para los fines que fueron recogidos. Igualmente tiene derecho a la portabilidad de sus datos.</p>
               <p>En determinadas circunstancias, los interesados podrán solicitar la limitación del tratamiento de sus datos, en cuyo caso únicamente los conservaremos para el ejercicio o la defensa de reclamaciones.</p>
               <p>En determinadas circunstancias y por motivos relacionados con su situación particular, los interesados podrán oponerse al tratamiento de sus datos. En este caso, EUDAPRO, S.L. dejará de tratar los datos, salvo por motivos legítimos imperiosos, o el ejercicio o la defensa de posibles reclamaciones.</p>
-              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:dpd@eudapro.es">dpd@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
+              <p>Podrá ejercitar materialmente sus derechos de la siguiente forma: dirigiéndose a <a href="mailto:info@eudapro.es">info@eudapro.es</a> o C/ IRLANDA, 7, LOCAL 1, BAJOS, 08030, BARCELONA.</p>
               <p>Cuando se realice el envío de comunicaciones comerciales utilizando como base jurídica el interés legítimo del responsable, el interesado podrá oponerse al tratamiento de sus datos con ese fin.</p>
               <p>Si ha otorgado su consentimiento para alguna finalidad concreta, tiene derecho a retirar el consentimiento otorgado en cualquier momento, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.</p>
               <p>En caso de que sienta vulnerados sus derechos en lo concerniente a la protección de sus datos personales, especialmente cuando no haya obtenido satisfacción en el ejercicio de sus derechos, puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos competente a través de su sitio web: <a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>.</p>
