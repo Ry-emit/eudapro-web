@@ -29,13 +29,17 @@
   --azul-3:    #005e87;   /* apoyo — hover sobre blanco: más oscuro, no más claro */
   --azul-titular: #5791de;
 
+  /* azul oscuro del logotipo: el que llevan los textos, para que se lean
+     también sobre la nube de partículas en pantallas pequeñas */
+  --azul-texto: #0a4a7d;
+
   /* nombres antiguos, mantenidos para no romper el resto de la hoja */
   --violet:    #007db3;
-  --violet-2:  #007db3;
-  --violet-3:  #005e87;
-  --amber:     #007db3;
-  --lima:      #007db3;
-  --verde:     #007db3;
+  --violet-2:  var(--azul-texto);
+  --violet-3:  #06355e;
+  --amber:     var(--azul-texto);
+  --lima:      var(--azul-texto);
+  --verde:     var(--azul-texto);
 
   --pearl:     #10191f;
   --line:      rgba(16, 25, 31, .13);

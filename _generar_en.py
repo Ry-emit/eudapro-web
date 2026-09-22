@@ -26,9 +26,7 @@ MARCA_PIE = '<img class="marca__logo marca__logo--completo" src="../assets/img/m
 
 SERVICIOS = [
     ('data-protection.html', 'Data protection', 'GDPR and LOPDGDD · DPO included'),
-    ('cybersecurity.html', 'Cybersecurity', 'NIS Directive and penalties'),
     ('video-surveillance.html', 'Video surveillance', 'Cameras compliant with the AEPD'),
-    ('money-laundering-prevention.html', 'Money laundering prevention', 'AML · Law 10/2010'),
 ]
 
 SUELTAS = [('member-associations.html', 'associations'), ('resources.html', 'resources'), ('about-us.html', 'about us')]
@@ -37,9 +35,7 @@ SUELTAS = [('member-associations.html', 'associations'), ('resources.html', 'res
 IDIOMAS = {
     'index.html': '../index.html',
     'data-protection.html': '../proteccion-de-datos.html',
-    'cybersecurity.html': '../ciberseguridad.html',
     'video-surveillance.html': '../videovigilancia.html',
-    'money-laundering-prevention.html': '../blanqueo-de-capitales.html',
     'member-associations.html': '../colectivos.html',
     'resources.html': '../recursos.html',
     'about-us.html': '../conocenos.html',
@@ -97,15 +93,13 @@ PIE = '''<footer class="pie">
         <a class="marca pie__marca" href="index.html" aria-label="Eudapro, home">
     %s
         </a>
-        <p class="pie__nota">Data protection consultancy for small and medium-sized companies, from Barcelona and Manresa.</p>
+        <p class="pie__nota">Data protection consultancy for small and medium-sized companies, across Spain.</p>
       </div>
       <div>
         <h4>Services</h4>
         <ul>
           <li><a href="data-protection.html">Data protection</a></li>
-          <li><a href="cybersecurity.html">Cybersecurity</a></li>
           <li><a href="video-surveillance.html">Video surveillance</a></li>
-          <li><a href="money-laundering-prevention.html">Money laundering prevention</a></li>
         </ul>
       </div>
       <div>
@@ -122,10 +116,7 @@ PIE = '''<footer class="pie">
         <address>
           <a href="tel:+34900929806">900 929 806</a><br>
           <a href="mailto:info@eudapro.es">info@eudapro.es</a><br><br>
-          Office<br>
-          C/ Irlanda, 7 — 08030 Barcelona<br><br>
-          Registered office<br>
-          Plaça Fius i Palà, 1 — 08241 Manresa
+          C/ Irlanda, 7 — 08030 Barcelona
         </address>
       </div>
     </div>
@@ -226,13 +217,6 @@ CTA_FINAL = '''  <section class="bloque">
 # Iconos decorativos de portada (los mismos que en la web en español)
 # --------------------------------------------------------------------------
 
-ICO_CIBER = '''<svg class="portada__icono" viewBox="0 0 120 140" fill="none" aria-hidden="true">
-          <circle cx="60" cy="70" r="46" stroke="#007db3" stroke-width="2" fill="rgba(0,125,179,.08)"/>
-          <circle cx="60" cy="70" r="30" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/>
-          <circle cx="60" cy="70" r="7" fill="#4498e7"/>
-          <path d="M60 24v-14M60 130v-14M14 70H0M120 70h-14M27 37 17 27M93 103l10 10M93 37l10-10M27 103 17 113" stroke="#007db3" stroke-width="2" stroke-linecap="round"/>
-        </svg>'''
-
 ICO_OJO = '''<svg class="portada__icono" viewBox="0 0 140 120" fill="none" aria-hidden="true">
           <path d="M6 60s26-38 64-38 64 38 64 38-26 38-64 38S6 60 6 60z" stroke="#007db3" stroke-width="2" fill="rgba(0,125,179,.08)"/>
           <circle cx="70" cy="60" r="22" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.5)" stroke-width="1.4"/>
@@ -264,114 +248,6 @@ ICO_DOC = '''<svg class="portada__icono" viewBox="0 0 110 130" fill="none" aria-
           <path d="M34 62h42M34 78h42M34 94h26" stroke="rgba(255,255,255,.55)" stroke-width="2.4" stroke-linecap="round"/>
           <circle cx="84" cy="98" r="9" fill="#4498e7"/>
         </svg>'''
-
-# --------------------------------------------------------------------------
-# CYBERSECURITY
-# --------------------------------------------------------------------------
-
-ciber = portada(
-    '<a href="index.html">Home</a> / Services / Cybersecurity',
-    'Service', 'Cybersecurity',
-    'Millions of sensitive records travel by e-mail every day or sit in databases hosted online. Cybersecurity is the set of systems, protocols and rules that keep that from ending badly and, since 2018, it is also a legal obligation with penalties behind it.',
-    ICO_CIBER) + '''
-  <section class="bloque">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">What it is</span>
-        <h2>A layer of security that works at four moments</h2>
-        <p>Cybersecurity means the systems, tools, protocols, measures and rules that protect servers and computer equipment.</p>
-      </div>
-      <div class="rejilla rejilla--4">
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">01</div><h3>Prevent</h3><p>Everything that keeps the attack from happening in the first place.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">02</div><h3>Neutralise</h3><p>Stopping an attack that is already under way.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">03</div><h3>Limit the damage</h3><p>If the attack succeeds: restoring systems and recovering the information.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">04</div><h3>Improve</h3><p>Reviewing the three above and leaving them better than they were.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="rejilla rejilla--2" style="gap:clamp(34px,5vw,80px); align-items:start">
-        <div data-aparece>
-          <span class="kicker">Goals</span>
-          <h2>Two dangers to avoid</h2>
-          <p>We are more connected every year and the risks have multiplied. The discipline works, above all, to prevent two things.</p>
-        </div>
-        <div data-aparece>
-          <ul class="lista">
-            <li><strong>Damage to your IT infrastructure</strong> and, with it, the loss of the services you provide to your customers: not being able to keep working.</li>
-            <li><strong>Data theft.</strong> Customer records, patents or the company's own information: profits, investments, expansion plans and other sensitive material.</li>
-          </ul>
-          <p class="mt-m">The work happens on two fronts: the national and international one, creating common standards and policies across the European Union, and the business one, adapting those standards to what each organisation actually needs.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque">
-    <div class="wrap wrap--slim">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Legislation</span>
-        <h2>Which rules apply to you</h2>
-        <p>Security in cyberspace is now on every government's agenda, and states cooperate to build a common framework of rights, obligations and penalties.</p>
-      </div>
-      <div class="acordeon" data-aparece>
-        <details open>
-          <summary>European legislation</summary>
-          <div class="acordeon__cuerpo">
-            <ul class="lista">
-              <li>The <em>Cybersecurity Strategy of the European Union: an Open, Safe and Secure Cyberspace</em>.</li>
-              <li>Directive 2016/1148, known as the <strong>NIS Directive</strong>, adopted by the Council of the European Union to guarantee a common level of security for network and information systems across the Union.</li>
-            </ul>
-          </div>
-        </details>
-        <details>
-          <summary>Spanish legislation</summary>
-          <div class="acordeon__cuerpo">
-            <ul class="lista">
-              <li><strong>Criminal Code.</strong> Defines computer crimes: intrusion, interception of data transmissions, computer fraud, sabotage, possession of software for criminal purposes and infringement of intellectual and industrial property.</li>
-              <li><strong>Royal Decree-Law 12/2018.</strong> Regulates the security of network and information systems for essential and digital services, and sets up a system for reporting incidents.</li>
-              <li><strong>Cybersecurity Law Code.</strong> Develops and applies Spain's national cybersecurity policy.</li>
-              <li><strong>LOPDGDD.</strong> Regulates the processing of personal data as a fundamental right, and the penalties for misusing it.</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker kicker--amber">Infringements and penalties</span>
-        <h2>What it costs not to take the measures</h2>
-        <p>Article 36 of Royal Decree-Law 12/2018 lists the infringements for failing to adopt the necessary protection measures.</p>
-      </div>
-      <div class="rejilla rejilla--3">
-        <div class="tarjeta tarjeta--destacada" data-aparece>
-          <div class="tarjeta__num">Very serious</div>
-          <h3>€500,001 – €1,000,000</h3>
-          <p>Failing to correct shortcomings already identified, failing to report incidents, or failing to act on future incidents in the provision of digital services, in Spain or in other Member States.</p>
-        </div>
-        <div class="tarjeta" data-aparece>
-          <div class="tarjeta__num">Serious</div>
-          <h3>€100,000 – €500,000</h3>
-          <p>Failing to adopt minimum measures after a third formal request within five years, failing to report incidents, showing no interest in resolving them, giving false or misleading information about the standards in place, and obstructing audits.</p>
-        </div>
-        <div class="tarjeta" data-aparece>
-          <div class="tarjeta__num">Minor</div>
-          <h3>Warning – €100,000</h3>
-          <p>Everything that does not fall into the categories above, plus preventing the CSIRT or the competent authority from gathering information.</p>
-        </div>
-      </div>
-      <div class="aviso mt-l" data-aparece>
-        <p>The amounts vary with the degree of fault or intent, the harm caused, whether the offence is repeated, the number of users affected and how involved the company was in the infringement.</p>
-      </div>
-    </div>
-  </section>
-''' + CTA_FINAL % ('Who answers if you are breached tomorrow?',
-                   'We review the measures you have in place, what the law requires for your activity and what has to be reported if something happens.')
 
 # --------------------------------------------------------------------------
 # VIDEO SURVEILLANCE
@@ -475,76 +351,6 @@ video = portada(
 '''
 
 # --------------------------------------------------------------------------
-# MONEY LAUNDERING PREVENTION
-# --------------------------------------------------------------------------
-
-blanqueo = portada(
-    '<a href="index.html">Home</a> / Services / Money laundering prevention',
-    'Service', 'Money laundering prevention',
-    'Adaptation to Law 10/2010 on the Prevention of Money Laundering and Terrorist Financing, in two versions depending on the size of the obliged entity.',
-    ICO_DOC) + '''
-  <section class="bloque">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Two options</span>
-        <h2>Depending on your headcount and turnover</h2>
-        <p>We have developed two levels of advice, so that what we do matches what each type of non-financial obliged entity has to comply with.</p>
-      </div>
-
-      <div class="rejilla rejilla--2">
-        <div class="tarjeta" data-aparece>
-          <div class="tarjeta__num">AML Diligence</div>
-          <h3>Fewer than 10 employees and less than €2M turnover</h3>
-          <ul class="lista mt-m">
-            <li>Initial analysis of the client's situation.</li>
-            <li>Appointment of the representative before SEPBLAC, the Spanish anti-money laundering authority.</li>
-            <li>Drafting of the internal money laundering prevention policy.</li>
-            <li>Annual audit.</li>
-            <li>Response to requests and inspections from SEPBLAC.</li>
-            <li>Ongoing advice on money laundering and terrorist financing prevention.</li>
-          </ul>
-        </div>
-
-        <div class="tarjeta tarjeta--destacada" data-aparece>
-          <div class="tarjeta__num">AML Integral</div>
-          <h3>More than 10 employees and more than €2M turnover</h3>
-          <ul class="lista mt-m">
-            <li>Everything included in the Diligence service.</li>
-            <li>Setting up the Internal Control Body (OCIC), where necessary.</li>
-            <li>Drafting of the Procedures Manual.</li>
-            <li>Preparation of the Annual Training Plan.</li>
-            <li>Annual review by an external expert.</li>
-            <li>Legal advice, legal defence and civil liability insurance.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="aviso mt-l" data-aparece>
-        <p><strong>A good reason to be properly advised.</strong> Failing to comply with the Law on the Prevention of Money Laundering and Terrorist Financing carries penalties that can range from €60,000 to €1,500,000, or higher amounts depending on the infringement.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="rejilla rejilla--2" style="gap:clamp(34px,5vw,70px); align-items:center">
-        <div data-aparece>
-          <span class="kicker">Obliged entities</span>
-          <h2>Does it apply to you?</h2>
-          <p>The law lists who is subject to these obligations. It also covers non-resident persons and entities that carry out the same kind of activity in Spain through branches, agents or services provided without a permanent establishment.</p>
-          <p>If you are not sure whether you are on the list, tell us and we will look into it: that is the first question to answer.</p>
-          <div class="paso__cta"><a class="btn btn--pri" href="contact.html">Ask about my case</a></div>
-        </div>
-        <div class="lamina" data-aparece>
-          <img src="../assets/img/contenido/sujetos-obligados.png" alt="List of obliged entities under Law 10/2010" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-''' + CTA_FINAL % ('Are you an obliged entity without a representative before SEPBLAC?',
-                   'We start with the initial analysis and tell you which of the two services applies to you.')
-
-# --------------------------------------------------------------------------
 # MEMBER ASSOCIATIONS
 # --------------------------------------------------------------------------
 
@@ -623,7 +429,7 @@ colectivos = portada(
 conocenos = portada(
     '<a href="index.html">Home</a> / About us',
     'Company', 'About us',
-    'We are a data protection consultancy based in Barcelona and Manresa. We work mainly with Catalan small and medium-sized companies: restaurants, hardware stores, clubs, schools, clinics and family businesses.',
+    'We are a data protection consultancy based in Barcelona. We work with small and medium-sized companies across Spain: restaurants, hardware stores, clubs, schools, clinics and family businesses.',
     ICO_LLAVE, acciones=False) + '''
   <section class="bloque">
     <div class="wrap wrap--slim">
@@ -632,7 +438,7 @@ conocenos = portada(
         <h2>Why we work the way we do</h2>
         <p>At Eudapro we do not believe in off-the-shelf products, just as there are no off-the-shelf people or companies. We only work on a personalised product, made to measure, so that we cover everything our clients need and grow alongside them, keeping up with every new business challenge that comes our way. Welcome: we are here to help you, and your trust is our greatest asset.</p>
         <p>We like working to our clients' measure. As well as providing our services, we do it in a way that makes it easy for you to adapt to the new regulation. That is why we give you every contract and clause personalised for your company: that way we can take care of all the <em>back office</em> this generates and you can keep growing in your sector without worrying about anything else.</p>
-        <p>We are also trained to act as your DPO (Data Protection Officer) at no extra cost, which keeps penalties away.</p>
+        <p>We are also trained to act as your DPO (Data Protection Officer) at no extra cost.</p>
         <p style="margin-top:2em"><strong>Isaac Higueras</strong><br><span style="font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ink-3)">DIRECTOR</span></p>
       </div>
     </div>
@@ -661,9 +467,7 @@ conocenos = portada(
           <dt>Registered name</dt><dd>EUDAPRO, S.L.</dd>
           <dt>Trading name</dt><dd>Eudapro</dd>
           <dt>VAT number</dt><dd>B75390377</dd>
-          <dt>Registered office</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
-          <dt>Office</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-          <dt>Commercial Registry</dt><dd>Barcelona, sheet 1, page B624236, entry 1</dd>
+          <dt>Address</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
           <dt>Phone</dt><dd><a href="tel:+34900929806">900 929 806</a> (freephone)</dd>
           <dt>E-mail</dt><dd><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
           <dt>Management</dt><dd>Isaac Higueras, director</dd>
@@ -847,8 +651,7 @@ contacto = portada(
           <div class="prosa mt-l">
             <h3>Where we are</h3>
             <dl>
-              <dt>Office</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-              <dt>Registered office</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
+              <dt>Address</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
               <dt>Registered name</dt><dd>EUDAPRO, S.L. — VAT no. B75390377</dd>
             </dl>
           </div>
@@ -1363,12 +1166,8 @@ redes = legal('Legal', 'Social media policy',
 # --------------------------------------------------------------------------
 
 PAGINAS = [
-    ('cybersecurity.html', 'Cybersecurity — Eudapro',
-     'What the cybersecurity rules require (NIS Directive, Royal Decree-Law 12/2018, Spanish Cybersecurity Law Code) and the penalties for failing to adopt the necessary measures.', ciber),
     ('video-surveillance.html', 'Video surveillance — Eudapro',
      'Security cameras compliant with the guidance of the Spanish Data Protection Agency: information sign, full privacy notice, 30-day retention limit and handling of the rights of the people filmed.', video),
-    ('money-laundering-prevention.html', 'Money laundering prevention — Eudapro',
-     'Adaptation to Law 10/2010 on the Prevention of Money Laundering: AML Diligence and AML Integral services, representative before SEPBLAC, internal policy and annual audit.', blanqueo),
     ('member-associations.html', 'Trade associations — Eudapro',
      'Agreements with guilds, federations and associations: Gremi de Restauració de Barcelona since 2016, Alt Penedès, FIHRT, Bages, Anoia and Ehlis / Cadena 88.', colectivos),
     ('about-us.html', 'About us — Eudapro',

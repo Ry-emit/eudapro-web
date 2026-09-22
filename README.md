@@ -33,12 +33,10 @@ con el nombre **eudapro**.
 ## Qué hay
 
 ```
-index.html                     portada, con la escena de partículas (6 tramos; el primero es la O del logotipo)
+index.html                     portada, con la escena de partículas (5 tramos; el primero es la O del logotipo)
 logo-3d.html                   prueba aparte de la figura 3D del logotipo (fuera del menú)
 proteccion-de-datos.html       el servicio principal — NO existía en la web vieja
-ciberseguridad.html            normativa NIS, RD-ley 12/2018 y sanciones
 videovigilancia.html           requisitos, cartel descargable y cláusula completa
-blanqueo-de-capitales.html     LPBC Diligence e Integral
 colectivos.html                los 6 convenios con gremios y asociaciones
 conocenos.html                 el texto de Isaac Higueras + datos de la empresa
 recursos.html                  boletines y notas en PDF (solo los que no llevan la marca antigua)
@@ -52,7 +50,6 @@ assets/js/hero.js              la escena de partículas
 assets/js/cyber-shapes.js      las 9 figuras 3D y el muestreo a puntos
 assets/js/three.module.js      Three.js 0.184 autoalojado
 assets/fonts/                  Chivo y JetBrains Mono en .woff2
-assets/img/clientes/mono/      los 25 logos convertidos a monocromo
 assets/doc/                    los PDF (notas, catálogos, guías, boletines)
 
 referencias/01-Tipografia/     TIPOGRAFIA.md + tipografia.html + las fuentes

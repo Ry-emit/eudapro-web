@@ -31,9 +31,7 @@ MARCA_PIE = '<img class="marca__logo marca__logo--completo" src="assets/img/marc
 
 SERVICIOS = [
     ('proteccion-de-datos.html', 'Protección de datos', 'RGPD y LOPDGDD · DPD incluido'),
-    ('ciberseguridad.html', 'Ciberseguridad', 'Normativa NIS y sanciones'),
     ('videovigilancia.html', 'Videovigilancia', 'Cámaras conformes a la AEPD'),
-    ('blanqueo-de-capitales.html', 'Prevención del blanqueo', 'LPBC · Ley 10/2010'),
 ]
 
 SUELTAS = [('colectivos.html', 'colectivos'), ('recursos.html', 'recursos'), ('conocenos.html', 'conócenos')]
@@ -42,9 +40,7 @@ SUELTAS = [('colectivos.html', 'colectivos'), ('recursos.html', 'recursos'), ('c
 IDIOMAS = {
     'index.html': 'en/index.html',
     'proteccion-de-datos.html': 'en/data-protection.html',
-    'ciberseguridad.html': 'en/cybersecurity.html',
     'videovigilancia.html': 'en/video-surveillance.html',
-    'blanqueo-de-capitales.html': 'en/money-laundering-prevention.html',
     'colectivos.html': 'en/member-associations.html',
     'recursos.html': 'en/resources.html',
     'conocenos.html': 'en/about-us.html',
@@ -103,15 +99,13 @@ PIE = '''<footer class="pie">
         <a class="marca pie__marca" href="index.html" aria-label="Eudapro, inicio">
     %s
         </a>
-        <p class="pie__nota">Consultoría de protección de datos para pymes desde Barcelona y Manresa.</p>
+        <p class="pie__nota">Consultoría de protección de datos para pymes de toda España.</p>
       </div>
       <div>
         <h4>Servicios</h4>
         <ul>
           <li><a href="proteccion-de-datos.html">Protección de datos</a></li>
-          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
           <li><a href="videovigilancia.html">Videovigilancia</a></li>
-          <li><a href="blanqueo-de-capitales.html">Prevención del blanqueo</a></li>
         </ul>
       </div>
       <div>
@@ -128,10 +122,7 @@ PIE = '''<footer class="pie">
         <address>
           <a href="tel:+34900929806">900 929 806</a><br>
           <a href="mailto:info@eudapro.es">info@eudapro.es</a><br><br>
-          Oficina de atención<br>
-          C/ Irlanda, 7 — 08030 Barcelona<br><br>
-          Domicilio social<br>
-          Plaça Fius i Palà, 1 — 08241 Manresa
+          C/ Irlanda, 7 — 08030 Barcelona
         </address>
       </div>
     </div>
@@ -231,13 +222,6 @@ CTA_FINAL = '''  <section class="bloque">
 # Iconos decorativos de portada
 # --------------------------------------------------------------------------
 
-ICO_CIBER = '''<svg class="portada__icono" viewBox="0 0 120 140" fill="none" aria-hidden="true">
-          <circle cx="60" cy="70" r="46" stroke="#007db3" stroke-width="2" fill="rgba(0,125,179,.08)"/>
-          <circle cx="60" cy="70" r="30" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/>
-          <circle cx="60" cy="70" r="7" fill="#4498e7"/>
-          <path d="M60 24v-14M60 130v-14M14 70H0M120 70h-14M27 37 17 27M93 103l10 10M93 37l10-10M27 103 17 113" stroke="#007db3" stroke-width="2" stroke-linecap="round"/>
-        </svg>'''
-
 ICO_OJO = '''<svg class="portada__icono" viewBox="0 0 140 120" fill="none" aria-hidden="true">
           <path d="M6 60s26-38 64-38 64 38 64 38-26 38-64 38S6 60 6 60z" stroke="#007db3" stroke-width="2" fill="rgba(0,125,179,.08)"/>
           <circle cx="70" cy="60" r="22" fill="rgba(255,255,255,.18)" stroke="rgba(255,255,255,.5)" stroke-width="1.4"/>
@@ -269,114 +253,6 @@ ICO_DOC = '''<svg class="portada__icono" viewBox="0 0 110 130" fill="none" aria-
           <path d="M34 62h42M34 78h42M34 94h26" stroke="rgba(255,255,255,.55)" stroke-width="2.4" stroke-linecap="round"/>
           <circle cx="84" cy="98" r="9" fill="#4498e7"/>
         </svg>'''
-
-# --------------------------------------------------------------------------
-# CIBERSEGURIDAD
-# --------------------------------------------------------------------------
-
-ciber = portada(
-    '<a href="index.html">Inicio</a> / Servicios / Ciberseguridad',
-    'Servicio', 'Ciberseguridad',
-    'Millones de datos sensibles viajan cada día por correo o se guardan en bases de datos alojadas en la red. La ciberseguridad es el conjunto de sistemas, protocolos y reglas que evitan que eso acabe mal, y desde 2018 también es una obligación con sanciones detrás.',
-    ICO_CIBER) + '''
-  <section class="bloque">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Qué es</span>
-        <h2>Una capa de seguridad que actúa en cuatro momentos</h2>
-        <p>El término ciberseguridad hace referencia a los sistemas, herramientas, protocolos, medidas y reglas relacionados con la protección de los servidores y los equipos informáticos.</p>
-      </div>
-      <div class="rejilla rejilla--4">
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">01</div><h3>Prevenir</h3><p>Acciones encaminadas a evitar que el ataque llegue a producirse.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">02</div><h3>Neutralizar</h3><p>Acciones para cortar un ataque una vez que ya está ocurriendo.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">03</div><h3>Reducir el daño</h3><p>Si el ataque tiene éxito: restablecer sistemas y recuperar la información.</p></div>
-        <div class="tarjeta" data-aparece><div class="tarjeta__num">04</div><h3>Mejorar</h3><p>Revisar las tres anteriores y dejarlas mejor de lo que estaban.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="rejilla rejilla--2" style="gap:clamp(34px,5vw,80px); align-items:start">
-        <div data-aparece>
-          <span class="kicker">Objetivos</span>
-          <h2>Dos peligros que hay que evitar</h2>
-          <p>Estamos cada vez más conectados y los riesgos se han multiplicado. La disciplina trabaja, sobre todo, para evitar dos cosas.</p>
-        </div>
-        <div data-aparece>
-          <ul class="lista">
-            <li><strong>Daños en las infraestructuras informáticas</strong> y, con ellos, la caída de los servicios que ofreces a tus clientes: que no puedas seguir trabajando.</li>
-            <li><strong>Robo de datos.</strong> De clientes, de patentes o información del propio negocio: beneficios, inversiones, planes de expansión y demás información sensible.</li>
-          </ul>
-          <p class="mt-m">Se trabaja en dos frentes: el nacional e internacional, creando estándares y políticas comunes en la Unión Europea, y el empresarial, adaptando esos estándares a las necesidades concretas de cada organización.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque">
-    <div class="wrap wrap--slim">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Normativa</span>
-        <h2>Qué normas te aplican</h2>
-        <p>La seguridad en el ciberespacio ya forma parte de las agendas de los estados, que cooperan para crear una base normativa de derechos, obligaciones y sanciones.</p>
-      </div>
-      <div class="acordeon" data-aparece>
-        <details open>
-          <summary>Normativa europea</summary>
-          <div class="acordeon__cuerpo">
-            <ul class="lista">
-              <li>Estrategia de Ciberseguridad de la Unión Europea (<em>Cybersecurity Strategy of the European Union: an Open, Safe and Secure Cyberspace</em>).</li>
-              <li>Directiva 2016/1148, conocida como <strong>Directiva NIS</strong>, aprobada por el Consejo de la Unión Europea para garantizar un nivel común de seguridad de las redes y los sistemas de información en la Unión.</li>
-            </ul>
-          </div>
-        </details>
-        <details>
-          <summary>Normativa nacional</summary>
-          <div class="acordeon__cuerpo">
-            <ul class="lista">
-              <li><strong>Código Penal.</strong> Tipifica los delitos informáticos: intrusión, interceptación de transmisiones de datos, fraudes informáticos, sabotajes, posesión de software para delinquir o vulneración de la propiedad intelectual e industrial.</li>
-              <li><strong>Real Decreto-ley 12/2018.</strong> Regula la seguridad de las redes y los sistemas de información para servicios esenciales y digitales, y establece un sistema de notificación de incidentes.</li>
-              <li><strong>Código de Derecho de la Ciberseguridad.</strong> Desarrolla y aplica la política nacional de ciberseguridad.</li>
-              <li><strong>LOPDGDD.</strong> Regula el tratamiento de datos personales como derecho fundamental y las sanciones por un uso incorrecto.</li>
-            </ul>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker kicker--amber">Infracciones y sanciones</span>
-        <h2>Lo que cuesta no adoptar las medidas</h2>
-        <p>El artículo 36 del Real Decreto-ley 12/2018 recoge las infracciones por no adoptar las medidas necesarias de protección.</p>
-      </div>
-      <div class="rejilla rejilla--3">
-        <div class="tarjeta tarjeta--destacada" data-aparece>
-          <div class="tarjeta__num">Muy graves</div>
-          <h3>500.001 € – 1.000.000 €</h3>
-          <p>No adoptar medidas para subsanar incumplimientos ya detectados, no notificar los incidentes o no tomar medidas para incidentes futuros en la prestación de servicios digitales, en España o en otros Estados miembros.</p>
-        </div>
-        <div class="tarjeta" data-aparece>
-          <div class="tarjeta__num">Graves</div>
-          <h3>100.000 € – 500.000 €</h3>
-          <p>No adoptar medidas mínimas tras el tercer requerimiento en cinco años, no notificar incidentes, desinterés en resolverlos, dar información falsa o engañosa sobre los estándares que se tienen y poner obstáculos a las auditorías.</p>
-        </div>
-        <div class="tarjeta" data-aparece>
-          <div class="tarjeta__num">Leves</div>
-          <h3>Amonestación – 100.000 €</h3>
-          <p>Las que no encajan en las anteriores, además de impedir la recogida de información por parte del CSIRT o de la autoridad competente.</p>
-        </div>
-      </div>
-      <div class="aviso mt-l" data-aparece>
-        <p>Las cuantías varían según el grado de culpabilidad o intencionalidad, el perjuicio causado, la reincidencia, el número de usuarios afectados y el grado de implicación en la infracción.</p>
-      </div>
-    </div>
-  </section>
-''' + CTA_FINAL % ('¿Quién responde si mañana te entran?',
-                   'Revisamos qué medidas tienes, qué te pide la norma según tu actividad y qué hay que notificar si pasa algo.')
 
 # --------------------------------------------------------------------------
 # VIDEOVIGILANCIA
@@ -480,76 +356,6 @@ video = portada(
 '''
 
 # --------------------------------------------------------------------------
-# BLANQUEO DE CAPITALES
-# --------------------------------------------------------------------------
-
-blanqueo = portada(
-    '<a href="index.html">Inicio</a> / Servicios / Prevención del blanqueo',
-    'Servicio', 'Prevención del blanqueo de capitales',
-    'Servicio de adaptación a la Ley 10/2010 de Prevención del Blanqueo de Capitales y de la Financiación del Terrorismo, en dos modalidades según el tamaño del sujeto obligado.',
-    ICO_DOC) + '''
-  <section class="bloque">
-    <div class="wrap">
-      <div class="encabezado" data-aparece>
-        <span class="kicker">Dos modalidades</span>
-        <h2>Según cuántos sois y cuánto facturáis</h2>
-        <p>Hemos desarrollado dos modalidades de asesoramiento para adecuar las actuaciones a lo que debe cumplir cada tipo de sujeto obligado no financiero.</p>
-      </div>
-
-      <div class="rejilla rejilla--2">
-        <div class="tarjeta" data-aparece>
-          <div class="tarjeta__num">LPBC Diligence</div>
-          <h3>Menos de 10 empleados y menos de 2 M€ de facturación</h3>
-          <ul class="lista mt-m">
-            <li>Análisis previo de la situación del cliente.</li>
-            <li>Nombramiento de la persona representante ante el SEPBLAC.</li>
-            <li>Confección de la política interna de prevención del blanqueo.</li>
-            <li>Auditoría anual.</li>
-            <li>Respuesta ante requerimientos e inspecciones del SEPBLAC.</li>
-            <li>Asesoramiento permanente en prevención del blanqueo y financiación del terrorismo.</li>
-          </ul>
-        </div>
-
-        <div class="tarjeta tarjeta--destacada" data-aparece>
-          <div class="tarjeta__num">LPBC Integral</div>
-          <h3>Más de 10 empleados y más de 2 M€ de facturación</h3>
-          <ul class="lista mt-m">
-            <li>Todo lo del servicio Diligence.</li>
-            <li>Creación del Órgano de Control Interno (OCIC), en caso necesario.</li>
-            <li>Confección del Manual de Procedimientos.</li>
-            <li>Elaboración del Plan Anual de Formación.</li>
-            <li>Examen anual por experto externo.</li>
-            <li>Asesoramiento jurídico, defensa jurídica y seguro de responsabilidad civil.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="aviso mt-l" data-aparece>
-        <p><strong>Un buen motivo para estar bien asesorado.</strong> El incumplimiento de la Ley de Prevención del Blanqueo de Capitales y de la Financiación del Terrorismo comporta sanciones que pueden oscilar entre los 60.000 € y los 1.500.000 €, o cuantías mayores en función de la infracción.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bloque bloque--alt">
-    <div class="wrap">
-      <div class="rejilla rejilla--2" style="gap:clamp(34px,5vw,70px); align-items:center">
-        <div data-aparece>
-          <span class="kicker">Sujetos obligados</span>
-          <h2>¿Te aplica a ti?</h2>
-          <p>La ley enumera quién está sujeto a estas obligaciones. También quedan sujetas las personas o entidades no residentes que, a través de sucursales, agentes o prestando servicios sin establecimiento permanente, desarrollen en España actividades de la misma naturaleza.</p>
-          <p>Si no tienes claro si entras en la lista, dínoslo y lo miramos: es la primera pregunta que hay que responder.</p>
-          <div class="paso__cta"><a class="btn btn--pri" href="contacto.html">Consultar mi caso</a></div>
-        </div>
-        <div class="lamina" data-aparece>
-          <img src="assets/img/contenido/sujetos-obligados.png" alt="Listado de sujetos obligados de la Ley 10/2010" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-''' + CTA_FINAL % ('¿Eres sujeto obligado y aún no tienes representante ante el SEPBLAC?',
-                   'Empezamos por el análisis previo y te decimos qué modalidad te corresponde.')
-
-# --------------------------------------------------------------------------
 # COLECTIVOS
 # --------------------------------------------------------------------------
 
@@ -628,7 +434,7 @@ colectivos = portada(
 conocenos = portada(
     '<a href="index.html">Inicio</a> / Conócenos',
     'Empresa', 'Conócenos',
-    'Somos una consultoría de protección de datos con base en Barcelona y en Manresa. Trabajamos sobre todo con pymes catalanas: restaurantes, ferreterías, clubes, colegios, clínicas y empresas familiares.',
+    'Somos una consultoría de protección de datos con base en Barcelona. Trabajamos con pymes de toda España: restaurantes, ferreterías, clubes, colegios, clínicas y empresas familiares.',
     ICO_LLAVE, acciones=False) + '''
   <section class="bloque">
     <div class="wrap wrap--slim">
@@ -637,7 +443,7 @@ conocenos = portada(
         <h2>Por qué trabajamos así</h2>
         <p>En Eudapro no creemos en los productos estándar, así como no hay personas estándar ni empresas que así lo sean. Nosotros solo trabajamos en un producto personalizado, a medida, para cubrir así todas las necesidades de nuestros clientes y crecer juntos, estando al día en todos los nuevos retos empresariales que se nos irán presentando. Bienvenidos: estamos aquí para ayudaros, vuestra confianza es nuestro mayor activo.</p>
         <p>Nos gusta trabajar a medida de nuestros clientes. Además de ofreceros nuestros servicios, lo haremos de modo que os resulte sencillo adaptaros a las novedades del nuevo reglamento. Por eso os daremos todos los contratos y cláusulas personalizados para vuestra empresa: de este modo podremos ocuparnos de todo el <em>back office</em> que esto genera y vosotros podréis seguir creciendo en vuestro sector sin preocuparos de nada más.</p>
-        <p>Además, estamos formados para ofreceros el servicio de DPD (Delegado en Protección de Datos) sin que esto genere ningún gasto extra, evitando así cualquier sanción.</p>
+        <p>Además, estamos formados para ofreceros el servicio de DPD (Delegado en Protección de Datos) sin que esto genere ningún gasto extra.</p>
         <p style="margin-top:2em"><strong>Isaac Higueras</strong><br><span style="font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ink-3)">DIRECTOR</span></p>
       </div>
     </div>
@@ -666,12 +472,10 @@ conocenos = portada(
           <dt>Razón social</dt><dd>EUDAPRO, S.L.</dd>
           <dt>Nombre comercial</dt><dd>Eudapro</dd>
           <dt>CIF</dt><dd>B75390377</dd>
-          <dt>Domicilio social</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
-          <dt>Oficina de atención</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-          <dt>Registro Mercantil</dt><dd>Barcelona, folio 1, hoja B624236, inscripción 1</dd>
+          <dt>Dirección</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
           <dt>Teléfono</dt><dd><a href="tel:+34900929806">900 929 806</a> (gratuito)</dd>
           <dt>Correo</dt><dd><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
-          <dt>Dirección</dt><dd>Isaac Higueras, director</dd>
+          <dt>Director</dt><dd>Isaac Higueras</dd>
         </dl>
       </div>
     </div>
@@ -868,8 +672,7 @@ contacto = portada(
           <div class="prosa mt-l">
             <h3>Dónde estamos</h3>
             <dl>
-              <dt>Oficina de atención</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
-              <dt>Domicilio social</dt><dd>Plaça Fius i Palà, n.º 1, Esc. Izq, 3º 2ª — 08241 Manresa (Barcelona)</dd>
+              <dt>Dirección</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
               <dt>Razón social</dt><dd>EUDAPRO, S.L. — CIF B75390377</dd>
             </dl>
           </div>
@@ -1387,12 +1190,8 @@ redes = legal('Legal', 'Política de redes sociales',
 # --------------------------------------------------------------------------
 
 PAGINAS = [
-    ('ciberseguridad.html', 'Ciberseguridad — Eudapro',
-     'Qué exige la normativa de ciberseguridad (Directiva NIS, Real Decreto-ley 12/2018, Código de Derecho de la Ciberseguridad) y qué sanciones acarrea no adoptar las medidas necesarias.', ciber),
     ('videovigilancia.html', 'Videovigilancia — Eudapro',
      'Cámaras de seguridad conformes a la guía de la AEPD: cartel informativo, cláusula completa, conservación máxima de 30 días y atención de los derechos de las personas grabadas.', video),
-    ('blanqueo-de-capitales.html', 'Prevención del blanqueo de capitales — Eudapro',
-     'Adaptación a la Ley 10/2010 de Prevención del Blanqueo de Capitales: servicios LPBC Diligence y LPBC Integral, representante ante el SEPBLAC, política interna y auditoría anual.', blanqueo),
     ('colectivos.html', 'Colectivos con convenio — Eudapro',
      'Convenios con gremios, federaciones y asociaciones: Gremi de Restauració de Barcelona desde 2016, Alt Penedès, FIHRT, Bages, Anoia y Ehlis / Cadena 88.', colectivos),
     ('conocenos.html', 'Conócenos — Eudapro',
