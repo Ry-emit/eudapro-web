@@ -102,14 +102,14 @@ PIE = '''<footer class="pie">
         <p class="pie__nota">Consultoría de protección de datos para pymes de toda España.</p>
       </div>
       <div>
-        <h4>Servicios</h4>
+        <h3>Servicios</h3>
         <ul>
           <li><a href="proteccion-de-datos.html">Protección de datos</a></li>
           <li><a href="videovigilancia.html">Videovigilancia</a></li>
         </ul>
       </div>
       <div>
-        <h4>Empresa</h4>
+        <h3>Empresa</h3>
         <ul>
           <li><a href="conocenos.html">Conócenos</a></li>
           <li><a href="colectivos.html">Colectivos con convenio</a></li>
@@ -118,7 +118,7 @@ PIE = '''<footer class="pie">
         </ul>
       </div>
       <div>
-        <h4>Contacto</h4>
+        <h3>Contacto</h3>
         <address>
           <a href="tel:+34900929806">900 929 806</a><br>
           <a href="mailto:info@eudapro.es">info@eudapro.es</a><br><br>
@@ -1191,7 +1191,7 @@ redes = legal('Legal', 'Política de redes sociales',
 
 PAGINAS = [
     ('videovigilancia.html', 'Videovigilancia — Eudapro',
-     'Cámaras de seguridad conformes a la guía de la AEPD: cartel informativo, cláusula completa, conservación máxima de 30 días y atención de los derechos de las personas grabadas.', video),
+     'Cámaras conformes a la guía de la AEPD: cartel informativo, cláusula completa, conservación máxima de 30 días y derechos de las personas grabadas.', video),
     ('colectivos.html', 'Colectivos con convenio — Eudapro',
      'Convenios con gremios, federaciones y asociaciones: Gremi de Restauració de Barcelona desde 2016, Alt Penedès, FIHRT, Bages, Anoia y Ehlis / Cadena 88.', colectivos),
     ('conocenos.html', 'Conócenos — Eudapro',
@@ -1201,9 +1201,9 @@ PAGINAS = [
     ('contacto.html', 'Contacto — Eudapro',
      'Teléfono gratuito 900 929 806, correo info@eudapro.es y formulario de contacto con doble consentimiento diferenciado.', contacto),
     ('aviso-legal.html', 'Aviso legal — Eudapro',
-     'Condiciones de uso del sitio web de EUDAPRO, S.L.: identificación de la empresa, medios de contacto, condiciones de acceso, propiedad intelectual y legislación aplicable.', aviso_legal),
+     'Condiciones de uso del sitio web de EUDAPRO, S.L.: identificación de la empresa, contacto, condiciones de acceso y propiedad intelectual.', aviso_legal),
     ('politica-de-privacidad.html', 'Política de privacidad — Eudapro',
-     'Los tratamientos de datos personales de EUDAPRO, S.L.: clientes, potenciales clientes, proveedores, suscriptores a la newsletter y personal, con sus finalidades, plazos y derechos.', privacidad),
+     'Los tratamientos de datos personales de EUDAPRO, S.L.: clientes, proveedores, suscriptores y personal, con sus finalidades, plazos y derechos.', privacidad),
     ('politica-de-cookies.html', 'Política de cookies — Eudapro',
      'Qué cookies usa el sitio web de EUDAPRO, S.L., para qué sirven, cuánto duran y cómo aceptarlas, rechazarlas o configurarlas desde el navegador.', cookies),
     ('politica-redes-sociales.html', 'Política de redes sociales — Eudapro',

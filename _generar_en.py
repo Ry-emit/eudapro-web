@@ -96,14 +96,14 @@ PIE = '''<footer class="pie">
         <p class="pie__nota">Data protection consultancy for small and medium-sized companies, across Spain.</p>
       </div>
       <div>
-        <h4>Services</h4>
+        <h3>Services</h3>
         <ul>
           <li><a href="data-protection.html">Data protection</a></li>
           <li><a href="video-surveillance.html">Video surveillance</a></li>
         </ul>
       </div>
       <div>
-        <h4>Company</h4>
+        <h3>Company</h3>
         <ul>
           <li><a href="about-us.html">About us</a></li>
           <li><a href="member-associations.html">Trade associations</a></li>
@@ -112,7 +112,7 @@ PIE = '''<footer class="pie">
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <address>
           <a href="tel:+34900929806">900 929 806</a><br>
           <a href="mailto:info@eudapro.es">info@eudapro.es</a><br><br>
@@ -1167,19 +1167,19 @@ redes = legal('Legal', 'Social media policy',
 
 PAGINAS = [
     ('video-surveillance.html', 'Video surveillance — Eudapro',
-     'Security cameras compliant with the guidance of the Spanish Data Protection Agency: information sign, full privacy notice, 30-day retention limit and handling of the rights of the people filmed.', video),
+     'Cameras compliant with the Spanish Data Protection Agency guidance: information sign, full privacy notice, 30-day retention and data subject rights.', video),
     ('member-associations.html', 'Trade associations — Eudapro',
      'Agreements with guilds, federations and associations: Gremi de Restauració de Barcelona since 2016, Alt Penedès, FIHRT, Bages, Anoia and Ehlis / Cadena 88.', colectivos),
     ('about-us.html', 'About us — Eudapro',
      'Who we are and why we work to measure, in person and with no maintenance fee. Company details of EUDAPRO, S.L.', conocenos),
     ('resources.html', 'Resources and downloads — Eudapro',
-     'GDPR bulletins and briefing notes in PDF, open and with no sign-up.', recursos),
+     'GDPR bulletins and AEPD briefing notes in PDF, free to download, with no sign-up and no forms. The documents themselves are in Spanish.', recursos),
     ('contact.html', 'Contact — Eudapro',
      'Freephone 900 929 806, e-mail info@eudapro.es and a contact form with separate consent options.', contacto),
     ('legal-notice.html', 'Legal notice — Eudapro',
      'Terms of use of the EUDAPRO, S.L. website: company identification, contact details, conditions of access, intellectual property and applicable law.', aviso_legal),
     ('privacy-policy.html', 'Privacy policy — Eudapro',
-     'The personal data processing carried out by EUDAPRO, S.L.: clients, potential clients, suppliers, newsletter subscribers and staff, with purposes, retention periods and rights.', privacidad),
+     'The personal data processing carried out by EUDAPRO, S.L.: clients, suppliers, subscribers and staff, with purposes, retention periods and rights.', privacidad),
     ('cookies-policy.html', 'Cookies policy — Eudapro',
      'Which cookies the EUDAPRO, S.L. website uses, what they are for and how to accept, reject or configure them from your browser.', cookies),
     ('social-media-policy.html', 'Social media policy — Eudapro',
