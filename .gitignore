@@ -17,3 +17,6 @@ assets/fonts/gf.css
 assets/fonts/fuentes.css
 assets/fonts/tDbv2o-*
 assets/fonts/va9I4k*
+
+# la carpeta que genera _exportar.py: se rehace cuando haga falta
+_entrega/

@@ -72,6 +72,8 @@
           <span class="kicker">Formulario</span>
           <h2>Escríbenos</h2>
           <form class="form mt-m" data-contacto novalidate>
+            <!-- trampa para robots: una persona nunca la rellena, y si llega con texto el envío se descarta -->
+            <div class="trampa" aria-hidden="true"><label>No rellenar<input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
             <div class="form__fila">
               <label class="campo"><span>Tu nombre <em>*</em></span>
                 <input type="text" name="nombre" maxlength="400" required autocomplete="name"></label>

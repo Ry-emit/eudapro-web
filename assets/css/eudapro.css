@@ -589,6 +589,9 @@ input::placeholder, textarea::placeholder { color: #574f74; }
 .check { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; font-size: 14px; color: var(--ink-2); cursor: pointer; }
 .check input { width: 19px; height: 19px; margin: 2px 0 0; accent-color: var(--violet); cursor: pointer; }
 .form__aviso { font-family: var(--mono); font-size: 11px; color: var(--ink-3); line-height: 1.7; }
+/* campo trampa del formulario: fuera de la vista y del tabulador */
+.trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 .form__estado { font-family: var(--mono); font-size: 12px; color: var(--amber); min-height: 1.2em; }
 
 /* ---------- prosa legal ---------- */

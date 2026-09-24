@@ -596,6 +596,8 @@ contacto = portada(
           <span class="kicker">Form</span>
           <h2>Write to us</h2>
           <form class="form mt-m" data-contacto novalidate>
+            <!-- trampa para robots: una persona nunca la rellena, y si llega con texto el envío se descarta -->
+            <div class="trampa" aria-hidden="true"><label>Do not fill in<input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
             <div class="form__fila">
               <label class="campo"><span>Your name <em>*</em></span>
                 <input type="text" name="nombre" maxlength="400" required autocomplete="name"></label>

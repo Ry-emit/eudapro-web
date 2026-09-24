@@ -200,6 +200,28 @@
         tratamiento.focus();
         return;
       }
+      /* Sin servidor que reciba el formulario, o si ese envío falla, se
+         prepara el correo con los datos ya escritos: así la consulta no se
+         pierde nunca. */
+      function porCorreo() {
+        var cuerpo = [
+          T.nombre + (d.get('nombre') || ''),
+          T.correo + (d.get('correo') || ''),
+          T.telefono + (d.get('telefono') || ''),
+          T.empresa + (d.get('empresa') || ''),
+          '',
+          (d.get('mensaje') || ''),
+          '',
+          T.consentimiento,
+          T.comerciales + (d.get('consent-comercial') ? T.si : T.no)
+        ].join('\n');
+        var asunto = d.get('asunto') || T.asunto;
+        window.location.href = 'mailto:' + DESTINO +
+          '?subject=' + encodeURIComponent(asunto) +
+          '&body=' + encodeURIComponent(cuerpo);
+        if (estado) estado.textContent = T.mailto + DESTINO + '.';
+      }
+
       if (ENVIO) {
         if (estado) estado.textContent = T.enviando;
         fetch(ENVIO, { method: 'POST', body: d })
@@ -208,27 +230,10 @@
             form.reset();
             if (estado) estado.textContent = T.enviado;
           })
-          .catch(function () {
-            if (estado) estado.textContent = T.error + DESTINO + '.';
-          });
+          .catch(porCorreo);
         return;
       }
-      var cuerpo = [
-        T.nombre + (d.get('nombre') || ''),
-        T.correo + (d.get('correo') || ''),
-        T.telefono + (d.get('telefono') || ''),
-        T.empresa + (d.get('empresa') || ''),
-        '',
-        (d.get('mensaje') || ''),
-        '',
-        T.consentimiento,
-        T.comerciales + (d.get('consent-comercial') ? T.si : T.no)
-      ].join('\n');
-      var asunto = d.get('asunto') || T.asunto;
-      window.location.href = 'mailto:' + DESTINO +
-        '?subject=' + encodeURIComponent(asunto) +
-        '&body=' + encodeURIComponent(cuerpo);
-      if (estado) estado.textContent = T.mailto + DESTINO + '.';
+      porCorreo();
     });
   });
 })();
