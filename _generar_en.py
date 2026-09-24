@@ -439,7 +439,7 @@ conocenos = portada(
         <p>At Eudapro we do not believe in off-the-shelf products, just as there are no off-the-shelf people or companies. We only work on a personalised product, made to measure, so that we cover everything our clients need and grow alongside them, keeping up with every new business challenge that comes our way. Welcome: we are here to help you, and your trust is our greatest asset.</p>
         <p>We like working to our clients' measure. As well as providing our services, we do it in a way that makes it easy for you to adapt to the new regulation. That is why we give you every contract and clause personalised for your company: that way we can take care of all the <em>back office</em> this generates and you can keep growing in your sector without worrying about anything else.</p>
         <p>We are also trained to act as your DPO (Data Protection Officer) at no extra cost.</p>
-        <p style="margin-top:2em"><strong>Isaac Higueras</strong><br><span style="font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ink-3)">DIRECTOR</span></p>
+        <p style="margin-top:2em"><strong>Isaac Higueras</strong><br><span style="font-family:var(--mono); font-size:12px; letter-spacing:.1em; color:var(--ink-3)">CEO</span></p>
       </div>
     </div>
   </section>
@@ -470,7 +470,7 @@ conocenos = portada(
           <dt>Address</dt><dd>C/ Irlanda, 7 — 08030 Barcelona</dd>
           <dt>Phone</dt><dd><a href="tel:+34900929806">900 929 806</a> (freephone)</dd>
           <dt>E-mail</dt><dd><a href="mailto:info@eudapro.es">info@eudapro.es</a></dd>
-          <dt>Management</dt><dd>Isaac Higueras, director</dd>
+          <dt>CEO</dt><dd>Isaac Higueras</dd>
         </dl>
       </div>
     </div>

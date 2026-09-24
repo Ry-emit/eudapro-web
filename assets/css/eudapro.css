@@ -514,9 +514,11 @@ a.tarjeta:hover { border-color: var(--line-2); transform: translateY(-3px); back
    (assets/img/clientes/mono/), generados desde los originales. */
 /* Muro de clientes. Sobre blanco van los logotipos originales, a todo color y
    sin recortes: son marcas de terceros y deben verse tal como son. */
-.logos { display: flex; flex-wrap: wrap; gap: 12px; }
+/* La fila se centra y las tarjetas tienen un ancho máximo: así la última
+   fila, si queda incompleta, no estira dos logotipos de lado a lado. */
+.logos { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .logos a, .logos span {
-  flex: 1 1 168px; display: flex; align-items: center; justify-content: center;
+  flex: 1 1 168px; max-width: 300px; display: flex; align-items: center; justify-content: center;
   padding: 26px 22px; min-height: 116px;
   background: #fff; border: 1px solid var(--line); border-radius: 12px;
   transition: border-color .25s ease, box-shadow .25s ease, transform .25s var(--ease);
@@ -525,6 +527,9 @@ a.tarjeta:hover { border-color: var(--line-2); transform: translateY(-3px); back
 /* medida explícita: sin ella el contenedor las encoge a 0x0 y, con
    loading="lazy", el navegador nunca llega a descargarlas */
 .logos img { width: 100%; height: 52px; object-fit: contain; }
+/* un logotipo cuadrado a la misma altura se ve más pequeño que uno
+   apaisado: se le da un poco más para que pesen igual */
+.logos img.cuadrado { height: 74px; }
 
 /* ---------- lámina: passepartout para documentos en papel ---------- */
 .lamina { padding: 20px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
