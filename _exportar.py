@@ -38,15 +38,8 @@ FUERA_RAIZ = {'_generar.py', '_generar_en.py', '_serve_nocache.py', '_exportar.p
               'README.md', 'COMPARTIR.md', '_config.yml', '.gitignore', '.DS_Store',
               'logo-3d.html', 'robots.txt'}
 FUERA_CARPETAS = {'_retirados', '_entrega', 'referencias', '.git', 'css', 'js'}
-# Imágenes que ya no usa ninguna página (comprobado con una búsqueda en todo el sitio)
-FUERA_ASSETS = {
-    'assets/img/marca/LOGO-Eudapro.jpg',
-    'assets/img/marca/cropped-LOGO-Eudapro.jpg',
-    'assets/img/marca/logocolor-png-h.png',
-    'assets/img/marca/eudapro-marca.png',
-    'assets/img/marca/eudapro-logo.png',
-    'assets/img/contenido/sujetos-obligados.png',
-}
+# Archivos de assets que se incluyen aunque nadie los enlace
+SIEMPRE = {'assets/img/favicon.png', 'assets/img/apple-touch-icon.png'}
 
 
 def url_de(rel):
@@ -64,6 +57,44 @@ def paginas():
     return hay
 
 
+def assets_usados():
+    """Sigue las referencias desde las páginas: HTML → CSS/JS/imágenes/PDF,
+    CSS → tipografías, JS → los módulos que importa. Lo que no aparece, no se
+    sube: así no viajan al hosting las tipografías y los logotipos antiguos."""
+    pendientes = [(rel, os.path.dirname(rel)) for rel in paginas()]
+    vistos, usados = set(), set(SIEMPRE)
+
+    while pendientes:
+        rel, base = pendientes.pop()
+        if rel in vistos:
+            continue
+        vistos.add(rel)
+        ruta = os.path.join(RAIZ, rel)
+        if not os.path.isfile(ruta):
+            continue
+        try:
+            with open(ruta, encoding='utf-8') as f:
+                texto = f.read()
+        except (UnicodeDecodeError, OSError):
+            continue
+
+        refs = re.findall(r'(?:href|src)="([^"]+)"', texto)
+        refs += re.findall(r'url\(\s*[\'"]?([^)\'"]+)', texto)
+        refs += re.findall(r'from\s+[\'"]([^\'"]+)[\'"]', texto)
+        refs += re.findall(r'[\'"]((?:\.\./)*assets/[^\'"]+)[\'"]', texto)
+
+        for r in refs:
+            if r.startswith(('http', 'mailto:', 'tel:', 'data:', '#')):
+                continue
+            destino = os.path.normpath(os.path.join(base, r.split('#')[0].split('?')[0]))
+            destino = destino.replace(os.sep, '/')
+            if not destino.startswith('assets/'):
+                continue
+            usados.add(destino)
+            pendientes.append((destino, os.path.dirname(destino)))
+    return usados
+
+
 def copiar():
     if os.path.exists(SALIDA):
         shutil.rmtree(SALIDA)
@@ -72,15 +103,24 @@ def copiar():
         destino = os.path.join(WEB, rel)
         os.makedirs(os.path.dirname(destino), exist_ok=True)
         shutil.copy2(os.path.join(RAIZ, rel), destino)
+    usados = assets_usados()
+    sobran = []
     for carpeta, _, archivos in os.walk(os.path.join(RAIZ, 'assets')):
         for a in archivos:
             origen = os.path.join(carpeta, a)
-            rel = os.path.relpath(origen, RAIZ)
-            if rel in FUERA_ASSETS or a == '.DS_Store':
+            rel = os.path.relpath(origen, RAIZ).replace(os.sep, '/')
+            if a == '.DS_Store':
+                continue
+            if rel not in usados:
+                sobran.append(rel)
                 continue
             destino = os.path.join(WEB, rel)
             os.makedirs(os.path.dirname(destino), exist_ok=True)
             shutil.copy2(origen, destino)
+    if sobran:
+        print('Fuera del paquete, porque no los enlaza ninguna página (%d):' % len(sobran))
+        for rel in sorted(sobran):
+            print('  ·', rel)
 
 
 def arreglar_paginas():
